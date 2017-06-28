@@ -28,7 +28,7 @@
 
 	svg {
 		height: 1em;
-		vertical-align: text-top;
+		vertical-align: baseline;
 	}
 
 	header {
@@ -48,7 +48,6 @@
 		display: inline-block;
 
 		position: relative;
-		top: .1em;
 		width: .075em;
 		height: 1.1em;
 
@@ -58,6 +57,9 @@
 	}
 
 	#tagline {
+		display: inline-block;
+		max-width: 360px;
+
 		margin-bottom: .75em;
 	}
 
@@ -129,7 +131,7 @@
 			</svg>
 		</h1>
 		
-		<p id="tagline">A cross-platform build system for creating iOS,<br>macOS, Linux, and Windows programs.</p>
+		<p id="tagline">A cross-platform build system for creating iOS, macOS, Linux, and Windows programs.</p>
 	</header>
 
 	<article role="navigation">
