@@ -1,0 +1,105 @@
+a {
+	color: #3b94d9;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #6db0e3;
+}
+
+body {
+	margin: 0;
+
+	font: 400 16px/1 system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+	text-align: center;
+
+	background: #44275c;
+	color: #fff;
+}
+
+svg {
+	height: 1em;
+	vertical-align: baseline;
+}
+
+header {
+	background: #2a1f33;
+	padding: 1em .5em;
+}
+
+#prompt {
+	margin: 0;
+
+	font-size: 2em;
+	font-weight: 200;
+}
+
+#prompt:after {
+	content: "";
+	display: inline-block;
+
+	position: relative;
+	width: .075em;
+	height: 1.1em;
+
+	background: #2dbc63;
+
+	animation: cursor 1s linear infinite;
+}
+
+#tagline {
+	display: inline-block;
+	max-width: 360px;
+
+	margin-bottom: .75em;
+}
+
+@keyframes cursor {
+	0%, 49%, 100% {
+		background: #2dbc63;
+	}
+
+	50%, 99% {
+		background: transparent;
+	}
+}
+
+h1 {
+	font-size: 3.5em;
+	margin: 1em 0 0 0;
+}
+
+p {
+	line-height: 1.4em;
+}
+
+ul {
+	margin: 1.5em .5em;
+	padding: 0;
+
+	list-style: none;
+}
+
+li, li a {
+	display: inline-block;
+}
+
+#main-links a {
+	margin: .3em 0;
+	padding: .5em .65em;
+	border-radius: 4px;
+
+	font-size: 1.2em;
+	text-decoration: none;
+
+	background: #0d47a1;
+	color: #fff;
+}
+
+#main-links a:hover, #main-links a:focus {
+	background: #1952a8;
+}
+
+#sub-links a {
+	margin: 0 .25em;
+}
