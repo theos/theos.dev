@@ -103,3 +103,7 @@ li, li a {
 #sub-links a {
 	margin: 0 .25em;
 }
+
+#footer {
+	font-size: 0.9em;
+}
