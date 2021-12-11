@@ -10,7 +10,15 @@
       <ul>
         {% for subitem in item.list %}
           <li>
-            <a href="{{ subitem.link }}">{{ subitem.title }}</a>
+            <a href="{{ subitem.link }}"{% if subitem.link contains "https://" %} target="_blank" rel="noopener"{% endif %}>
+              {{ subitem.title }}
+              {% if subitem.link contains "https://" %}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 11L11 1"/>
+                  <path d="M2.5 1H11V9.5"/>
+                </svg>
+              {% endif %}
+            </a>
           </li>
         {% endfor %}
       </ul>
