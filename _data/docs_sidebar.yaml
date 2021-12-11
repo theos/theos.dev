@@ -23,6 +23,19 @@
     - title: Swift
       link: /docs/Swift.html
 
+- title: Tweak Development
+  list:
+    - title: Logos
+      link: /docs/Logos.html
+    - title: Logos Syntax
+      link: /docs/Logos-Syntax.html
+    - title: Logify
+      link: /docs/logify.pl.html
+    - title: File Extensions
+      link: /docs/Logos-File-Extensions.html
+    - title: Orion
+      link: https://orion.theos.dev/
+
 - title: Technical
   list:
     - title: Structure
