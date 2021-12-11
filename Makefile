@@ -3,7 +3,7 @@ JEKYLL = bundler exec jekyll
 all:
 	bundler install
 	npm install
-	npm install --prefix netlify/functions
+	cd netlify/functions && npm install
 	$(JEKYLL) build
 
 serve:
