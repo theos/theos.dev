@@ -1,0 +1,51 @@
+- title: Home
+  link: /docs/
+
+- title: Installation
+  link: /docs/Installation.html
+  list:
+    - title: iOS
+      link: /docs/Installation-iOS.html
+    - title: macOS
+      link: /docs/Installation-macOS.html
+    - title: Linux
+      link: /docs/Installation-Linux.html
+    - title: Cygwin
+      link: /docs/Installation-Cygwin.html
+    - title: Upgrading from legacy Theos
+      link: /docs/Upgrading-from-legacy-Theos.html
+
+- title: Features
+  link: /docs/Features.html
+  list:
+    - title: NIC
+      link: /docs/NIC.html
+    - title: Swift
+      link: /docs/Swift.html
+
+- title: Technical
+  list:
+    - title: Structure
+      link: /docs/Structure.html
+
+- title: Help
+  link: /docs/Help.html
+  list:
+    - title: FAQ
+      link: /docs/FAQ.html
+    - title: Parallel Building
+      link: /docs/Parallel-Building.html
+    - title: arm64e Deployment
+      link: /docs/arm64e-Deployment.html
+    - title: License
+      link: /docs/License.html
+
+- title: See also
+  list:
+    - title: iPhone Dev Wiki
+      link: http://iphonedevwiki.net/
+    - title: /r/jailbreakdevelopers
+      link: https://www.reddit.com/r/jailbreakdevelopers
+    - title: theos-ref
+      link: https://github.com/theiostream/theos-ref
+

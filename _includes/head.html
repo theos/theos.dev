@@ -1,0 +1,10 @@
+<head>
+	<meta charset="utf-8">
+	<title>{{ page.title }} &middot; {{ site.title }}</title>
+	<meta name="viewport" content="initial-scale=1">
+	<meta name="theme-color" content="#2a1f33">
+	{% asset style.css %}
+	<link rel="icon" href="{% asset favicon.svg @path %}" sizes="any" type="image/svg+xml">
+	{% seo title=false %}
+	{% feed_meta %}
+</head>

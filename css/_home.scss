@@ -1,0 +1,55 @@
+.home {
+	header {
+		background-color: $purple;
+
+		h1 {
+			font-size: 3.5rem;
+		}
+
+		.header-prompt {
+			margin: 0 0 1.75em 0;
+			font-size: 2em;
+			font-weight: 200;
+
+			&:after {
+				content: "";
+				display: inline-block;
+				position: relative;
+				width: .075em;
+				height: 1.1em;
+				background: $green;
+				animation: header-cursor 1s linear infinite;
+			}
+
+			svg {
+				height: 1em;
+				vertical-align: baseline;
+			}
+		}
+
+		.header-tagline {
+			margin-bottom: #{$spacer * 0.5};
+		}
+	}
+
+	body,
+	footer {
+		background-color: $indigo;
+	}
+
+	.footer-sub-links {
+		.btn {
+			font-size: 1.25em;
+		}
+	}
+}
+
+@keyframes header-cursor {
+	0%, 49%, 100% {
+		background: $green;
+	}
+
+	50%, 99% {
+		background: transparent;
+	}
+}

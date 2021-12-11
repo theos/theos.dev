@@ -1,0 +1,20 @@
+<ul>
+  {% for item in site.data.docs_sidebar %}
+  <li>
+    {% if item.link %}
+      <a href="{{ item.link }}">{{ item.title }}</a>
+    {% else %}
+      <span>{{ item.title }}</span>
+    {% endif %}
+    {% if item.list %}
+      <ul>
+        {% for subitem in item.list %}
+          <li>
+            <a href="{{ subitem.link }}">{{ subitem.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

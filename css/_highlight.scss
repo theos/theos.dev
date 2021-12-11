@@ -1,0 +1,97 @@
+div.highlight {
+	overflow: auto;
+	font-weight: 400;
+	margin-bottom: 1.5rem;
+
+	pre.highlight {
+		margin-bottom: 0;
+		padding: #{$spacer * 0.375} #{$spacer * 0.675};
+		tab-size: 2;
+		-moz-tab-size: 2;
+	}
+
+	.highlight-normal & {
+		&,
+		pre.highlight,
+		code {
+			font: inherit;
+			white-space: pre-wrap;
+		}
+	}
+}
+
+// Inline highlighting
+
+code.highlighter-rouge {
+	padding: 2px 4px;
+}
+
+code.highlighter-rouge,
+div.highlight pre.highlight {
+	background: var(--bs-gray-100);
+	border: 1px solid var(--bs-gray-200);
+	border-radius: $border-radius;
+}
+
+// Highlighting types
+// =============================================================================
+
+.highlight .c     { color: var(--bs-gray-700); font-style: italic; }                    // Comment
+.highlight .err   { color: var(--bs-red); background-color: var(--bs-gray-300); }        // Error
+.highlight .k     {                font-weight: bold; }                     // Keyword
+.highlight .o     {                font-weight: bold; }                     // Operator
+.highlight .cm    { color: var(--bs-gray-700); font-style: italic; }                    // Comment.Multiline
+.highlight .cp    { color: var(--bs-gray-700); font-weight: bold;  }                    // Comment.Single
+.highlight .c1    { color: var(--bs-gray-700); font-style: italic; }                    // Comment.Single
+.highlight .cs    { color: var(--bs-gray-700); font-style: italic; font-weight: bold; } // Comment.Special
+.highlight .gd    { color: var(--bs-body-color); background-color: #fdd; }              // Generic.Deleted
+.highlight .gd .x { color: var(--bs-body-color); background-color: #faa; }              // Generic.Deleted.Specific
+.highlight .ge    {                font-style: italic; }                    // Generic.Emph
+.highlight .gr    { color: var(--bs-red); }                                        // Generic.Error
+.highlight .gh    { color: var(--bs-gray-700); }                                        // Generic.Heading
+.highlight .gi    { color: var(--bs-body-color); background-color: #dfd; }              // Generic.Inserted
+.highlight .gi .x { color: var(--bs-body-color); background-color: #afa; }              // Generic.Inserted.Specific
+.highlight .go    { color: var(--bs-gray-700); }                                        // Generic.Output
+.highlight .gp    { color: var(--bs-gray-600); }                                        // Generic.Prompt
+.highlight .gs    {                font-weight: bold; }                     // Generic.Strong
+.highlight .gu    { color: var(--bs-gray-400); }                                        // Generic.Subheading
+.highlight .gt    { color: var(--bs-red); }                                        // Generic.Traceback
+.highlight .kc    {                font-weight: bold; }                     // Keyword.Constant
+.highlight .kd    {                font-weight: bold; }                     // Keyword.Declaration
+.highlight .kp    {                font-weight: bold; }                     // Keyword.Pseudo
+.highlight .kr    {                font-weight: bold; }                     // Keyword.Reserved
+.highlight .kt    { color: var(--bs-blue); font-weight: bold; }                     // Keyword.Type
+.highlight .m     { color: var(--bs-teal); }                                        // Literal.Number
+.highlight .s     { color: var(--bs-red); }                                        // Literal.String
+.highlight .na    { color: var(--bs-teal); }                                     // Name.Attribute
+.highlight .nb    { color: var(--bs-blue); }                                     // Name.Builtin
+.highlight .nc    { color: var(--bs-blue); font-weight: bold; }                     // Name.Class
+.highlight .no    { color: var(--bs-teal); }                                     // Name.Constant
+.highlight .ni    { color: var(--bs-purple); }                                     // Name.Entity
+.highlight .ne    { color: var(--bs-red); font-weight: bold; }                     // Name.Exception
+.highlight .nf    { color: var(--bs-red); font-weight: bold; }                     // Name.Function
+.highlight .nn    { color: var(--bs-gray-600); }                                        // Name.Namespace
+.highlight .nt    { color: var(--bs-blue); }                                     // Name.Tag
+.highlight .nv    { color: var(--bs-teal); }                                     // Name.Variable
+.highlight .ow    {                font-weight: bold; }                     // Operator.Word
+.highlight .w     { color: var(--bs-gray-400); }                                        // Text.Whitespace
+.highlight .mf    { color: var(--bs-teal); }                                        // Literal.Number.Float
+.highlight .mh    { color: var(--bs-teal); }                                        // Literal.Number.Hex
+.highlight .mi    { color: var(--bs-teal); }                                        // Literal.Number.Integer
+.highlight .mo    { color: var(--bs-teal); }                                        // Literal.Number.Oct
+.highlight .sb    { color: var(--bs-red); }                                        // Literal.String.Backtick
+.highlight .sc    { color: var(--bs-red); }                                        // Literal.String.Char
+.highlight .sd    { color: var(--bs-red); }                                        // Literal.String.Doc
+.highlight .s2    { color: var(--bs-red); }                                        // Literal.String.Double
+.highlight .se    { color: var(--bs-red); }                                        // Literal.String.Escape
+.highlight .sh    { color: var(--bs-red); }                                        // Literal.String.Heredoc
+.highlight .si    { color: var(--bs-red); }                                        // Literal.String.Interpol
+.highlight .sx    { color: var(--bs-red); }                                        // Literal.String.Other
+.highlight .sr    { color: var(--bs-green); }                                     // Literal.String.Regex
+.highlight .s1    { color: var(--bs-red); }                                        // Literal.String.Single
+.highlight .ss    { color: var(--bs-indigo); }                                     // Literal.String.Symbol
+.highlight .bp    { color: var(--bs-gray-700); }                                        // Name.Builtin.Pseudo
+.highlight .vc    { color: var(--bs-teal); }                                     // Name.Variable.Class
+.highlight .vg    { color: var(--bs-teal); }                                     // Name.Variable.Global
+.highlight .vi    { color: var(--bs-teal); }                                     // Name.Variable.Instance
+.highlight .il    { color: var(--bs-teal); }                                        // Literal.Number.Integer.Long

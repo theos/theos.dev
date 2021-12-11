@@ -1,0 +1,53 @@
+title: Theos
+author:
+  name: Theos
+  twitter: theosdev
+
+url: https://theos.dev
+
+twitter:
+  username: theosdev
+  card: summary
+
+logo: /img/logo.png
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /img/logo.png
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  parse_block_html: true
+
+assets:
+  defaults:
+    js:
+      integrity: false
+    css:
+      integrity: false
+    img:
+      integrity: false
+
+
+plugins:
+  - jekyll-assets
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+include:
+  - .well-known
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - netlify.toml
+  - node_modules
+  - package.json
+  - pnpm-lock.yaml
