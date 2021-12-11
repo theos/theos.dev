@@ -56,5 +56,5 @@ Below is a list of features implemented since the [original Theos](https://githu
 * Adds backwards compatibility for [nullability](https://developer.apple.com/swift/blog/?id=25) keywords when building with older versions of clang that don’t support it. (kirb)
 * Building for iOS Simulator now disables linking Substrate by default, allows linking against OS X binaries, and builds for only x86_64 by default (rather than both i386 and x86_64) when building for iOS 8.0 or newer. (kirb)
 * Integrates the fix needed for tweaks to work in 32-bit processes on iPhone 6s. (saurik)
-* Adds `make troubleshoot`, for getting quick links to troubleshooting info and uploading the `make` output to Ghostbin for sharing. (kirb)
+* Adds `make troubleshoot`, for getting quick links to troubleshooting info and uploading the `make` output to GitHub Gist for sharing. (kirb)
 * Adds support for building for watchOS and tvOS. (kirb)

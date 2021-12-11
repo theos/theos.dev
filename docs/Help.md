@@ -20,17 +20,12 @@ Make sure your question isn’t an [XY problem](http://xyproblem.info/). This me
 
 Be prepared to take on criticism. Experienced programmers may say something that has the ability to upset you if taken the wrong way. Keep in mind that they are providing criticism to help you become a better programmer. There’s no such thing as perfect, but you can get pretty close by listening to the advice of people that were once in your position.
 
-When sharing a snippet of code, it’s usually best to post it to a paste site. We recommend [Ghostbin](https://ghostbin.co/), but any similar site is fine.
+When sharing a snippet of code, it’s usually best to post it to a paste site. We recommend [GitHub Gist](https://gist.github.com/), but any similar site is fine.
 
 * On Stack Overflow and Reddit, you can paste your code directly into the body, and then select it and click “Code” on the toolbar to ensure it is correctly formatted.
 * On GitHub and Discord, you can wrap your code in three backticks (<code>\`\`\` … \`\`\`</code>) to ensure it is correctly formatted.
 
 ## make troubleshoot
-You can run `make troubleshoot` from within a project directory to upload some diagnostic information to [Ghostbin](https://ghostbin.co/), and copy the link to your clipboard. If `ghost` is not installed, you can do so by executing the following:
-
-```bash
-$ curl https://ghostbin.co/ghost.sh -o /usr/local/bin/ghost
-$ chmod +x /usr/local/bin/ghost
-```
+You can run `make troubleshoot` from within a project directory to upload some diagnostic information to [GitHub Gist](https://gist.github.com/), and copy the link to your clipboard. Before using this, follow [GitHub’s intructions](https://cli.github.com/) to install the `gh` CLI tool.
 
 The troubleshoot command will execute `make clean all messages=yes`.
