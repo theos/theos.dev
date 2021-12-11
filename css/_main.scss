@@ -25,6 +25,7 @@ header {
 		svg {
 			height: 1em;
 			vertical-align: baseline;
+			overflow: visible;
 		}
 	}
 
@@ -88,10 +89,21 @@ aside {
 			}
 
 			a {
+				display: inline-flex;
+				align-items: baseline;
+
 				&:hover {
 					background-color: var(--bs-gray-200);
 					border-radius: $border-radius;
 					text-decoration: none;
+				}
+
+				svg {
+					display: block;
+					width: 0.55em;
+					height: 0.55em;
+					margin-left: #{$spacer * 0.375};
+					overflow: visible;
 				}
 			}
 

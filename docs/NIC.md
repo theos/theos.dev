@@ -5,7 +5,7 @@ layout: docs
 
 NIC is the New Instance Creator ([you can call him Nicolas!](https://github.com/theos/theos/commit/6c623614612ac07d1963c851e4a54302be6bf40d)). It provides a way to create projects (“instances”) based on templates. Theos comes with a handful of useful templates and others are available from various developers in the community.
 
-See also [iPhone Dev Wiki: NIC](http://iphonedevwiki.net/index.php/NIC).
+See also [iPhone Dev Wiki: NIC](http://iphonedev.wiki/index.php/NIC).
 
 ## Usage
 Most commonly, NIC is used interactively like so:
@@ -60,8 +60,8 @@ The following command line arguments are supported. Note that providing argument
 * **`-u` `--user`** *string*. The author value to use.
 
 ## Included templates
-* **activator_event**: an [event](http://iphonedevwiki.net/index.php/Libactivator#Sending_Events_.28via_LAEvent.29) for Activator.
-* **activator_listener**: a [listener](http://iphonedevwiki.net/index.php/Libactivator#Observing_Events_.28via_LAListener.29) for Activator.
+* **activator_event**: an [event](http://iphonedev.wiki/index.php/Libactivator#Sending_Events_.28via_LAEvent.29) for Activator.
+* **activator_listener**: a [listener](http://iphonedev.wiki/index.php/Libactivator#Observing_Events_.28via_LAListener.29) for Activator.
 * **application_modern**: a standard iOS app (for unsandboxed jailbreak use).
 * **application_swift**: a standard, Swift-based iOS app (for unsandboxed jailbreak use).
 * **control_center_module-11up**: a custom control center module for iOS 11+ deployed via [CCSupport](https://github.com/opa334/CCSupport/wiki).
@@ -71,7 +71,7 @@ The following command line arguments are supported. Note that providing argument
 * **library**: a linkable library (e.g. /usr/lib/libblah.dylib).
 * **notification_center_widget**: an iOS 5 – 6 Notification Center Today widget.
 * **notification_center_widget-7up**: an iOS 7 – 9 Notification Center Today widget.
-* **preference_bundle_modern**: a [PreferenceLoader](http://iphonedevwiki.net/index.php/PreferenceLoader) preference bundle subproject.
+* **preference_bundle_modern**: a [PreferenceLoader](http://iphonedev.wiki/index.php/PreferenceLoader) preference bundle subproject.
 * **theme**: a means of easily packaging your theme into a .deb using Theos' packaging functionality.
 * **tool**: a command line tool (e.g. /usr/bin/blah).
 * **tool_swift**: a Swift-based command line tool (e.g. /usr/bin/blah).
