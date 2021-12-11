@@ -1,3 +1,7 @@
+[build]
+  command = "make"
+  publish = "_site/"
+
 [[redirects]]
   from = "/discord"
   to = "https://discord.gg/z4RTnrcbKW"
