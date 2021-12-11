@@ -21,4 +21,4 @@ Create a file named `<instance>-Bridging-Header.h` in your project directory and
 * `<instance>_SWIFT_BRIDGING_HEADER` *filename*. Default: `<instance>-Bridging-Header.h`. The path to the [Objective-C bridging header](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift) to be imported into all Swift files during compilation. For more information, see [Objective-C to Swift Interoperability](#objective-c-to-swift).
 
 ## Tweaks
-You can make Swift tweaks using [Orion](https://orion.theos.dev). Do note that Orion does not support hooking Swift code at the moment. 
+You can make Swift tweaks using [Orion](https://orion.theos.dev). Do note that Orion does not support hooking Swift code at the moment.
