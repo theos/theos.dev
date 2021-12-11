@@ -5,7 +5,7 @@ layout: docs
 
 Theos in its current state is a continuation of the work done by Dustin Howett, with work from Ryan Petrich’s fork included (among others). As such, you can easily “upgrade” from one of these two most commonly used variants of Theos to this one.
 
-If your copy of Theos was downloaded with Git, read on. If your copy of Theos was downloaded as a ZIP file from GitHub or from DHowett’s Subversion, you'll want to make a backup of everything you’ve changed, delete the Theos directory, and then [[install Theos from scratch|Installation]].
+If your copy of Theos was downloaded with Git, read on. If your copy of Theos was downloaded as a ZIP file from GitHub or from DHowett’s Subversion, you'll want to make a backup of everything you’ve changed, delete the Theos directory, and then [install Theos from scratch](/docs/Installation.html).
 
 Simply change the remote repo and pull:
 
@@ -25,8 +25,8 @@ Changing the Git remote URL isn’t strictly required, as DHowett/theos redirect
 ## Things to be aware of
 Changes made since [legacy Theos](https://github.com/theos/theos/tree/legacy) may catch you off guard. Here are some we think you should be aware of:
 
-* **Theos heavily relies on Git.** Always install Theos [[as directed|Installation]]; do not download it as a ZIP.
-* **The `theos` symlink is no longer created by NIC in new projects.** The destination of this symlink can vary between computers, as Theos does not impose requirements on where it must be stored. The symlink is also often committed to source control (ie, Git) unintentionally. As it was already highly recommended to set the `$THEOS` variable in your environment, we have opted to switch new makefiles to use `$THEOS` instead of the symlink. Changing this in your existing projects is recommended. Refer to [[this FAQ entry|FAQ#wheres-the-theos-symlink]].
+* **Theos heavily relies on Git.** Always install Theos [as directed](/docs/Installation.html); do not download it as a ZIP.
+* **The `theos` symlink is no longer created by NIC in new projects.** The destination of this symlink can vary between computers, as Theos does not impose requirements on where it must be stored. The symlink is also often committed to source control (ie, Git) unintentionally. As it was already highly recommended to set the `$THEOS` variable in your environment, we have opted to switch new makefiles to use `$THEOS` instead of the symlink. Changing this in your existing projects is recommended. Refer to [this FAQ entry](/docs/FAQ.html#wheres-the-theos-symlink).
 * **Configuration related to your environment, rather than the project, should be in `~/.theosrc`.** If you set variables that are specific to your own setup, such as the location of Xcode/an SDK, device IP, etc., you should avoid placing it in your project makefile, as these types of things can vary between users. Move these to `~/.theosrc`, a makefile that is read and executed during an early stage of Theos’ `common.mk`.
 * **Built packages have been moved to a directory called `packages`.** The intent here is to reduce clutter in the root project directory and separate build output from the project source.
 * **The `obj` directory has been moved to inside `.theos`.** Again, this is for cleanliness. You may need to enable displaying of hidden files in your operating system/file manager.

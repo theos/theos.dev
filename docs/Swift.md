@@ -3,7 +3,7 @@ title: Swift
 layout: docs
 ---
 
-Theos is capable of compiling [Swift](https://swift.org/) files, and supports using them in conjunction with files written in other languages, such as Objective-C. These capabilities are supported on macOS, iOS, and Linux. Instructions for installing the Swift toolchains on [[iOS|Installation-iOS]] and [[Linux|Installation-Linux]] can be found on their respective installation wiki pages.
+Theos is capable of compiling [Swift](https://swift.org/) files, and supports using them in conjunction with files written in other languages, such as Objective-C. These capabilities are supported on macOS, iOS, and Linux. Instructions for installing the Swift toolchains on [iOS](/docs/Installation-iOS.html) and [Linux](/docs/Installation-Linux.html) can be found on their respective installation wiki pages.
 
 ## Swift Runtime
 In order to run Swift binaries built with Theos, you must install the Swift runtime on your iOS device. Currently, the runtime can be found on BigBoss under the `org.swift.libswift` package (Swift 5+) or the `com.modmyi.libswift4` package (Swift 4). It is recommended that you add libswift as a dependency in your control file with `Depends: ${LIBSWIFT}` as this will automatically select the correct package based on your Swift version.

@@ -23,7 +23,7 @@ If this is undesirable, you can tell NIC to revert to symlinking `theos`:
 $ echo 'link_theos = "1"' >> ~/.nicrc
 ```
 
-See [[here|NIC#.nicrc]] for more details on `.nicrc`.
+See [here](/docs/NIC.html#.nicrc) for more details on `.nicrc`.
 
 ## How do I use Swift in my projects?
-This information has moved to the [[Swift]] page.
+This information has moved to the [Swift](/docs/Swift.html) page.

@@ -8,10 +8,10 @@ Theos aims to work on, and build for, the following platforms.
 
 All the commands shown in the following instructions are meant to be run as the "user" user, _not_ **root**. Similarly, Theos is also meant to be run as a normal user, _not_ **root**.
 
-- **[[iOS|Installation-iOS]]** on iOS 5 and up.
-- **[[macOS|Installation-macOS]]** on Mavericks (10.9) and up.
-- **[[Linux/WSL|Installation-Linux]]** on Linux kernel 3.16 or Windows 10 build 14393, and up.
-- **[[Cygwin|Installation-Cygwin]]** on Windows 7 and up.
+- **[iOS](/docs/Installation-iOS.html)** on iOS 5 and up.
+- **[macOS](/docs/Installation-macOS.html)** on Mavericks (10.9) and up.
+- **[Linux/WSL](/docs/Installation-Linux.html)** on Linux kernel 3.16 or Windows 10 build 14393, and up.
+- **[Cygwin](/docs/Installation-Cygwin.html)** on Windows 7 and up.
 
 Other platforms (or versions older than listed above) may work, but be aware that they are unsupported. Theos may work on them now, but it may not in future. If you think we should officially support a platform not listed here, [get in touch](https://github.com/theos/theos/issues/new).
 
@@ -34,7 +34,4 @@ If you see the following when running the command:
 make: *** No rule to make target 'update-theos'.  Stop.
 ```
 
-…then you’re using a legacy version of Theos. Read onto the next section.
-
-## Switching from DHowett’s or rpetrich’s Theos
-Refer to [[Upgrading from legacy Theos]].
+…then you’re using a legacy version of Theos. Refer to [Upgrading from legacy Theos](/docs/Upgrading-from-legacy-Theos.html).

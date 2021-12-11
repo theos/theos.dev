@@ -17,7 +17,7 @@ You may have been directed here by the following notice output by Theos:
 
 These instructions will help you install the latest version of GNU Make on macOS. No other modern operating system should end up in this situation, as Make 4.0 was released in 2013. If you see this notice on any other OS such as Linux, you should consider upgrading your entire OS.
 
-These instructions assume you use Homebrew and have installed Theos as outlined in the [[installation instructions|Installation]].
+These instructions assume you use Homebrew and have installed Theos as outlined in the [installation instructions](/docs/Installation.html).
 
 1. Install GNU Make from Homebrew:
 

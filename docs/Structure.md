@@ -17,13 +17,13 @@ Information regarding the various parts of Theos' internal structure:
   * **targets/**: Makefiles included depending on the current operating system platform and the target platform. These set up the Theos environment appropriately to build for a platform.
 * **mod/**: Provided for you to place modules in. Theos will automatically include various files from here.
 * **sdks/**: Provided for you to place SDKs in.
-* **templates/**: Provided for you to place your own [[NIC]] templates in.
-* **toolchain/**: Provided for you to place toolchains in, as directed at [[Installation]].
+* **templates/**: Provided for you to place your own [NIC](/docs/NIC.html) templates in.
+* **toolchain/**: Provided for you to place toolchains in, as directed at [Installation](/docs/Installation.html).
 * **vendor/**: Submodule components included with Theos.
   * **dm.pl/**: The files for [the script](https://github.com/theos/dm.pl) used to build deb packages without the need for dpkg-deb.
   * **include/**: [Built-in headers](https://github.com/theos/headers) that may or may not be useful for most projects.
   * **lib/**: [Built-in library](https://github.com/theos/lib) definitions that may or may not be useful for most projects.
   * **logos/**: The files for [Logos](https://github.com/theos/logos).
-  * **nic/**: The files for [[NIC]].
-  * **templates/**: [Built-in templates](https://github.com/theos/templates) that may be used to scaffold new projects using [[NIC]].
+  * **nic/**: The files for [NIC](/docs/NIC.html).
+  * **templates/**: [Built-in templates](https://github.com/theos/templates) that may be used to scaffold new projects using [NIC](/docs/NIC.html).
 * **Prefix.pch**: The prefix header imported into the compilation process for all C-based languages. Provides macros and imports of frameworks for legacy projects.
