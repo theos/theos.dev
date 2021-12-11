@@ -6,3 +6,13 @@
   from = "/discord"
   to = "https://discord.gg/z4RTnrcbKW"
   status = 302
+
+[[redirects]]
+  from = "/install"
+  to = "https://theos.dev/docs/Installation.html
+  status = 302
+
+[[redirects]]
+  from = "/help"
+  to = "https://theos.dev/docs/Help.html
+  status = 302
