@@ -9,10 +9,10 @@
 
 [[redirects]]
   from = "/install"
-  to = "https://theos.dev/docs/Installation.html
+  to = "https://theos.dev/docs/Installation.html"
   status = 302
 
 [[redirects]]
   from = "/help"
-  to = "https://theos.dev/docs/Help.html
+  to = "https://theos.dev/docs/Help.html"
   status = 302
