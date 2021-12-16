@@ -13,7 +13,7 @@ All the commands shown in the following instructions are meant to be run as the 
 
 1. Install the following prerequisites:
 
-		sudo apt-get install fakeroot git perl unzip build-essential libtinfo5
+		sudo apt-get install fakeroot git perl unzip build-essential libtinfo5 curl libz3-dev
 
 	<sup>
 	<sup>*</sup> build-essential and libtinfo5 or the equivalents for your distro.
@@ -51,13 +51,13 @@ All the commands shown in the following instructions are meant to be run as the 
 	With Swift support (larger toolchain size):
 
 		sudo apt install zstd
-		curl -LO https://github.com/CRKatri/llvm-project/releases/download/swift-5.3.2-RELEASE/swift-5.3.2-RELEASE-ubuntu18.04.tar.zst
+		curl -LO https://github.com/CRKatri/llvm-project/releases/download/swift-5.3.2-RELEASE/swift-5.3.2-RELEASE-ubuntu20.04.tar.zst
 		TMP=$(mktemp -d)
-		tar -xvf swift-5.3.2-RELEASE-ubuntu18.04.tar.zst -C $TMP
+		tar -xvf swift-5.3.2-RELEASE-ubuntu20.04.tar.zst -C $TMP
 		mkdir -p $THEOS/toolchain/linux/iphone $THEOS/toolchain/swift
-		mv $TMP/swift-5.3.2-RELEASE-ubuntu18.04/* $THEOS/toolchain/linux/iphone/
+		mv $TMP/swift-5.3.2-RELEASE-ubuntu20.04/* $THEOS/toolchain/linux/iphone/
 		ln -s $THEOS/toolchain/linux/iphone $THEOS/toolchain/swift
-		rm -r swift-5.3.2-RELEASE-ubuntu18.04.tar.zst $TMP
+		rm -r swift-5.3.2-RELEASE-ubuntu20.04.tar.zst $TMP
 
 	Note that compiling Swift code requires a fairly modern SDK. It is recommended that you use the latest SDK that you can get.
 
