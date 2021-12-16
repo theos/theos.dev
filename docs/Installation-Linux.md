@@ -13,7 +13,7 @@ All the commands shown in the following instructions are meant to be run as the 
 
 1. Install the following prerequisites:
 
-		sudo apt-get install fakeroot git perl unzip build-essential libtinfo5 curl
+		sudo apt-get install fakeroot git perl unzip build-essential libtinfo5 curl libz3-dev
 
 	<sup>
 	<sup>*</sup> build-essential and libtinfo5 or the equivalents for your distro.
@@ -48,18 +48,7 @@ All the commands shown in the following instructions are meant to be run as the 
 		mv $TMP/ios-arm64e-clang-toolchain/* $THEOS/toolchain/linux/iphone/
 		rm -r linux-ios-arm64e-clang-toolchain.tar.lzma $TMP
 
-	With Swift support (ubuntu 18.04, larger toolchain size):
-
-		sudo apt install zstd
-		curl -LO https://github.com/CRKatri/llvm-project/releases/download/swift-5.3.2-RELEASE/swift-5.3.2-RELEASE-ubuntu18.04.tar.zst
-		TMP=$(mktemp -d)
-		tar -xvf swift-5.3.2-RELEASE-ubuntu18.04.tar.zst -C $TMP
-		mkdir -p $THEOS/toolchain/linux/iphone $THEOS/toolchain/swift
-		mv $TMP/swift-5.3.2-RELEASE-ubuntu18.04/* $THEOS/toolchain/linux/iphone/
-		ln -s $THEOS/toolchain/linux/iphone $THEOS/toolchain/swift
-		rm -r swift-5.3.2-RELEASE-ubuntu18.04.tar.zst $TMP
-
-	With Swift support (ubuntu 20.04, larger toolchain size):
+	With Swift support (larger toolchain size):
 
 		sudo apt install zstd
 		curl -LO https://github.com/CRKatri/llvm-project/releases/download/swift-5.3.2-RELEASE/swift-5.3.2-RELEASE-ubuntu20.04.tar.zst
