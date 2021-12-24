@@ -1,15 +1,19 @@
 ---
-title: "Installation instructions for Cygwin"
+title: "Installation instructions for Cygwin (Deprecated)"
 layout: docs
 ---
 
-This guide will help you install Theos on your Windows (7, 8, and 8.1) machine via Cygwin.
-
-Please consider using [Windows Subsystem for Linux](/docs/Installation-Linux.html) instead if possible. Cygwin works but is quite limited.
+This guide will help you install Theos on your Windows machine via Cygwin.
 
 | Platform | Minimum OS version | Targets supported
 |----------|--------------------|-------------------|
-| **Windows** | XP | iOS |
+| **Windows** | XP | Windows (via Cygwin), iOS |
+
+<div class="alert alert-warning">
+**Cygwin support is deprecated.** The latest toolchain releases for Cygwin are several years out of date. You will have a much better experience by using [Windows Subsystem for Linux](/docs/Installation-Linux.html).
+
+Please note that the latest toolchain provided for Cygwin only supports iOS SDKs earlier than iOS 11. For 32-bit installations of Cygwin, this is more severely limited to iOS SDKs earlier than iOS 8, and lacks support for building arm64 binaries.
+</div>
 
 All the commands shown in the following instructions are meant to be run as the "user" user, _not_ **root**. Similarly, Theos is also meant to be run as a normal user, _not_ **root**.
 
@@ -35,13 +39,13 @@ All the commands shown in the following instructions are meant to be run as the 
 
 1. Get the toolchain:
 
-	On 32 bit:
+	On 32-bit:
 
-		git clone git://github.com/coolstar/iOSToolchain4Win.git $THEOS/toolchain/windows/iphone
+		git clone https://github.com/coolstar/iOSToolchain4Win.git $THEOS/toolchain/windows/iphone
 
-	On 64 bit:
+	On 64-bit:
 
-		git clone -b x86_64 git://github.com/coolstar/iOSToolchain4Win.git $THEOS/toolchain/windows/iphone
+		git clone -b x86_64 https://github.com/coolstar/iOSToolchain4Win.git $THEOS/toolchain/windows/iphone
 
 1. Get an iOS SDK:
 

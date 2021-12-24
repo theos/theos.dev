@@ -10,8 +10,6 @@
       link: /docs/Installation-macOS.html
     - title: Linux
       link: /docs/Installation-Linux.html
-    - title: Cygwin
-      link: /docs/Installation-Cygwin.html
     - title: Upgrading from legacy Theos
       link: /docs/Upgrading-from-legacy-Theos.html
 

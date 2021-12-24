@@ -144,4 +144,10 @@ article {
 		padding-left: #{$spacer * 0.675};
 		color: var(--bs-gray-700);
 	}
+
+	.alert {
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
