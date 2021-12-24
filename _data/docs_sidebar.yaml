@@ -8,7 +8,7 @@
       link: /docs/Installation-iOS.html
     - title: macOS
       link: /docs/Installation-macOS.html
-    - title: Linux
+    - title: Linux & Windows
       link: /docs/Installation-Linux.html
     - title: Upgrading from legacy Theos
       link: /docs/Upgrading-from-legacy-Theos.html

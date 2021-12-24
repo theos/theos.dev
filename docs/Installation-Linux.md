@@ -1,9 +1,9 @@
 ---
-title: "Installation instructions for Linux"
+title: "Installation instructions for Linux & Windows"
 layout: docs
 ---
 
-This guide will help you install Theos on your Linux machine, Linux within Windows via [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl), or [Google Cloud Shell](https://console.cloud.google.com/cloudshell).
+This guide will help you install Theos on your Linux machine, Windows machine via [Windows Subsystem for Linux](https://aka.ms/wsl), or a [Google Cloud Shell](https://console.cloud.google.com/cloudshell) instance.
 
 | Platform | Minimum OS version | Targets supported
 |----------|--------------------|-------------------|
@@ -11,21 +11,17 @@ This guide will help you install Theos on your Linux machine, Linux within Windo
 
 All the commands shown in the following instructions are meant to be run as a normal user, _not_ root. Similarly, Theos is also meant to be run as a normal user, _not_ root.
 
+1. If you are running on Windows and haven’t already installed a Linux distribution, follow [Microsoft’s instructions](https://aka.ms/wslinstall) to do so.
+
 1. Install the following prerequisites:
 
-		sudo apt-get install fakeroot git perl unzip build-essential libtinfo5 curl libz3-dev
+		sudo apt install build-essential fakeroot libtinfo5 libz3-dev rsync curl perl unzip git
 
-	<sup>
-	<sup>*</sup> build-essential and libtinfo5 or the equivalents for your distro.
-	</sup>
+	If you don’t use a distribution that uses the APT package manager such as Debian, Ubuntu, Linux Mint, or Pop!_OS, you will need to determine the equivalent packages to install from your distribution’s package manager.
 
-	Additionally on WSL:
+1. If you are running on Windows using WSL 1 ([how do I know?](https://aka.ms/wslinstall#check-which-version-of-wsl-you-are-running)), apply the following fix so `fakeroot` works:
 
 		sudo update-alternatives --set fakeroot /usr/bin/fakeroot-tcp
-
-	Additionally on Google Cloud Shell:
-
-		sudo apt install rsync
 
 1. Set up the `THEOS` environment variable:
 

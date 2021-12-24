@@ -10,7 +10,7 @@ All the commands shown in the following instructions are meant to be run as a no
 
 - **[iOS](/docs/Installation-iOS.html)** on iOS 5 and up.
 - **[macOS](/docs/Installation-macOS.html)** on Mavericks (10.9) and up.
-- **[Linux/WSL](/docs/Installation-Linux.html)** on Linux kernel 3.16 or Windows 10 build 14393 and up.
+- **[Linux & Windows](/docs/Installation-Linux.html)** on Linux kernel 3.16 or Windows 10 build 14393 and up.
 - **[Cygwin](/docs/Installation-Cygwin.html)** (deprecated) on Windows XP and up.
 
 Other platforms (or versions older than listed above) may work, but be aware that they are unsupported. Theos may work on them now, but it may not in future. If you think we should officially support a platform not listed here, [get in touch](https://github.com/theos/theos/issues/new).
