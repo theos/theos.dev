@@ -15,7 +15,7 @@ This guide will help you install Theos on your Windows machine via Cygwin.
 Please note that the latest toolchain provided for Cygwin only supports iOS SDKs earlier than iOS 11. For 32-bit installations of Cygwin, this is more severely limited to iOS SDKs earlier than iOS 8, and lacks support for building arm64 binaries.
 </div>
 
-All the commands shown in the following instructions are meant to be run as the "user" user, _not_ **root**. Similarly, Theos is also meant to be run as a normal user, _not_ **root**.
+All the commands shown in the following instructions are meant to be run as a normal user, _not_ root. Similarly, Theos is also meant to be run as a normal user, _not_ root.
 
 1. Install the following prerequisites:
 

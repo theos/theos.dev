@@ -6,7 +6,7 @@ layout: docs
 ## Officially supported platforms
 Theos aims to work on, and build for, the following platforms.
 
-All the commands shown in the following instructions are meant to be run as the "user" user, _not_ **root**. Similarly, Theos is also meant to be run as a normal user, _not_ **root**.
+All the commands shown in the following instructions are meant to be run as a normal user, _not_ root. Similarly, Theos is also meant to be run as a normal user, _not_ root.
 
 - **[iOS](/docs/Installation-iOS.html)** on iOS 5 and up.
 - **[macOS](/docs/Installation-macOS.html)** on Mavericks (10.9) and up.

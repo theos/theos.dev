@@ -9,7 +9,7 @@ This guide will help you install Theos on your jailbroken iOS device.
 |----------|--------------------|-------------------|
 | **iOS** | 5.0 | iOS |
 
-All the commands shown in the following instructions are meant to be run as the "mobile" user, _not_ **root**. Similarly, Theos is also meant to be run as a normal user, _not_ **root**.
+All the commands shown in the following instructions are meant to be run as the "mobile" user, _not_ root. Similarly, Theos is also meant to be run as a normal user, _not_ root.
 
 1. Install the following prerequisites:
 

@@ -9,7 +9,7 @@ This guide will help you install Theos on your Linux machine, Linux within Windo
 |----------|--------------------|-------------------|
 | **Linux** <br> **Windows 10** | Linux kernel 3.16 <br> Windows 10 build 14393 | Linux, iOS |
 
-All the commands shown in the following instructions are meant to be run as the "user" user, _not_ **root**. Similarly, Theos is also meant to be run as a normal user, _not_ **root**.
+All the commands shown in the following instructions are meant to be run as a normal user, _not_ root. Similarly, Theos is also meant to be run as a normal user, _not_ root.
 
 1. Install the following prerequisites:
 
