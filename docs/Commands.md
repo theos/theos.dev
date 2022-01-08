@@ -1,3 +1,8 @@
+---
+title: Features
+layout: docs
+---
+
 # Commands
 
 Commands in theos are implemented as Makefile targets, and executed with
