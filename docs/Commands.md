@@ -1,9 +1,7 @@
 ---
-title: Features
+title: Commands
 layout: docs
 ---
-
-# Commands
 
 Commands in theos are implemented as Makefile targets, and executed with
 
@@ -19,9 +17,9 @@ These can often be combined to accomplish multiple things in one go. Theos inclu
 
 `make do` will build and install a package, and is a shortcut for `make package install`
 
-`make package FINALPACKAGE=1` will optimise assets (runs [pincrush](https://github.com/DHowett/pincrush) on PNG images, and converts plists to binary format) and generate a package with a “clean” version (ie, no build number). Recommended when building a package you’re about to release.
+`make package FINALPACKAGE=1` will optimise assets, convers plists to binary format), and generates a package with a “clean” version (ie, no build number). Recommended when building a package you’re about to release.
 
-`make package FINALPACKAGE=1 STRIP=0` will build a release package, but without stripping [symbols](https://cdmana.com/2021/07/20210727053112972M.html)
+`make package FINALPACKAGE=1 STRIP=0` will build a release package, but without stripping symbols.
 
 
 ### Installation
@@ -30,12 +28,10 @@ These can often be combined to accomplish multiple things in one go. Theos inclu
 
 `make do` will both build and install a package.
 
-### Misc
+### Miscellaneous
 
-`make update-theos` will, predictably enough, updates Theos to the latest commit.
+`make update-theos` will, predictably enough, updates Theos to the latest commit. See [Installation](/docs/Installation.html) for more info. 
 
-`make troubleshoot` will present quick links to troubleshooting info, and upload the `make` output to GitHub Gist for sharing.
+`make troubleshoot` will present quick links to troubleshooting info, and upload the `make` output to GitHub Gist for sharing. See [Help](/docs/Installation.html) for more info.
 
-Built packages will be placed in a subdirectory named `packages/`
-
-`make show` will open this directory in your system's file manager
+`make show` will open the directory packages have been placed in, via your system's file manager.
