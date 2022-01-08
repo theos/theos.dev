@@ -18,8 +18,6 @@ These can often be combined to accomplish multiple things in one go. Theos inclu
 
 `make package FINALPACKAGE=1 STRIP=0` will build a release package, but without stripping [symbols](https://cdmana.com/2021/07/20210727053112972M.html)
 
-[//]: # (Perhaps a better link explaining MachO Symbols could be used, or possibly even isn't necessary.)
-
 
 ### Installation
 
