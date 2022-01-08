@@ -16,7 +16,7 @@
 - title: Usage
   list:
     - title: Commands
-      link: docs/Commands.html
+      link: /docs/Commands.html
 
 - title: Features
   link: /docs/Features.html
