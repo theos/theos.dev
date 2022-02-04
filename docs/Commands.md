@@ -30,7 +30,7 @@ These can often be combined to accomplish multiple things in one go. Theos inclu
 
 ### Miscellaneous
 
-`make update-theos` will, predictably enough, updates Theos to the latest commit. See [Installation](/docs/Installation.html) for more info. 
+`make update-theos` will, predictably enough, update Theos to the latest commit. See [Installation](/docs/Installation.html) for more info. 
 
 `make troubleshoot` will present quick links to troubleshooting info, and upload the `make` output to GitHub Gist for sharing. See [Help](/docs/Installation.html) for more info.
 
