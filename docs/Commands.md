@@ -17,14 +17,14 @@ These can often be combined to accomplish multiple things in one go. Theos inclu
 
 `make do` will build and install a package, and is a shortcut for `make package install`
 
-`make package FINALPACKAGE=1` will optimise assets, convers plists to binary format), and generates a package with a “clean” version (ie, no build number). Recommended when building a package you’re about to release.
+`make package FINALPACKAGE=1` will optimise assets, convert plists to binary format, and generate a package with a “clean” version (ie, no build number). Recommended when building a package you’re about to release.
 
 `make package FINALPACKAGE=1 STRIP=0` will build a release package, but without stripping symbols.
 
 
 ### Installation
 
-`make install` will install a package to the device located at `$THEOS_DEVICE_IP:$THEOS_DEVICE_PORT`. If ran on an iOS Device (and `$THEOS_DEVICE_IP` is not set,) it will install the package locally instead.
+`make install` will install a package to the device located at `$THEOS_DEVICE_IP:$THEOS_DEVICE_PORT`. If ran on an iOS Device without `$THEOS_DEVICE_IP` set, it will install the package locally instead.
 
 `make do` will both build and install a package.
 
