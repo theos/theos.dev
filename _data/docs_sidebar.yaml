@@ -12,6 +12,11 @@
       link: /docs/Installation-Linux.html
     - title: Upgrading from legacy Theos
       link: /docs/Upgrading-from-legacy-Theos.html
+      
+- title: Usage
+  list:
+    - title: Commands
+      link: /docs/Commands.html
 
 - title: Features
   link: /docs/Features.html
