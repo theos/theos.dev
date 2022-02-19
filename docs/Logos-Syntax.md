@@ -239,7 +239,12 @@ Can be inside a [%group](#group) block.
 Example:
 
 ```objc
-%subclass ClassName : SBIcon
+// An interface is required to be able to call methods of the runtime subclass using block syntax.
+@interface MyObject : NSObject
+@property (nonatomic, retain) NSString * someValue;
+@end
+
+%subclass MyObject : NSObject
 
 %property (nonatomic, retain) NSString * someValue;
 
@@ -253,7 +258,8 @@ Example:
 %end
 
 %ctor {
-	ClassName *myObject = [[%c(ClassName) alloc] init];
+	// The runtime subclass cannot be linked at compile time so you have to use %c().
+	MyObject *myObject = [[%c(MyObject) alloc] init];
 	NSLog(@"myObject: %@", [myObject someValue]);
 }
 ```
