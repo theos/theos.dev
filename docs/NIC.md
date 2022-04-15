@@ -73,13 +73,15 @@ The following command line arguments are supported. Note that providing argument
 * **library**: a linkable library (e.g. /usr/lib/libblah.dylib).
 * **notification_center_widget**: an iOS 5 – 6 Notification Center Today widget.
 * **notification_center_widget-7up**: an iOS 7 – 9 Notification Center Today widget.
-* **preference_bundle_modern**: a [PreferenceLoader](http://iphonedev.wiki/index.php/PreferenceLoader) preference bundle subproject.
+* **preference_bundle**: a [PreferenceLoader](http://iphonedev.wiki/index.php/PreferenceLoader) preference bundle subproject.
+* **preference_bundle_swift**: a swift-based [PreferenceLoader](http://iphonedev.wiki/index.php/PreferenceLoader) preference bundle subproject.
 * **theme**: a means of easily packaging your theme into a .deb using Theos' packaging functionality.
 * **tool**: a command line tool (e.g. /usr/bin/blah).
 * **tool_swift**: a Swift-based command line tool (e.g. /usr/bin/blah).
 * **tweak**: a Cydia Substrate-based tweak.
 * **tweak_with_simple_preferences**: a Cydia Substrate-based tweak with a basic preference bundle.
 * **xpc_service**: a C-based [XPC](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html) service.
+* **xpc_service_modern**: a Objective C-based [XPC](https://developer.apple.com/documentation/xpc?language=objc)
 
 This is just the list of templates Theos comes with. Far more is possible with Theos than you can find in the list above, and these templates serve only as starting points to develop a working product without having to deal with various bits of boilerplate.
 
