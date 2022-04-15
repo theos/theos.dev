@@ -11,7 +11,7 @@ See also [iPhone Dev Wiki: NIC](http://iphonedev.wiki/index.php/NIC).
 Most commonly, NIC is used interactively like so:
 
 ```console
-~$THEOS/bin/nic.pl
+~$ $THEOS/bin/nic.pl
 NIC 2.0 - New Instance Creator
 ------------------------------
   [1.] iphone/activator_event
@@ -46,7 +46,7 @@ Done.
 ~$ cd example
 
 ~/example$ ls
-Example.plist  Makefile  Tweak.xm  control
+Example.plist  Makefile  Tweak.x  control
 ```
 
 Where there is a default value displayed in `[square brackets]`, you can simply press return without entering a value and the default will be used. It is highly recommended that the author value is formatted like `Your Name <yourself@example.com>`, as this will make it possible for users to easily contact you about bugs and other questions.
