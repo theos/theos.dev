@@ -11,7 +11,7 @@ See also [iPhone Dev Wiki: NIC](http://iphonedev.wiki/index.php/NIC).
 Most commonly, NIC is used interactively like so:
 
 ```console
-~$ $THEOS/bin/nic.pl
+~$THEOS/bin/nic.pl
 NIC 2.0 - New Instance Creator
 ------------------------------
   [1.] iphone/activator_event
@@ -25,19 +25,21 @@ NIC 2.0 - New Instance Creator
   [9.] iphone/library
   [10.] iphone/notification_center_widget
   [11.] iphone/notification_center_widget-7up
-  [12.] iphone/preference_bundle_modern
-  [13.] iphone/theme
-  [14.] iphone/tool
-  [15.] iphone/tool_swift
-  [16.] iphone/tweak
-  [17.] iphone/tweak_with_simple_preferences
-  [18.] iphone/xpc_service
-Choose a Template (required): 16
+  [12.] iphone/preference_bundle
+  [13.] iphone/preference_bundle_swift
+  [14.] iphone/theme
+  [15.] iphone/tool
+  [16.] iphone/tool_swift
+  [17.] iphone/tweak
+  [18.] iphone/tweak_with_simple_preferences
+  [19.] iphone/xpc_service
+  [20.] iphone/xpc_service_modern
+Choose a Template (required): 17
 Project Name (required): Example
 Package Name [com.yourcompany.example]: dev.theos.example
-Authour/Maintainer Name [Craig Federighi]: Craig Federighi <notfederighi@theos.dev>
-[iphone/tweak] MobileSubstrate Bundle filter [com.apple.springboard]:
-[iphone/tweak] List of applications to terminate upon installation (space-separated, '-' for none) [SpringBoard]:
+Author/Maintainer Name [Craig Federighi]: Craig Federighi <notfederighi@theos.dev>
+[iphone/tweak] MobileSubstrate Bundle filter [com.apple.springboard]: 
+[iphone/tweak] List of applications to terminate upon installation (space-separated, '-' for none) [SpringBoard]: 
 Instantiating iphone/tweak in example/...
 Done.
 
