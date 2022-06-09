@@ -34,7 +34,6 @@ NIC 2.0 - New Instance Creator
   [18.] iphone/tweak_with_simple_preferences
   [19.] iphone/xpc_service
   [20.] iphone/xpc_service_modern
-Choose a Template (required):
 Choose a Template (required): 17
 Project Name (required): Example
 Package Name [com.yourcompany.example]: dev.theos.example
