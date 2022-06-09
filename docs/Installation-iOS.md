@@ -13,9 +13,9 @@ All the commands shown in the following instructions are meant to be run as the 
 
 1. Install the following prerequisites:
 
-	* If your jailbreak uses **Procursus**, ensure that you have the [Procursus repo](https://apt.procurs.us/) installed in your package manager of choice and then install the `Theos Dependencies` package from it (*not* the one available on BigBoss)
-
 	* If your jailbreak uses **Elucubratus**, ensure that you have the [Elucubratus repo](https://apt.bingner.com) installed in your package manager of choice and then install `ca-certificates`, `clang`, `coreutils`, `curl`, `dpkg`, `git`, `grep`, `ldid`, `make`, `odcctools`, `perl`, `com.bingner.plutil`, `rsync`, `unzip`, and `xz` from it if they're not installed already (*not* the packages available on BigBoss)
+
+	* If your jailbreak uses **Procursus**, ensure that you have the [Procursus repo](https://apt.procurs.us/) installed in your package manager of choice and then install the `Theos Dependencies` package from it (*not* the one available on BigBoss)
 
 	* If your jailbreak uses **Telesphoreo**, ensure that you have [Sam Bingner’s repo](http://repo.bingner.com/) installed in your package manager of choice and then install the `Theos Dependencies` package from BigBoss
 
@@ -27,20 +27,14 @@ All the commands shown in the following instructions are meant to be run as the 
 
 1. Set up the `THEOS` environment variable:
 
+	**Note**: if your device is jailbroken with checkra1n, replace "~/theos" in the command below with "/opt/theos"
+
 	bash:
 
-		# If running checkra1n
-		echo "export THEOS=/opt/theos" >> ~/.profile
-
-		# Else
 		echo "export THEOS=~/theos" >> ~/.profile
 
 	zsh:
 
-		# If running checkra1n
-		echo "export THEOS=/opt/theos" >> ~/.zshenv
-
-		# Else
 		echo "export THEOS=~/theos" >> ~/.zshenv
 
 	For this change to take effect, you must restart your shell. Kill the terminal app in the taskswitcher then re-open the terminal app and do `echo $THEOS` on your shell to check if this is working.
