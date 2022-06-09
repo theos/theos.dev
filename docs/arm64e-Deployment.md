@@ -25,6 +25,7 @@ There are two ways to overcome this:
   ```
 
   This `TARGET` variable indicates to build for iOS using the latest SDK version you have installed, deploying the binary for iOS 14.0 and newer.
+
 * **Install Xcode 11.7:** If you still plan to support versions of iOS earlier than 14.0, you will need to downgrade to Xcode 11.7.
 
   You can download Xcode 11.7 directly from Apple at the following link: [**Xcode_11.7.xip**](https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_11.7/Xcode_11.7.xip). You will need to authenticate with your Apple ID to download.
@@ -39,7 +40,7 @@ There are two ways to overcome this:
   # If you need to use the latest Xcode toolchain from the command line,
   # use --reset:
   sudo xcode-select --reset
-  
+
   # Alternatively, you can temporarily change your command line tools version
   # for just this terminal session:
   export DEVELOPER_DIR=/Applications/Xcode-11.7.app/Contents/Developer

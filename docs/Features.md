@@ -9,15 +9,15 @@ Below is a list of features implemented since the [original Theos](https://githu
 
 * Fallback/last resort headers can be placed at `include/_fallback`; this can be used to provide drop-in replacements for missing SDK headers. (rpetrich)
 * `make update-theos`, predictably enough, updates Theos to the latest commit. (rpetrich)
-* `make package FINALPACKAGE=1` will optimise assets (runs [pincrush](https://github.com/DHowett/pincrush) on PNG images, and converts plists to binary format) and generate a package with a "clean" version (ie, no build number). Recommended when building a package you’re about to release. (rpetrich/kirb)
-* `INSTALL_TARGET_PROCESSES = Preferences MobileMail` is a shortcut for killing a process. (Previously `TWEAK_TARGET_PROCESS`) (rpetrich)
+* `make package FINALPACKAGE=1` will optimise assets (converts plists to binary format) and generate a package with a "clean" version (i.e., no build number). Recommended when building a package you’re about to release. (rpetrich/kirb)
+* `INSTALL_TARGET_PROCESSES = PROCESS-NAME` is a shortcut for killing a process. (Previously `TWEAK_TARGET_PROCESS`) (rpetrich)
 * Unlike rpetrich’s fork, the internal generator (using Objective-C runtime functions directly) is changed back to the Substrate generator (using Substrate’s wrappers around the runtime functions to assure future compatibility).
 * `make do` is a shortcut for `make package install`. (rpetrich)
 * Each architecture is compiled separately, rather than all being compiled at once. This avoids some issues with the original design of Theos. (rpetrich)
 * Different SDKs can be used for different architectures, making it possible to for instance use Xcode 4.4 for armv6 compilation alongside a newer Xcode for armv7/arm64. (rpetrich)
 * All generated files are stored in `.theos`, rather than many different directories in the root of the project. (rpetrich)
 * `make clean-packages` removes non-final packages. (rpetrich)
-* Makes `dpkg-deb` use lzma compression, because the current format dpkg-deb uses (xz) is not supported by Telesphoreo’s old dpkg build. (kirb)
+* Utilise lzma compression for debs because the current format dpkg-deb uses (xz) is not supported by Telesphoreo’s old dpkg build. (kirb)
 * Packages are output to a subdirectory called `packages`. (kirb)
 * Use [hbang/headers](https://github.com/hbang/headers) as a submodule. (kirb)
 * Supports the iOS 7 simulator. (kirb)
@@ -40,7 +40,7 @@ Below is a list of features implemented since the [original Theos](https://githu
 * Makes debug builds the default. Use `make DEBUG=0`, `FOR_RELEASE=1` or `FINALPACKAGE=1` to build without debug. (kirb)
 * Bumps default deployment target to iOS 4.3 when using iOS SDK 6.0 and iOS 5.0 when using iOS SDK 7.0. (kirb)
 * Includes NIC templates from [DHowett, conradev, WillFour20](https://github.com/DHowett/theos-nic-templates); [uroboro](https://github.com/uroboro/nicTemplates); and [bensge, kirb](https://github.com/sharedInstance/iOS-7-Notification-Center-Widget-Template).
-* Supports building for iOS on Windows. (coolstar)
+* Supports building for iOS on Windows via Cygwin. (coolstar)
 * Theos symlinks are no longer made within projects. The `$THEOS` environment variable is used instead. (kirb)
 * `instance_USE_SUBSTRATE = 0` can be used to switch tweaks to the internal generator and not link against Substrate. (kirb)
 * Default rules, variables, etc. can be set in `~/.theosrc` (a makefile). (kirb)
