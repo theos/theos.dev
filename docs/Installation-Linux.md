@@ -46,14 +46,8 @@ All the commands shown in the following instructions are meant to be run as a no
 
 	With Swift support (larger toolchain size):
 
-		sudo apt install zstd
-		curl -LO https://github.com/CRKatri/llvm-project/releases/download/swift-5.3.2-RELEASE/swift-5.3.2-RELEASE-ubuntu20.04.tar.zst
-		TMP=$(mktemp -d)
-		tar -xvf swift-5.3.2-RELEASE-ubuntu20.04.tar.zst -C $TMP
-		mkdir -p $THEOS/toolchain/linux/iphone $THEOS/toolchain/swift
-		mv $TMP/swift-5.3.2-RELEASE-ubuntu20.04/* $THEOS/toolchain/linux/iphone/
-		ln -s $THEOS/toolchain/linux/iphone $THEOS/toolchain/swift
-		rm -r swift-5.3.2-RELEASE-ubuntu20.04.tar.zst $TMP
+		curl -#L https://github.com/kabiroberai/swift-toolchain-linux/releases/download/v2.1.0/swift-5.6.1-ubuntu20.04.tar.xz \
+		  | tar -xvJ -C $THEOS/toolchain
 
 	Note that compiling Swift code requires a fairly modern SDK. It is recommended that you use the latest SDK that you can get.
 
