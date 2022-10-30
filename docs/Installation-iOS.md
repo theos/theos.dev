@@ -16,7 +16,7 @@ Unless otherwise stated, all the commands shown in the following instructions ar
 	* iOS >= 12.0
 		* [Procursus](https://apt.procurs.us/) or [Sam Bingner’s repo](https://apt.bingner.com/) (this depends on the jailbreak you are using)
 	* iOS < 12.0
-		* [Coolstar's repo](https://coolstar.org/publicrepo/'), [Sam Bingner's repo](https://repo.bingner.com/), and [BigBoss](http://apt.thebigboss.org/repofiles/cydia/)
+		* [Coolstar's repo](https://coolstar.org/publicrepo/), [Sam Bingner's repo](https://repo.bingner.com/), and [BigBoss](http://apt.thebigboss.org/repofiles/cydia/)
 
 1. Install the following prerequisites<sup>1</sup> as *root*:
 
