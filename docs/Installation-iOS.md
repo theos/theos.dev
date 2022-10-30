@@ -9,45 +9,23 @@ This guide will help you install Theos on your jailbroken iOS device.
 |----------|--------------------|-------------------|
 | **iOS** | 5.0 | iOS |
 
-All the commands shown in the following instructions are meant to be run as the "mobile" user, _not_ root. Similarly, Theos is also meant to be run as a normal user, _not_ root.
+Unless otherwise stated, all the commands shown in the following instructions are meant to be run as a normal user, _not_ root. Similarly, Theos is also meant to be run as a normal user, _not_ root.
 
-1. Install the following prerequisites:
+1. Check that you have the necessary repos installed in your package manager:
 
-	* [Procursus](https://apt.procurs.us/) or [Sam Bingner’s repository](http://repo.bingner.com/)
-	* Theos Dependencies (package on either the Procursus or BigBoss repo, relies on the previous repository being installed first)
+	* iOS >= 12.0
+		* [Procursus](https://apt.procurs.us/) or [Sam Bingner’s repository](http://repo.bingner.com/) (this depends on the jailbreak you are using)
+	* iOS < 12.0
+		* [Coolstar's repo](https://coolstar.org/publicrepo/'), [Sam Bingner's repo](https://repo.bingner.com/), and [BigBoss](http://apt.thebigboss.org/repofiles/cydia/)
 
-1. Set up the `THEOS` environment variable:
+1. Install the following prerequisites<sup>1</sup> as *root*:
 
-	bash:
+		apt-get install bash curl sudo
 
-		echo "export THEOS=~/theos" >> ~/.profile
+	<sup>
+	<sup>1</sup> In order to use <i>sudo</i>, your non-root user will have to be added to the sudoers file (/etc/sudoers). For more information, see <a href=https://wiki.archlinux.org/title/Sudo#Example_entries>here</a>.
+	</sup>
 
-	zsh:
+1. Run the installer:
 
-		echo "export THEOS=~/theos" >> ~/.zshenv
-
-	For this change to take effect, you must restart your shell. Kill the terminal app in the taskswitcher then re-open the terminal app and do `echo $THEOS` on your shell to check if this is working.
-
-1. Clone Theos to your device:
-
-		git clone --recursive https://github.com/theos/theos.git $THEOS
-
-1. Get the toolchain:
-
-	Theos Dependencies installs iOS Toolchain.
-
-1. Get an iOS SDK:
-
-	You can get patched SDKs from [our SDKs repo](https://github.com/theos/sdks).
-
-		curl -LO https://github.com/theos/sdks/archive/master.zip
-		TMP=$(mktemp -d)
-		unzip master.zip -d $TMP
-		mv $TMP/sdks-master/*.sdk $THEOS/sdks
-		rm -r master.zip $TMP
-
-1. Install the Swift toolchain (optional):
-
-	Install `swift` if using Procursus, else install `swift-toolchain` from the BigBoss repo.
-
-	Note that compiling Swift code requires a fairly modern SDK. It is recommended that you use the latest SDK that you can get.
+		bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
