@@ -12,9 +12,9 @@ For more information on pointer authentication, refer to the [official documenta
 ## Building for iOS 12.0–13.7
 You may have been directed here by the following warning output by Theos:
 
-> **Warning:** Building for iOS 7.0, but the current toolchain can’t produce arm64e binaries for iOS earlier than 14.0. More information: https://github.com/theos/theos/wiki/arm64e-Deployment
+> **Warning:** Building for iOS 7.0, but the current toolchain can’t produce arm64e binaries for iOS earlier than 14.0. More information: https://theos.dev/docs/arm64e-deployment
 
-With iOS 14.0 and Xcode 12.0 (or clang 1200 and newer for toolchains on other platforms), the ABI (application binary interface) of arm64e changed. Binaries built with this version of the compiler will *not* be compatible with the arm64e implementation on iOS 12.0–13.7.
+With iOS 14.0 and Xcode 12.0 (or clang 12.0.0 and newer for toolchains on other platforms), the ABI (application binary interface) of arm64e changed. Binaries built with this version of the compiler will *not* be compatible with the arm64e implementation on iOS 12.0–13.7.
 
 There are two ways to overcome this:
 
