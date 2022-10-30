@@ -9,7 +9,7 @@ This guide will help you install Theos on your macOS device.
 |----------|--------------------|-------------------|
 | **macOS** | Mavericks (10.9) | macOS, iOS, watchOS, tvOS, and simulators |
 
-All the commands shown in the following instructions are meant to be run as a normal user, _not_ root. Similarly, Theos is also meant to be run as a normal user, _not_ root.
+All of the commands shown in the following instructions are meant to be run as a normal user, _not_ root. Similarly, Theos is meant to be run as a normal user, _not_ root.
 
 1. Install the following prerequisites:
 
