@@ -23,7 +23,7 @@ Unless otherwise stated, all of the commands shown in the following instructions
 		apt-get install bash curl sudo
 
 	<sup>
-	<sup>1</sup> In order to use <i>sudo</i>, your non-root user will have to be added to the sudoers file (/etc/sudoers). For more information, see [here](https://wiki.archlinux.org/title/Sudo#Example_entries).
+	<sup>1</sup> In order to use <i>sudo</i>, your non-root user will have to be added to the sudoers file (/etc/sudoers). For more information, see <a href=https://wiki.archlinux.org/title/Sudo#Example_entries>here</a>.
 	</sup>
 
 1. Run the installer:
