@@ -42,36 +42,87 @@ The various public (i.e. configurable) variable types are as follows:
 *Note: "XXX" = $(THEOS_CURRENT_INSTANCE)_NAME*
 
 - XXX_INSTALL_PATH (str)
+  - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc)
+
 - XXX_FILES (str)
+  - Files to compile
+
 - XXX_CFLAGS (str)
+  - Flags to pass to compiler
+
 - XXX_LDFLAGS (str)
+  - Flags to pass to linker
+
 - XXX_BUNDLE_RESOURCE_DIRS (str)
+  - File path(s) for the current bundle's resource directory
+
 - XXX_BUNDLE_RESOURCE_FILES (str)
+  - File path(s) for the current bundle's resource files
+
 - XXX_BUNDLE_INSTALL_PATH (str)
-- XXX_LOCAL_BUNDLE_NAME (str)
+  - File path where you'd like to install the final bundle product
+
 - XXX_BUNDLE_NAME (str)
-- XXX_LOCAL_BUNDLE_EXTENSION (str)
+  - Name of your bundle
+
 - XXX_BUNDLE_EXTENSION (str)
-- XXX_LOCAL_INSTALL_PATH (str)
+  - The file extension for your bundle
+
 - XXX_FRAMEWORKS (str)
-- XXX_LIBRARIES (str)
+  - Frameworks to link against
+
 - XXX_PRIVATE_FRAMEWORKS (str)
-- XXX_NAME (str)
-- XXX_WITH_SUBPROJECTS
-- XXX_LIBRARY_EXTENSION (str)
-- XXX_WEAK_FRAMEWORKS (str)
-- XXX_WEAK_LIBRARIES (str)
+  - Private frameworks to link against
+
 - XXX_EXTRA_FRAMEWORKS (str)
+  - Frameworks in $THEOS/lib that you'd like to link against
+
+- XXX_LIBRARIES (str)
+  - Libraries to link against
+
+- XXX_NAME (str)
+  - Your project's name
+
+- XXX_WITH_SUBPROJECTS ----- **internal ?**
+
+- XXX_LIBRARY_EXTENSION (str)
+  - The file extension for your library
+
+- XXX_WEAK_FRAMEWORKS (str)
+  - Frameworks to weak link against
+
+- XXX_WEAK_LIBRARIES (str)
+  - Libraries to weak link against
+
 - XXX_GENERATOR (str)
+  - The logos generator you'd like to use
+  - See https://theos.dev/docs/logos-syntax
+
 - XXX_OBJCC_FILES (str)
+  - Objective-C++ files you'd like to compile
+
 - XXX_OBJC_FILES (str)
+  - Objective-C files you'd like to compile
+
 - XXX_C_FILES (str)
+  - C files you'd like to compile
+
 - XXX_CC_FILES (str)
+  - C++ files you'd like to compile
+
 - XXX_LOGOS_FILES (str)
+  - Logos files you'd like to compile
+  - See https://theos.dev/docs/logos-file-extensions
+
 - XXX_USE_SUBSTRATE
+  - Use MobileSubstrate as the logos generator
+  - Will link against CydiaSubstrate
+
 - TWEAK_TARGET_PROCESS (str)
-- SUBPROJECT_OBJ_FILES (str)
-- SUBPROJECT_LDFLAGS (str)
+  - Target process to `killall` after your tweak installs
+
+- SUBPROJECT_OBJ_FILES (str) ----- **internal ?**
+- SUBPROJECT_LDFLAGS (str) ----- **internal ?**
 
 ## Local Variables
 
@@ -172,6 +223,8 @@ The various public (i.e. configurable) variable types are as follows:
 - ARCH_FILES_TO_LINK (str)
 - SHOULD_STRIP (bool)
 - TARGET_CFLAGS_DYNAMICLIB (str)
+- LOCAL_BUNDLE_NAME (str)
+- LOCAL_BUNDLE_EXTENSION (str)
 
 ## System Variables
 
