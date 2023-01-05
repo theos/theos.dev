@@ -12,7 +12,7 @@
       link: /docs/Installation-Linux.html
     - title: Upgrading from legacy Theos
       link: /docs/Upgrading-from-legacy-Theos.html
-      
+
 - title: Usage
   list:
     - title: Commands
@@ -43,6 +43,8 @@
   list:
     - title: Structure
       link: /docs/Structure.html
+    - title: Variables
+      link: /docs/Variables.html
 
 - title: Help
   link: /docs/Help.html

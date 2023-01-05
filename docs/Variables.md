@@ -46,18 +46,23 @@ The various public (i.e. configurable) variable types are as follows:
 
 - XXX_FILES (str)
   - Files to compile
+  - Space-separated list or any other standard GNU Make conventions
 
 - XXX_CFLAGS (str)
   - Flags to pass to compiler
+  - Space-separated list
 
 - XXX_LDFLAGS (str)
   - Flags to pass to linker
+  - Space-separated list
 
 - XXX_BUNDLE_RESOURCE_DIRS (str)
   - File path(s) for the current bundle's resource directory
+  - Space-separated list or any other standard GNU Make conventions
 
 - XXX_BUNDLE_RESOURCE_FILES (str)
   - File path(s) for the current bundle's resource files
+  - Space-separated list or any other standard GNU Make conventions
 
 - XXX_BUNDLE_INSTALL_PATH (str)
   - File path where you'd like to install the final bundle product
@@ -70,15 +75,19 @@ The various public (i.e. configurable) variable types are as follows:
 
 - XXX_FRAMEWORKS (str)
   - Frameworks to link against
+  - Space-separated list
 
 - XXX_PRIVATE_FRAMEWORKS (str)
   - Private frameworks to link against
+  - Space-separated list
 
 - XXX_EXTRA_FRAMEWORKS (str)
   - Frameworks in $THEOS/lib that you'd like to link against
+  - Space-separated list
 
 - XXX_LIBRARIES (str)
   - Libraries to link against
+  - Space-separated list
 
 - XXX_NAME (str)
   - Your project's name
@@ -90,9 +99,11 @@ The various public (i.e. configurable) variable types are as follows:
 
 - XXX_WEAK_FRAMEWORKS (str)
   - Frameworks to weak link against
+  - Space-separated list
 
 - XXX_WEAK_LIBRARIES (str)
   - Libraries to weak link against
+  - Space-separated list
 
 - XXX_GENERATOR (str)
   - The logos generator you'd like to use
@@ -100,26 +111,32 @@ The various public (i.e. configurable) variable types are as follows:
 
 - XXX_OBJCC_FILES (str)
   - Objective-C++ files you'd like to compile
+  - Space-separated list or any other standard GNU Make conventions
 
 - XXX_OBJC_FILES (str)
   - Objective-C files you'd like to compile
+  - Space-separated list or any other standard GNU Make conventions
 
 - XXX_C_FILES (str)
   - C files you'd like to compile
+  - Space-separated list or any other standard GNU Make conventions
 
 - XXX_CC_FILES (str)
   - C++ files you'd like to compile
+  - Space-separated list or any other standard GNU Make conventions
 
 - XXX_LOGOS_FILES (str)
   - Logos files you'd like to compile
   - See https://theos.dev/docs/logos-file-extensions
+  - Space-separated list or any other standard GNU Make conventions
 
-- XXX_USE_SUBSTRATE
+- XXX_USE_SUBSTRATE (bool)
   - Use MobileSubstrate as the logos generator
   - Will link against CydiaSubstrate
 
 - TWEAK_TARGET_PROCESS (str)
   - Target process to `killall` after your tweak installs
+  - Space-separated list
 
 - SUBPROJECT_OBJ_FILES (str) ----- **internal ?**
 - SUBPROJECT_LDFLAGS (str) ----- **internal ?**
