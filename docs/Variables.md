@@ -95,14 +95,15 @@ The various public (i.e. configurable) variable types are as follows:
 - XXX_WITH_SUBPROJECTS ----- **internal ?**
 
 - XXX_LIBRARY_EXTENSION (str)
-  - The file extension for your library
+  - The file extension for your library/tweak
+  - "-" for no extension
 
 - XXX_WEAK_FRAMEWORKS (str)
-  - Frameworks to weak link against
+  - Frameworks to [weak link](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WeakLinking.html#//apple_ref/doc/uid/20002378-107026) against
   - Space-separated list
 
 - XXX_WEAK_LIBRARIES (str)
-  - Libraries to weak link against
+  - Libraries to [weak link](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WeakLinking.html#//apple_ref/doc/uid/20002378-107026) against
   - Space-separated list
 
 - XXX_GENERATOR (str)
@@ -346,8 +347,8 @@ The various public (i.e. configurable) variable types are as follows:
 - ADDITIONAL_CPPFLAGS (str)
   - Additional flag(s) passed to CXX for c++ code
 
-- USE_DEPS (str)
-  - Toggle dependency tracking
+- USE_DEPS (bool)
+  - Toggle dependency tracking (i.e. makedeps)
   - Compiler writes headers to $THEOS_OBJ_DIR/*.Td
 
 - MDFLAGS (str)
@@ -422,4 +423,4 @@ The various public (i.e. configurable) variable types are as follows:
 
 ## Notes
 
-[1] - $(THEOS)/include/_fallback
+[1] - $(THEOS)/include/_fallback can be used to provide drop-in replacements for missing SDK headers.
