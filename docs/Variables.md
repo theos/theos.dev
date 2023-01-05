@@ -131,7 +131,7 @@ The various public (i.e. configurable) variable types are as follows:
   - Space-separated list or any other standard GNU Make convention
 
 - XXX_USE_SUBSTRATE (bool)
-  - Use MobileSubstrate as the logos generator
+  - Toggle using MobileSubstrate as the logos generator
   - Will link against CydiaSubstrate
 
 - XXX_ARCHS (str)
@@ -150,11 +150,10 @@ The various public (i.e. configurable) variable types are as follows:
 ## Local Variables
 
 - ARCHS (str)
-  - Architecture(s) to build for
-  - Space-separated list
+  - Space-separated list of architecture(s) to build for
 
 - DEBUG (bool)
-  - Enable debug symbols
+  - Toggle including debug symbols
   - Will add `+debug` to the package name
 
 - FINALPACKAGE (bool)
@@ -166,7 +165,7 @@ The various public (i.e. configurable) variable types are as follows:
   - Same as FINALPACKAGE
 
 - STRIP (bool)
-  - Strip debug symbols
+  - Toggle stripping debug symbols
 
 - PACKAGE_FORMAT (str)
   - Type of package to build
@@ -187,7 +186,7 @@ The various public (i.e. configurable) variable types are as follows:
   - Additional string added to the package name (e.g. debug for DEBUG=1)
 
 - TARGET_INSTALL_REMOTE (bool)
-  - Specifies whether the install target is remote or local
+  - Toggles whether the install target is remote or local
 
 - PREINSTALL_TARGET_PROCESSES (str)
   - Target process(es) to `killall` *before* package install
@@ -217,7 +216,7 @@ The various public (i.e. configurable) variable types are as follows:
   - Optimization level passed to `swift`
 
 - GO_EASY_ON_ME (bool)
-  - Quiets all errors
+  - Toggle quieting all errors
   - Bad practice and in the process of being deprecated
     - Migrate to Clang directives (e.g., -Wno-<blah> or #pragma clang diagnostic)
 
@@ -354,12 +353,14 @@ The various public (i.e. configurable) variable types are as follows:
 - MDFLAGS (str)
   - Flags passed for makedeps
 
-- ARCH_FILES_TO_LINK (str)
-- SHOULD_STRIP (bool)
-- TARGET_CFLAGS_DYNAMICLIB (str)
 - LOCAL_BUNDLE_NAME (str)
-- LOCAL_BUNDLE_EXTENSION (str)
+  - Name for the current project instance's bundle
 
+- LOCAL_BUNDLE_EXTENSION (str)
+  - File extension for the current project instance's bundle
+
+- SHOULD_STRIP (bool) ----- **internal ?**
+- ARCH_FILES_TO_LINK (str) ----- **internal ?**
 - TARGET_ARCHS (str) ----- **internal ?**
 - PREPROCESS_ARCH_FLAGS (str)  ----- **internal ?**
 - OBJ_FILES_TO_LINK (str) ----- **internal ?**
