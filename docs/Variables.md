@@ -46,7 +46,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 - XXX_FILES (str)
   - Files to compile
-  - Space-separated list or any other standard GNU Make conventions
+  - Space-separated list or any other standard GNU Make convention
 
 - XXX_CFLAGS (str)
   - Flags to pass to compiler
@@ -58,11 +58,11 @@ The various public (i.e. configurable) variable types are as follows:
 
 - XXX_BUNDLE_RESOURCE_DIRS (str)
   - File path(s) for the current bundle's resource directory
-  - Space-separated list or any other standard GNU Make conventions
+  - Space-separated list or any other standard GNU Make convention
 
 - XXX_BUNDLE_RESOURCE_FILES (str)
   - File path(s) for the current bundle's resource files
-  - Space-separated list or any other standard GNU Make conventions
+  - Space-separated list or any other standard GNU Make convention
 
 - XXX_BUNDLE_INSTALL_PATH (str)
   - File path where you'd like to install the final bundle product
@@ -111,28 +111,34 @@ The various public (i.e. configurable) variable types are as follows:
 
 - XXX_OBJCC_FILES (str)
   - Objective-C++ files you'd like to compile
-  - Space-separated list or any other standard GNU Make conventions
+  - Space-separated list or any other standard GNU Make convention
 
 - XXX_OBJC_FILES (str)
   - Objective-C files you'd like to compile
-  - Space-separated list or any other standard GNU Make conventions
+  - Space-separated list or any other standard GNU Make convention
 
 - XXX_C_FILES (str)
   - C files you'd like to compile
-  - Space-separated list or any other standard GNU Make conventions
+  - Space-separated list or any other standard GNU Make convention
 
 - XXX_CC_FILES (str)
   - C++ files you'd like to compile
-  - Space-separated list or any other standard GNU Make conventions
+  - Space-separated list or any other standard GNU Make convention
 
 - XXX_LOGOS_FILES (str)
   - Logos files you'd like to compile
   - See https://theos.dev/docs/logos-file-extensions
-  - Space-separated list or any other standard GNU Make conventions
+  - Space-separated list or any other standard GNU Make convention
 
 - XXX_USE_SUBSTRATE (bool)
   - Use MobileSubstrate as the logos generator
   - Will link against CydiaSubstrate
+
+- XXX_ARCHS (str)
+  - Space-separated list of architecture(s) to build for
+
+- XXX_ENABLE_BITCODE (bool) **[OSX]**
+  - Toggle Bitcode
 
 - TWEAK_TARGET_PROCESS (str)
   - Target process to `killall` after your tweak installs
@@ -144,104 +150,221 @@ The various public (i.e. configurable) variable types are as follows:
 ## Local Variables
 
 - ARCHS (str)
+  - Architecture(s) to build for
+  - Space-separated list
+
 - DEBUG (bool)
+  - Enable debug symbols
+  - Will add `+debug` to the package name
+
 - FINALPACKAGE (bool)
-- STRIP (bool)
-- PACKAGE_FORMAT (str)
-- DEB_ARCH (str)
-- TARGET (str)             (see target.mk)
+  - Strips debug symbols (i.e., disable DEBUG)
+  - Removes incremental version from package name
+  - Optimizes xml/plist files to bplist
+
 - FOR_RELEASE (bool)
+  - Same as FINALPACKAGE
+
+- STRIP (bool)
+  - Strip debug symbols
+
+- PACKAGE_FORMAT (str)
+  - Type of package to build
+  - `deb`, `ipa`, `pkg`, `rpm`, or `none`
+
+- TARGET (str)
+  - Required build configuration items
+  - Format `platform:compiler:sdk_version:deployment_version`
+
 - PREFIX (str)
-- INSTALL_PREFIX (str)
+  - Path to your toolchain bin
+  - Often used on OSX to switch between xctoolchains
+
 - PACKAGE_VERSION (num)
+  - Your package version
+
 - PACKAGE_BUILDNAME (str)
+  - Additional string added to the package name (e.g. debug for DEBUG=1)
+
 - TARGET_INSTALL_REMOTE (bool)
+  - Specifies whether the install target is remote or local
+
 - PREINSTALL_TARGET_PROCESSES (str)
+  - Target process(es) to `killall` *before* package install
+
 - INSTALL_TARGET_PROCESSES (str)
+  - Target process(es) to `killall` *after* package install
+
 - DEBUGFLAG (str)
+  - Debug flag passed to the linker (default =-ggdb)
+
 - SWIFT_DEBUGFLAG (str)
-- DEBUG.CFLAGS (str)
-- DEBUG.SWIFTFLAGS (str)
-- DEBUG.LDFLAGS (str)
+  - Debug flag passed to the linker (default =-g)
+
+- DEBUG.CFLAGS (str) ----- **unused ?**
+  - Debug flag(s) passed to the compiler (default =-DDEBUG -O0)
+
+- DEBUG.SWIFTFLAGS (str) ----- **unused ?**
+  - Debug flag(s) passed to `swift` (default =-DDEBUG -Onone)
+
+- DEBUG.LDFLAGS (str) ----- **unused ?**
+  - Debug flag(s) passed to the linker (default =-O0)
+
 - OPTFLAG (str)
+  - Optimization level passed to compiler/linker
+
 - SWIFT_OPTFLAG (str)
+  - Optimization level passed to `swift`
+
 - GO_EASY_ON_ME (bool)
+  - Quiets all errors
+  - Bad practice and in the process of being deprecated
+    - Migrate to Clang directives (e.g., -Wno-<blah> or #pragma clang diagnostic)
+
 - MAKEFLAGS (str)
-- FAKEROOT (str)
+  - Flags passed to your make invocation
+
+- FAKEROOT (str) ----- **internal ?**
+
 - LEGACYFLAGS (str)
+  - Flags passed to compiler and linker if building for legacy platforms (e.g., armv6, armv7, and/or armv7s or iOS < 9)
+
 - NEUTRAL_ARCH (str)
+  - Fallback arch(s) if ARCHS is empty and not set by the platform's respective target makefile
+
 - SYSROOT (str)
+  - SYSROOT directory passed to linker
+
 - ISYSROOT (str)
+  - Include SYSROOT passed to compiler
+
 - TARGET_PRIVATE_FRAMEWORK_PATH (str)
+  - Private framework directory within specified SYSROOT
+
 - TARGET_PRIVATE_FRAMEWORK_INCLUDE_PATH (str)
+  - Private framework directory within specified ISYSROOT
+
 - MODULESFLAGS (str)
+  - Flags used to enable and make use of [clang modules](https://clang.llvm.org/docs/Modules.html#using-modules)
+
 - VERSIONFLAGS (str)
-- TARGET_SWIFT (str)
-- TARGET_DSYMUTIL (str)
-- TARGET_STRIP_FLAGS  (str)
-- TARGET_CC (str)
-- TARGET_CXX (str)
-- TARGET_LD (str)
-- TARGET_LIPO (str)
-- TARGET_STRIP (str)
-- TARGET_CODESIGN_ALLOCATE (str)
-- TARGET_LIBTOOL (str)
-- TARGET_XCODEBUILD (str)
-- TARGET_XCPRETTY (str)
+  - Platform-dependent target/version-min flags passed to compiler and linker
+
 - SWIFTBINPATH (str)
-- TARGET_CODESIGN_FLAGS (str)
+  - Parent directory for `swift` binary (default =$THEOS/toolchain/swift/bin/)
+
+- TARGET_SWIFT (str)
+  - Target `swift` binary (default =SWIFTBINPATH/`swift`)
+
+- TARGET_DSYMUTIL (str)
+  - Target `dsymutil` binary (default =`dsymutil`/`llvm-dsymutil`)
+
+- TARGET_STRIP_FLAGS (str)
+  - Strip flag(s) to use
+
+- TARGET_CC (str)
+  - Target CC binary (default =`clang`/`gcc`)
+
+- TARGET_CXX (str)
+  - Target CXX binary (default =`clang`/`gcc`)
+
+- TARGET_LD (str)
+  - Target LD binary (default =TARGET_CXX)
+
+- TARGET_LIPO (str)
+  - Target `lipo` binary (default =`lipo`)
+
+- TARGET_STRIP (str)
+  - Target `strip` binary (default =`strip`)
+
+- TARGET_CODESIGN_ALLOCATE (str)
+  - Target `codesign_allocate` binary
+
+- TARGET_LIBTOOL (str)
+  - Target `libtool` binary
+
+- TARGET_XCODEBUILD (str) **[OSX]**
+  - Target `xcodebuild` binary
+
+- TARGET_XCPRETTY (str) **[OSX]**
+  - Target `xcpretty` binary
+
 - TARGET_CODESIGN (str)
+  - Target codesign binary (default =`codesign`/`ldid`)
+
+- TARGET_CODESIGN_FLAGS (str)
+  - Target codesign flag(s)
+
 - TARGET_EXE_EXT (str)
+  - Target Windows executable extenstion (default =.exe)
+
 - TARGET_LIB_EXT (str)
+  - Target dynamic/shared library extension
+
 - TARGET_AR_EXT (str)
+  - Target static archive extension (default =.a)
+
 - TARGET_LDFLAGS_DYNAMICLIB (str)
+  - Target linker flag(s) to enable dynamic libraries
+
 - TARGET_CFLAGS_DYNAMICLIB (str)
-- CROSS_COMPILE
+  - Target compiler flag(s) to enable dynamic libraries
+
+- CROSS_COMPILE (str)
+  - Enables cross-compilation for TARGET_CC, TARGET_CXX, TARGET_LD, and TARGET_STRIP on compatbile host/target platform pairs
+  - Is triple prefix for target platform (prepended to aforementioned binaries)
+
 - SDKBINPATH (str)
+  - Toolchain bin path for target platform
+
 - WATCHOS_SIMULATOR_ROOT (str)
+  - The root directory of the simulated OS
+
 - IPHONE_SIMULATOR_ROOT (str)
-- VERSIONFLAGS (str)
+  - The root directory of the simulated OS
+
 - APPLETV_SIMULATOR_ROOT (str)
+  - The root directory of the simulated OS
+
 - SUBPROJECTS (str)
-- ALL_XCODEFLAGS (str)
-- ALL_XCODEOPTS (str)
-- CODE_SIGNING_ALLOWED (bool) **[xcode]**
-- ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES (bool) **[xcode]**
-- ENABLE_BITCODE (bool) **[xcode]**
-- DSTROOT (str) **[xcode]**
-- EXPANDED_CODE_SIGN_IDENTITY_NAME (str) **[xcode]**
-- EXPANDED_CODE_SIGN_IDENTITY (str) **[xcode]**
+  - Directory names of subprojects to build alongside the root project
+
+- ALL_XCODEFLAGS (str) ----- **internal ?**
+- ALL_XCODEOPTS (str) ----- **internal ?**
+- EXPANDED_CODE_SIGN_IDENTITY_NAME (str) **[OSX]** ----- **unused ?**
+- EXPANDED_CODE_SIGN_IDENTITY (str) **[OSX]** ----- **unused ?**
+
 - LOCAL_INSTALL_PATH (str)
+  - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc)
+  - (default =XXX_INSTALL_PATH)
+
 - LOGOS_DEFAULT_GENERATOR (str)
-- OBJ_FILES (str)
-- OBJC_FILES (str)
-- OBJCC_FILES (str)
-- SWIFT_FILES (str)
-- OBJ_FILES_TO_LINK (str)
-- ADDITIONAL_CPPFLAGS (str)
-- TARGET_ARCHS (str)
-- ALL_ARCHFLAGS (str)
-- PREPROCESS_ARCH_FLAGS (str)
-- ALL_PFLAGS (str)
+  - Default generator passed to logos (default =MobileSubstrate)
+
 - ADDITIONAL_CFLAGS (str)
-- ALL_CFLAGS (str)
-- ALL_CCFLAGS (str)
-- ALL_OBJCFLAGS (str)
-- ALL_OBJCCFLAGS (str)
-- ALL_SWIFTFLAGS (str)
-- ALL_LOGOSFLAGS (str)
-- ALL_LDFLAGS (str)
-- ALL_STRIP_FLAGS (str)
+  - Additional flag(s) passed to CC for c code
+
+- ADDITIONAL_CPPFLAGS (str)
+  - Additional flag(s) passed to CXX for c++ code
+
 - USE_DEPS (str)
-- ALL_DEPFLAGS (str)
-- ALL_DEPFLAGS_SWIFT (str)
-- DEP_FILES (str)
+  - Toggle dependency tracking
+  - Compiler writes headers to $THEOS_OBJ_DIR/*.Td
+
 - MDFLAGS (str)
+  - Flags passed for makedeps
+
 - ARCH_FILES_TO_LINK (str)
 - SHOULD_STRIP (bool)
 - TARGET_CFLAGS_DYNAMICLIB (str)
 - LOCAL_BUNDLE_NAME (str)
 - LOCAL_BUNDLE_EXTENSION (str)
+
+- TARGET_ARCHS (str) ----- **internal ?**
+- PREPROCESS_ARCH_FLAGS (str)  ----- **internal ?**
+- OBJ_FILES_TO_LINK (str) ----- **internal ?**
+- ALL_*FLAGS * (str) ----- **internal ?**
+- *_FILES (str) ----- **internal ?**
 
 ## System Variables
 
