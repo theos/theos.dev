@@ -57,11 +57,13 @@ The various public (i.e. configurable) variable types are as follows:
   - Space-separated list
 
 - XXX_BUNDLE_RESOURCE_DIRS (str)
-  - File path(s) for the current bundle's resource directory
+  - File path(s) for the current bundle's resource directory (default =Resources)
+    - Adding a `Resources` folder to your project will copy over the containing files to the bundle on the target device during install
   - Space-separated list or any other standard GNU Make convention
 
 - XXX_BUNDLE_RESOURCE_FILES (str)
   - File path(s) for the current bundle's resource files
+    - This can be used to copy a directory itself into the bundle, while XXX_BUNDLE_RESOURCE_DIRS copies the directory's *contents* into the bundle
   - Space-separated list or any other standard GNU Make convention
 
 - XXX_BUNDLE_INSTALL_PATH (str)
@@ -140,6 +142,9 @@ The various public (i.e. configurable) variable types are as follows:
 
 - XXX_ENABLE_BITCODE (bool) **[OSX]**
   - Toggle Bitcode
+
+- File.extension_CFLAGS (str)
+  - Flag(s) to pass to the compiler when compiling a specific file
 
 - TWEAK_TARGET_PROCESS (str)
   - Target process to `killall` after your tweak installs
@@ -371,56 +376,148 @@ The various public (i.e. configurable) variable types are as follows:
 ## System Variables
 
 - THEOS_STAGING_DIR (str)
+  - File path for directory to house stage bits and pieces (default =.theos/_/)
+
 - THEOS_STAGING_DIR_NAME (str)
+  - Name for the staging directory (default =_)
+
 - THEOS_LAYOUT_DIR (str)
+  - File path for directory to house items to move onto the target's filesystem during install (default =$THEOS_PROJECT_DIR/layout/)
+  - The containing directory structure is used as an install guide
+    - Exception to this is layout/DEBIAN/ which is often used to install Debian-related files.
+      - Such files include a `control` file, which will added to the `status` file (i.e. /var/lib/dpkg/status) on-device, and [maintainer scripts](https://wiki.debian.org/MaintainerScripts), which will be placed in /var/lib/dpkg/info/.
+
 - THEOS_LAYOUT_DIR_NAME (str)
+  - Name for the layout directory (default =layout)
+
 - THEOS_BUILD_DIR (str)
+  - File path for directory to house bits and pieces relevant to building (default =./)
+
 - THEOS_OBJ_DIR (str)
+  - File path for directory to house object files (default =.theos/obj/)
+
 - THEOS_OBJ_DIR_NAME (str)
+  - Name for the object directory (default =obj/$THEOS_CURRENT_ARCH)
+
 - THEOS_PACKAGE_DIR (str)
+  - File path for directory to house built packages (default =$THEOS_BUILD_DIR/packages/)
+
 - THEOS_PACKAGE_DIR_NAME (str)
-- THEOS_PACKAGE_FILENAME (str)
+  - Name for the packages directory (default =packages/)
+
 - THEOS_PACKAGE_NAME (str)
+  - Name of the current project as provied by `Package:` in the `control` file
+
 - THEOS_PACKAGE_ARCH (str)
+  - Architecture of the current project as provied by `Architecture:` in the `control` file
+
 - THEOS_PACKAGE_BASE_VERSION (num)
+  - Version of the current project as provied by `Version:` in the `control` file
+
 - THEOS_DEVICE_USER (str)
+  - User to use when installing to target device (default =root)
+
 - THEOS_DEVICE_IP (num)
+  - IP to use when installing to target device
+
 - THEOS_DEVICE_PORT (num)
+  - Port to use when installing to target device
+    - Left up to ssh to determine default or user to provide
+
 - THEOS_SUDO_COMMAND (str)
+  - Target `sudo` binary (default =`sudo`)
+
 - THEOS_CURRENT_ARCH (str)
+  - Current architecture being targeted in build process
+
 - THEOS_TARGET_NAME (str)
-- THEOS_SUBPROJECT_PRODUCT (str)
+  - Lowercase name of the target platform
+
+- THEOS_SUBPROJECT_PRODUCT (str) ----- **internal ?**
+
 - THEOS_SCHEMA (str)
+  - Schema to build for "Release," "Debug," or ""
+    - This will adjust what variables are enabled/disabled in Theos' internal configuration
+
 - THEOS_PLATFORM_NAME (str)
+  - Lowercase name of the current host platform (default =$(uname))
+
 - THEOS_RSYNC_EXCLUDES (str)
+  - Files/file extensions to exclude in the `rsync` copy commands used throughout the project
+
 - THEOS_LINKAGE_TYPE (str)
+  - Type of linking to use (default =dynamic)
+    - Alternative is static
+
 - THEOS_PLATFORM_SDK_ROOT (str)
+  - SDK path for a specific platform (default =$(shell xcode-select -print-path))
+
 - THEOS_PLATFORM_DEB_COMPRESSION_LEVEL (num)
-  - [0-9]
+  - Compression level to use with `dm.pl` (Theos' `dpkg-deb` drop-in)
+  - Allowed levels are 0 to 9
+    - See https://github.com/theos/dm.pl#options
+
 - THEOS_PLATFORM_DEB_COMPRESSION_TYPE (str)
+  - Compression format to use with `dm.pl` (Theos' `dpkg-deb` drop-in)
+  - Allowed formats are gzip (default), bzip2, lzma, xz and cat (no compression)
+    - See https://github.com/theos/dm.pl#options
+
 - THEOS_USE_PARALLEL_BUILDING (bool)
+  - Toggles parallel building
+    - Will *greatly* speed up build time
+    - Requires `Make` >= 4.0
+
 - THEOS_IGNORE_PARALLEL_BUILDING_NOTICE (bool)
-- THEOS_SHARED_BUNDLE_BINARY_PATH (str)
-- THEOS_SHARED_BUNDLE_RESOURCE_PATH (str)
-- THEOS_SHARED_BUNDLE_HEADERS_PATH (str)
+  - Toggles the notice to update Make so parallel builds can be used (default ="")
+
+- THEOS_SHARED_BUNDLE_BINARY_PATH (str) ----- **internal ?**
+- THEOS_SHARED_BUNDLE_RESOURCE_PATH (str) ----- **internal ?**
+- THEOS_SHARED_BUNDLE_HEADERS_PATH (str) ----- **internal ?**
 
 ## System Constants
 
 - THEOS (str)
+  - Root location for Theos and all of its files
+    - This should be set in your shell profile
+      - Either $HOME/theos/ or ~/theos/ or /opt/theos/
+
 - THEOS_BIN_PATH (str)
+  - Location for tools provided by Theos (default =$THEOS/bin/)
+
 - THEOS_LIBRARY_PATH (str)
+  - Location for the user to provide libraries for use with Theos (default =$THEOS/lib/)
+
 - THEOS_TARGET_LIBRARY_PATH (str)
+  - Location for the user to provide libraries and frameworks for use with a specific target and Theos (default =$THEOS_LIBRARY_PATH/$THEOS_TARGET_NAME/)
+
 - THEOS_VENDOR_LIBRARY_PATH (str)
+  - Location for the libraries and frameworks provided by Theos (default =$THEOS/vendor/lib/)
+
 - THEOS_INCLUDE_PATH (str)
-- THEOS_VENDOR_INCLUDE_PATH (str)
+  - Location for headers provided by Theos (default =$THEOS/include/)
+
 - THEOS_TARGET_INCLUDE_PATH (str)
-- THEOS_FALLBACK_INCLUDE_PATH<sup>[1]</sup> (str)
+  - Location for the user to provide headers for use with a specific target and Theos (default =$THEOS_INCLUDE_PATH/$THEOS_TARGET_NAME/)
+
+- THEOS_VENDOR_INCLUDE_PATH (str)
+  - Location for the headers provided by Theos (default =$THEOS/vendor/include/)
+
+- THEOS_FALLBACK_INCLUDE_PATH (str)
+  - Location that can be used to provide drop-in replacements for missing SDK headers (default =$THEOS_INCLUDE_PATH/_fallback/)
+
 - THEOS_MODULE_PATH (str)
+  - Location for users to place modules in (default =$THEOS/mod/)
+
 - THEOS_SDKS_PATH (str)
+  - Location for SDKs provided by Theos (default =$THEOS/sdks/)
+    - These SDKs should be patched (i.e. include private frameworks)
+
 - THEOS_MAKE_PATH (str)
+  - Location for Makefiles that make up Theos (default =$THEOS/makefiles/)
+
 - THEOS_PROJECT_DIR (str)
+  - Location of the current project (default =$(shell pwd))
+
 - THEOS_CURRENT_INSTANCE (str)
-
-## Notes
-
-[1] - $(THEOS)/include/_fallback can be used to provide drop-in replacements for missing SDK headers.
+  - The name of the current project
+    - Note that this is passed to the compiler and can thus be used in your code
