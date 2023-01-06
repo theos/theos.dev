@@ -84,7 +84,7 @@ The various public (i.e. configurable) variable types are as follows:
   - Space-separated list
 
 - XXX_EXTRA_FRAMEWORKS (str)
-  - Frameworks in $THEOS/lib that you'd like to link against
+  - Frameworks in $THEOS/lib/ that you'd like to link against
   - Space-separated list
 
 - XXX_LIBRARIES (str)
@@ -138,7 +138,7 @@ The various public (i.e. configurable) variable types are as follows:
   - Will link against CydiaSubstrate
 
 - XXX_ARCHS (str)
-  - Space-separated list of architecture(s) to build for
+  - Space-separated list of architectures to build for
 
 - XXX_ENABLE_BITCODE (bool) **[OSX]**
   - Toggle Bitcode (default: 0)
@@ -160,14 +160,14 @@ The various public (i.e. configurable) variable types are as follows:
   - Toggles pretty logs (default: 1)
 
 - ARCHS (str)
-  - Space-separated list of architecture(s) to build for
+  - Space-separated list of architectures to build for
 
 - DEBUG (bool)
   - Toggle including debug symbols (default: 1)
   - Will add `+debug` to the package name
 
 - FINALPACKAGE (bool)
-  - Strips debug symbols (i.e. DEBUG=0 STRIP=1)
+  - Strips debug symbols (i.e., DEBUG=0 STRIP=1)
   - Removes incremental version from package name
   - Optimizes xml/plist files by convering to bplist
 
@@ -194,7 +194,7 @@ The various public (i.e. configurable) variable types are as follows:
   - Your package version
 
 - PACKAGE_BUILDNAME (str)
-  - Additional string added to the package name (e.g. debug for DEBUG=1)
+  - Additional string added to the package name (e.g., debug for DEBUG=1)
 
 - TARGET_INSTALL_REMOTE (bool)
   - Toggles whether the install target is remote or local
@@ -213,15 +213,15 @@ The various public (i.e. configurable) variable types are as follows:
 - SWIFT_DEBUGFLAG (str)
   - Debug flag passed to the linker (default: -g)
 
-- DEBUG.CFLAGS (str) ----- **unused ?**
+- DEBUG.CFLAGS (str) ----- **unused ? (or schema related?)**
   - Debug flag(s) passed to the compiler (default: -DDEBUG -O0)
   - Space-separated list
 
-- DEBUG.SWIFTFLAGS (str) ----- **unused ?**
+- DEBUG.SWIFTFLAGS (str) ----- **unused ? (or schema related?)**
   - Debug flag(s) passed to `swift` (default: -DDEBUG -Onone)
   - Space-separated list
 
-- DEBUG.LDFLAGS (str) ----- **unused ?**
+- DEBUG.LDFLAGS (str) ----- **unused ? (or schema related?)**
   - Debug flag(s) passed to the linker (default: -O0)
   - Space-separated list
 
@@ -336,7 +336,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 - CROSS_COMPILE (str)
   - Enables cross-compilation for TARGET_CC, TARGET_CXX, TARGET_LD, and TARGET_STRIP on compatbile host/target platform pairs
-  - Is triple prefix for target platform (prepended to aforementioned binaries)
+  - Is the triple prefix for the target platform (will be prepended to the aforementioned binaries)
 
 - SDKBINPATH (str)
   - Toolchain bin path for target platform
@@ -360,22 +360,21 @@ The various public (i.e. configurable) variable types are as follows:
 - EXPANDED_CODE_SIGN_IDENTITY (str) **[OSX]** ----- **unused ?**
 
 - LOCAL_INSTALL_PATH (str)
-  - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc)
-  - (default: XXX_INSTALL_PATH)
+  - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc) (default: XXX_INSTALL_PATH)
 
 - LOGOS_DEFAULT_GENERATOR (str)
   - Default generator passed to logos (default: MobileSubstrate)
 
 - ADDITIONAL_CFLAGS (str)
-  - Additional flag(s) passed to CC for c code
+  - Additional flag(s) passed to CC for C code
   - Space-separated list
 
 - ADDITIONAL_CPPFLAGS (str)
-  - Additional flag(s) passed to CXX for c++ code
+  - Additional flag(s) passed to CXX for C++ code
   - Space-separated list
 
 - USE_DEPS (bool)
-  - Toggle dependency tracking (i.e. makedeps) (default: 0)
+  - Toggle dependency tracking (i.e., makedeps) (default: 0)
   - Compiler writes headers to $THEOS_OBJ_DIR/*.Td
 
 - MDFLAGS (str)
@@ -407,8 +406,8 @@ The various public (i.e. configurable) variable types are as follows:
 - THEOS_LAYOUT_DIR (str)
   - File path for directory to house items to move onto the target's filesystem during install (default: $THEOS_PROJECT_DIR/layout/)
   - The containing directory structure is used as an install guide
-    - Exception to this is layout/DEBIAN/ which can be used to install Debian-related files
-      - Such files include a `control` file, which will get added to the `status` file (i.e. /var/lib/dpkg/status) on-device, and [maintainer scripts](https://wiki.debian.org/MaintainerScripts), which, after being run, will be placed in /var/lib/dpkg/info/.
+    - Exception to this is $THEOS_LAYOUT_DIR/DEBIAN/ which is used to install Debian packaging related files
+      - Such files include a [control](https://www.debian.org/doc/debian-policy/ch-controlfields.html) file, which will get added to the `status` file (i.e., /var/lib/dpkg/status) on-device, and [maintainer scripts](https://wiki.debian.org/MaintainerScripts), which, after being run, will be placed in /var/lib/dpkg/info/.
 
 - THEOS_LAYOUT_DIR_NAME (str)
   - Name for the layout directory (default: layout)
@@ -420,13 +419,13 @@ The various public (i.e. configurable) variable types are as follows:
   - File path for directory to house object files (default: .theos/obj/)
 
 - THEOS_OBJ_DIR_NAME (str)
-  - Name for the object directory (default: obj/$THEOS_CURRENT_ARCH/)
+  - Name for the object directory (default: obj/$THEOS_CURRENT_ARCH)
 
 - THEOS_PACKAGE_DIR (str)
   - File path for directory to house built packages (default: $THEOS_BUILD_DIR/packages/)
 
 - THEOS_PACKAGE_DIR_NAME (str)
-  - Name for the packages directory (default: packages/)
+  - Name for the packages directory (default: packages)
 
 - THEOS_PACKAGE_NAME (str)
   - Name of the current project as defined by `Package:` in the `control` file
@@ -459,7 +458,7 @@ The various public (i.e. configurable) variable types are as follows:
 - THEOS_SUBPROJECT_PRODUCT (str) ----- **internal ?**
 
 - THEOS_SCHEMA (str)
-  - Schema to build for "Release," "Debug," or "" (default: "")
+  - Schema to build for "Release," "Debug," or "" (default: Debug)
     - This will adjust what variables are enabled/disabled in Theos' internal configuration
 
 - THEOS_PLATFORM_NAME (str)
@@ -484,7 +483,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 - THEOS_PLATFORM_DEB_COMPRESSION_TYPE (str)
   - Compression format to use with `dm.pl` (Theos' `dpkg-deb` drop-in)
-  - Allowed formats are gzip (default), bzip2, lzma, xz and cat (no compression)
+  - Allowed formats are gzip, bzip2, lzma, xz and cat (no compression)
     - Default is lzma in order to maintain compatibility with Telesphoreo's older `dpkg` which lacks xz support (which has since become the new standard)
     - See https://github.com/theos/dm.pl#options
 
@@ -536,7 +535,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 - THEOS_SDKS_PATH (str)
   - Location for SDKs provided by Theos (default: $THEOS/sdks/)
-    - These SDKs should be patched (i.e. include private frameworks)
+    - These SDKs should be patched (i.e., include private frameworks)
 
 - THEOS_MAKE_PATH (str)
   - Location for Makefiles that make up Theos (default: $THEOS/makefiles/)
