@@ -14,7 +14,7 @@ Unless otherwise stated, all of the commands shown in the following instructions
 1. Check that you have the necessary repos installed in your package manager:
 
 	* iOS >= 12.0
-		* [Procursus](https://apt.procurs.us/) or [Sam Bingner’s repo](https://apt.bingner.com/) (this depends on the jailbreak you are using)
+		* [Procursus](https://apt.procurs.us/) or [Bingner/Elucubratus](https://apt.bingner.com/) (this depends on the jailbreak you are using)
 	* iOS < 12.0
 		* [Coolstar's repo](https://coolstar.org/publicrepo/), [Sam Bingner's repo](https://repo.bingner.com/), and [BigBoss](http://apt.thebigboss.org/repofiles/cydia/)
 
