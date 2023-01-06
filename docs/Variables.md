@@ -156,6 +156,9 @@ The various public (i.e. configurable) variable types are as follows:
 
 ## Local Variables
 
+- COLOR (bool)
+  - Toggles pretty logs (default: 1)
+
 - ARCHS (str)
   - Space-separated list of architecture(s) to build for
 
