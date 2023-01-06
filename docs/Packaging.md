@@ -5,11 +5,22 @@ layout: docs
 
 Theos supports building for many common targets and file formats including:
 
+- .dylib's
+- .a's
+- .so's
+- .deb's
+- .ipa's
+- null packages
+- .pkg's
+- .rpm's
+- .exe's
+- .dll's
+
 The most common of which is targeting jailbroken iOS via .deb's. As jailbroken iOS is bootstrapped by a Debian-esq platform, .deb's follow many of the standard Debian Linux conventions.
 
 ## control files
 
-control files are required for Debian packages (.deb's) and are configured for your by default when a project is initialized via the NIC.
+control files are required for Debian packages (.deb's) and are configured for you by default when a project is initialized via the NIC.
 
 The most commonly used fields include:
 - Name:
@@ -70,7 +81,7 @@ Aside from a few jailbroken iOS-specific fields, all available fields can be fou
 
 ## Maintainer scripts
 
-As with standard Debian packages, maintainer scripts can be added to your project to be run at various points throughout its install cycle.
+As with standard Debian packages, maintainer scripts can be added to your project to be run at various points throughout its (un)install cycle.
 
 The scripts should be placed in $THEOS_LAYOUR_DIRECTORY and include:
 - preinst
@@ -98,7 +109,7 @@ Building for jailbroken iOS also requires configuring for process injection via 
 
 This filter is implemented as a property list that is installed alongside the .dylib(s) in the .deb. The property list is created for you when initializing a project via the NIC.
 
-The filter can be for bundles, classes, and/or executables and are declared in the form of an xml array. Your tweak will only be loaded if the filters specified are matched.
+The filter can be for bundles, classes, and/or executables and is declared in the form of an xml array. Your tweak will only be loaded if the filter items specified are matched.
 
 The format of said filter plist is as follows:
 ```xml

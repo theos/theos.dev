@@ -100,7 +100,7 @@ Such variables include:
 
 ## Utilizing GNU Make
 
-Theos relies on `make` (ideally GNU Make) to function. This means that all standard make capability can be used with Theos as if they were being used in any standard makefile.
+Theos relies on `make` (ideally GNU Make) to function. This means that all standard make capabilities can be used with Theos as if they were being used in any standard makefile.
 
 These capabilities include:
 - Print formatting
