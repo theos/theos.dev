@@ -6,7 +6,7 @@ layout: docs
 Theos, and your project(s), can be configured in a few differents ways:
 - At runtime
 - At buildtime via project Makefiles
-- At buildtime by passing variables to `Make`
+- At buildtime by passing variables to `make`
 
 ## `.theosrc`
 
@@ -47,10 +47,62 @@ Such rule names include:
 - after-$(THEOS_CURRENT_INSTANCE)-all
 - internal-$(_THEOS_CURRENT_TYPE)-all
 
-## Utilizing Theos' print rules
+## Utilizing Theos' message commands
 
+Theos utilizes a variety of custom `echo` and `printf` commands which it defines as variables in $THEOS_MAKE_PATH/messages.mk. These can be utilized by users in their own project makefiles if so desired.
 
+Such variables include:
+- $(ECHO_BEGIN)
+    - Defines start of command users wants printed after running
+
+- $(ECHO_NOTHING)
+    - Defines start of command users wants printed after running
+        - Note that when verbosity is enabled, `set -o pipefail` is run beforehand
+
+- $(ECHO_END)
+    - Defines end of command user wrapped in $(ECHO_BEGIN) or $(ECHO_NOTHNG)
+
+- $(STDERR_NULL_REDIRECT)
+    - Defined as `2> /dev/null`
+        - Disabled if verbosity is enabled
+
+- $(STDOUT_NULL_REDIRECT)
+    - Defined as `> /dev/null`
+        - Disabled if verbosity is enabled
+
+- $(PRINT_FORMAT)
+    - Defined as `printf "\e[0;36m==> \e[1;36mNotice:\e[m %s\n"`
+
+- $(PRINT_FORMAT_WARNING)
+    - Defined as `printf "\e[0;33m==> \e[1;33mWarning:\e[m %s\n"`
+
+- $(PRINT_FORMAT_ERROR)
+    - Defined as `printf "\e[0;31m==> \e[1;31mError:\e[m %s\n"`
+
+- $(PRINT_FORMAT_RED)
+    - Color a print statement red
+        - Disabled if COLOR=0
+
+- $(PRINT_FORMAT_GREEN)
+    - Disabled if COLOR=0
+
+- $(PRINT_FORMAT_YELLOW)
+    - Disabled if COLOR=0
+
+- $(PRINT_FORMAT_BLUE)
+    - Disabled if COLOR=0
+
+- $(PRINT_FORMAT_MAGENTA)
+    - Disabled if COLOR=0
+
+- $(PRINT_FORMAT_CYAN)
+    - Disabled if COLOR=0
 
 ## Utilizing GNU Make
 
-
+$(error)
+$(info)
+$(warning)
+@echo
+@print
+$(shell)
