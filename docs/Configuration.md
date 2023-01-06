@@ -14,6 +14,43 @@ Variables that are specific to your own setup (e.g., Xcode/an SDK, device IP, et
 
 `.theosrc` is used to configure Theos at runtime and must be created by the user at `$HOME/.theosrc` or `~/.theosrc`.
 
+## Utilizing Theos' makefile rules
+
+Makefile rules are defined as:
+```Makefile
+targets: prerequisites
+	command
+	command
+```
+
+Theos utilizes a variety of such rules internally, many of which can also be utilized by users by adding the following to your project's Makefile:
+```Makefile
+rule-name::
+	your_command
+	your_command
+```
+
+Such rule names include:
+- before-clean
+- internal-clean
+- after-clean
+- before-all
+- internal-all
+- after-all
+- before-stage
+- internal-stage
+- after-stage
+- before-package
+- internal-package
+- after-package
+- before-$(THEOS_CURRENT_INSTANCE)-all
+- after-$(THEOS_CURRENT_INSTANCE)-all
+- internal-$(_THEOS_CURRENT_TYPE)-all
+
+## Utilizing Theos' print rules
+
+
+
 ## Utilizing GNU Make
 
 
