@@ -39,7 +39,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 ## Project Variables
 
-*Note: "XXX" = $(THEOS_CURRENT_INSTANCE)_NAME*
+*Note: "XXX" = $(THEOS_CURRENT_INSTANCE)*
 
 - XXX_INSTALL_PATH (str)
   - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc)
@@ -145,6 +145,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 - File.extension_CFLAGS (str)
   - Flag(s) to pass to the compiler when compiling a specific file
+  - Space-separated list
 
 - TWEAK_TARGET_PROCESS (str)
   - Target process to `killall` after your tweak installs
@@ -197,9 +198,11 @@ The various public (i.e. configurable) variable types are as follows:
 
 - PREINSTALL_TARGET_PROCESSES (str)
   - Target process(es) to `killall` *before* package install
+  - Space-separated list
 
 - INSTALL_TARGET_PROCESSES (str)
   - Target process(es) to `killall` *after* package install
+  - Space-separated list
 
 - DEBUGFLAG (str)
   - Debug flag passed to the linker (default: -ggdb)
@@ -209,12 +212,15 @@ The various public (i.e. configurable) variable types are as follows:
 
 - DEBUG.CFLAGS (str) ----- **unused ?**
   - Debug flag(s) passed to the compiler (default: -DDEBUG -O0)
+  - Space-separated list
 
 - DEBUG.SWIFTFLAGS (str) ----- **unused ?**
   - Debug flag(s) passed to `swift` (default: -DDEBUG -Onone)
+  - Space-separated list
 
 - DEBUG.LDFLAGS (str) ----- **unused ?**
   - Debug flag(s) passed to the linker (default: -O0)
+  - Space-separated list
 
 - OPTFLAG (str)
   - Optimization level passed to compiler/linker (default: -Os)
@@ -229,16 +235,19 @@ The various public (i.e. configurable) variable types are as follows:
 
 - MAKEFLAGS (str)
   - Flags passed to your make invocation
+  - Space-separated list
 
 - FAKEROOT (str) ----- **internal ?**
 
 - LEGACYFLAGS (str)
   - Flags passed to compiler and linker if building for legacy platforms
+  - Space-separated list
     - Building for armv6, armv7, and/or armv7s (default: -Xlinker -segalign -Xlinker 4000)
     - Building for iOS < 9 (default: -Xlinker -no_data_const)
 
 - NEUTRAL_ARCH (str)
   - Fallback arch(s) if ARCHS is empty and not set by the platform's respective target makefile
+  - Space-separated list
 
 - SYSROOT (str)
   - SYSROOT directory passed to linker
@@ -254,9 +263,11 @@ The various public (i.e. configurable) variable types are as follows:
 
 - MODULESFLAGS (str)
   - Flags used to enable and make use of [clang modules](https://clang.llvm.org/docs/Modules.html#using-modules)
+  - Space-separated list
 
 - VERSIONFLAGS (str)
   - Platform-dependent target/version-min flags passed to compiler and linker
+  - Space-separated list
 
 - SWIFTBINPATH (str)
   - Parent directory for `swift` binary (default: $THEOS/toolchain/swift/bin/)
@@ -269,6 +280,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 - TARGET_STRIP_FLAGS (str)
   - Strip flag(s) to use (default: -x)
+  - Space-separated list
 
 - TARGET_CC (str)
   - Target CC binary (default: `clang`/`gcc`)
@@ -302,6 +314,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 - TARGET_CODESIGN_FLAGS (str)
   - Target codesign flag(s) (default: --sign 'Apple Development'/-S)
+  - Space-separated list
 
 - TARGET_EXE_EXT (str)
   - Target Windows executable extenstion (default: .exe)
@@ -336,6 +349,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 - SUBPROJECTS (str)
   - Directory names of subprojects to build alongside the root project
+  - Space-separated list
 
 - ALL_XCODEFLAGS (str) ----- **internal ?**
 - ALL_XCODEOPTS (str) ----- **internal ?**
@@ -351,9 +365,11 @@ The various public (i.e. configurable) variable types are as follows:
 
 - ADDITIONAL_CFLAGS (str)
   - Additional flag(s) passed to CC for c code
+  - Space-separated list
 
 - ADDITIONAL_CPPFLAGS (str)
   - Additional flag(s) passed to CXX for c++ code
+  - Space-separated list
 
 - USE_DEPS (bool)
   - Toggle dependency tracking (i.e. makedeps) (default: 0)
@@ -361,6 +377,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 - MDFLAGS (str)
   - Flags passed for makedeps
+  - Space-separated list
 
 - LOCAL_BUNDLE_NAME (str)
   - Name for the current project instance's bundle
@@ -447,6 +464,7 @@ The various public (i.e. configurable) variable types are as follows:
 
 - THEOS_RSYNC_EXCLUDES (str)
   - Files/file extensions to exclude in the `rsync` copy commands used throughout the project (default: _MTN .git .svn .DS_Store ._*)
+  - Space-separated list
 
 - THEOS_LINKAGE_TYPE (str)
   - Type of linking to use (default: dynamic)
