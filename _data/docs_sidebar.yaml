@@ -23,6 +23,8 @@
   list:
     - title: NIC
       link: /docs/NIC.html
+    - title: NIC Syntax
+      link: /docs/NIC-Syntax.html
     - title: dm.pl
       link: /docs/dm.pl.html
     - title: Swift

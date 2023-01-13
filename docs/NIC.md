@@ -118,5 +118,3 @@ iphone_tweak.nic.tar
 ```
 
 The predecessor to `.nic.tar` was `.nic`, a plain text file. It was upgraded to the current tar-based format to allow greater fidelity, such as the preservation of file permissions, and inclusion of binary files.
-
-*(To do: The syntax of templates should be discussed here. Unfortunately, DHowett’s documentation on NIC has [disappeared](http://theos.howett.net/nic/) and is not archived on Wayback Machine. The best alternative is to denicify existing templates and see how they work.)*
