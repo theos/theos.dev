@@ -12,7 +12,7 @@
       link: /docs/Installation-Linux.html
     - title: Upgrading from legacy Theos
       link: /docs/Upgrading-from-legacy-Theos.html
-      
+
 - title: Usage
   list:
     - title: Commands
@@ -23,6 +23,8 @@
   list:
     - title: NIC
       link: /docs/NIC.html
+    - title: dm.pl
+      link: /docs/dm.pl.html
     - title: Swift
       link: /docs/Swift.html
 
