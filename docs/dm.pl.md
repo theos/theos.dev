@@ -8,7 +8,7 @@ dm.pl is basic drop-in replacement for `dpkg-deb -b` that allows for the creatio
 ## Notable features
 
 - Maintains lzma compression support
-    - `dpkg` switched to xz support and marked lzma as obsolete
+    - `dpkg` switched to xz compression and marked lzma as deprecated
 - Is platform independent (i.e., doesn't require `dpkg`)
 
 ## Usage
@@ -40,4 +40,4 @@ Options:
 
 dm.pl is provided with Theos and is run with lzma compression at level 1 by default and level 9 when building FOR_RELEASE or FINALPACKAGE.
 
-Note that the compression type and its level can be modified if desired.
+Note: the compression type and its level can be modified if desired.
