@@ -14,7 +14,7 @@ The naming convention is as follows:
 
 ---
 
-The various public (i.e. configurable) variable types are as follows:
+The various public (i.e., configurable) variable types are as follows:
   - **Project Variables**
     - Prefixed by current project instance.
       - Tied to a particular project instance.
@@ -169,10 +169,10 @@ The various public (i.e. configurable) variable types are as follows:
 - FINALPACKAGE (bool)
   - Strips debug symbols (i.e., DEBUG=0 STRIP=1)
   - Removes incremental version from package name
-  - Optimizes xml/plist files by convering to bplist
+  - Optimizes xml/plist files by converting to bplist
 
 - FOR_RELEASE (bool)
-  - Same as FINALPACKAGE
+  - An alias for FINALPACKAGE
 
 - STRIP (bool)
   - Toggle stripping debug symbols (default: 0)
@@ -184,7 +184,7 @@ The various public (i.e. configurable) variable types are as follows:
 - TARGET (str)
   - Required build configuration items
   - Format `platform:compiler:sdk_version:deployment_version`
-    - `clang` is the only supported CC/CXX for Darwin targets
+    - `clang` is the only supported compiler for Darwin targets
 
 - PREFIX (str)
   - Path to your toolchain bin
@@ -237,7 +237,7 @@ The various public (i.e. configurable) variable types are as follows:
     - Migrate to Clang directives (e.g., -Wno-<blah> or #pragma clang diagnostic)
 
 - MAKEFLAGS (str)
-  - Flags passed to your make invocation
+  - Flags passed to your Make invocation
   - Space-separated list
 
 - FAKEROOT (str) ----- **internal ?**
@@ -462,7 +462,7 @@ The various public (i.e. configurable) variable types are as follows:
     - This will adjust what variables are enabled/disabled in Theos' internal configuration
 
 - THEOS_PLATFORM_NAME (str)
-  - Lowercase name of the current host platform (default: $(echo uname))
+  - Lowercase name of the current host platform (default: $(shell uname)
 
 - THEOS_RSYNC_EXCLUDES (str)
   - Files/file extensions to exclude in the `rsync` copy commands used throughout the project (default: _MTN .git .svn .DS_Store ._*)
