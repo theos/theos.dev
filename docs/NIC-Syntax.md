@@ -128,7 +128,9 @@ The <code>NIC</code> object represents the current template.
 
 - <code class="method">NIC->prompt(<span class="required">$variable</span>, <span class="required">$prompt_text</span> <span class="optional">, {default => $default_value}</span>)</code>
     - *method*
-    - Prompt the user for additional information, attaching the user's response to the provided NIC variable. The default value is optional. If *$variable* is not specified, <code>NIC->prompt(...)</code> will return the user's response, and will not store it in the template.
+    - Prompt the user for additional information, attaching the user's response to the provided NIC variable.
+    - The default value is optional.
+    - If *$variable* is not specified, <code>NIC->prompt(...)</code> will return the user's response, and will not store it in the template.
     - The key difference between <code>prompt(...)</code> and <code>NIC->prompt(...)</code> is that the user is given a chance to override the prompt variable with his or her <code>~/.nicrc</code>.
 
 - <code class="method">NIC->setConstraint(<span class="required">$constraint</span>)</code>
