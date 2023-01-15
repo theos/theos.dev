@@ -6,7 +6,7 @@ layout: docs
 Theos, and your project(s), can be configured in a few differents ways:
 - Via a shared configuration file
 - At runtime via project Makefiles
-- At runtime by passing variables to `make`
+- At runtime by passing variables to `Make`
 
 ## `.theosrc`
 
@@ -100,7 +100,7 @@ Such variables include:
 
 ## Utilizing GNU Make
 
-Theos relies on `make` (ideally GNU Make) to function. This means that all standard make capabilities can be used with Theos as if they were being used in any standard Unix makefile.
+Theos relies on `Make` (ideally GNU Make) to function. This means that all standard Make capabilities can be used with Theos as if they were being used in any standard Unix makefile.
 
 Some of the more relevant capabilities include:
 - Print formatting
@@ -141,7 +141,7 @@ If you need to run commands from within a makefile, there are two main ways:
 
 ### File acquisition via wildcards
 
-For your project instance (where XXX = project_name), the XXX_FILES variable is required for non-null project types. If your project has a large number of files and/or a complex directory structure, typing out each file by hand would be arduous. To work around this, makefile's have wildcards. The syntax is as follows:
+For your project instance (where XXX = project_name), the XXX_FILES variable is required for non-null project types. If your project has a large number of files and/or a complex directory structure, typing out each file by hand would be arduous. To work around this, makefiles have wildcards. The syntax is as follows:
 
 ```Makefile
 $(wildcard pattern-to-match)
