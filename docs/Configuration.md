@@ -17,14 +17,14 @@ Variables that are specific to your own setup (e.g., Xcode/an SDK, device IP, et
 ## Utilizing Theos' makefile rules
 
 Makefile rules are defined as:
-```Makefile
+```make
 targets: prerequisites
 	command
 	command
 ```
 
 Theos utilizes a variety of such rules internally, many of which can also be utilized by users by adding the following to your project's Makefile:
-```Makefile
+```make
 rule-name::
 	your_command
 	your_command
@@ -143,19 +143,19 @@ If you need to run commands from within a makefile, there are two main ways:
 
 For your project instance (where XXX is your project_name), the XXX_FILES variable is required for non-null project types. If your project has a large number of files and/or a complex directory structure, typing out each file by hand would be arduous. To work around this, makefiles have wildcards. The syntax is as follows:
 
-```Makefile
+```make
 $(wildcard pattern-to-match)
 ```
 
 An example usage of this would be
-```Makefile
+```make
 XXX_FILES = $(wildcard *.m) $(wildcard files/*.x)
 ```
 
 Assuming you have a complex directory structure and don't feel like messing with pattern matching, you can also shell out to `find`.
 
 An example usage of this would be
-```Makefile
+```make
 XXX_FILES = $(shell find -type f -name "*.m")
 ```
 
@@ -166,14 +166,14 @@ In order to configure your project, you will almost certainly need to modify var
 Variables can be kept local to their project's instance by declaring them normally.
 
 An example of this would be
-```Makefile
+```make
 ARCHS = arm64 arm64e
 ```
 
 If you want a variable to apply to all instances within a project (i.e., apply to subprojects), then you can preface the variable declaration with `export`. Such exported variables will likely want to be in your root makefile so that the subproject makefiles do not need duplicate declarations.
 
 An example usage of this would be
-```Makefile
+```make
 export TARGET = iphone:clang:latest:12.0
 ```
 
@@ -183,7 +183,7 @@ Whether you're declaring variables yourself or modifying predefined ones, condit
 
 Makefile `if` statements follow the syntax:
 
-```Makefile
+```make
 ifeq ($(variable), $(variable-to-check-against))
     something=0
 else ifneq ($(variable2), $(variable-to-check-against))
