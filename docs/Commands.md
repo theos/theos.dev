@@ -31,7 +31,7 @@ You most frequently want to use **`make do`** to build your latest changes, stag
 |---------|-------------|
 | `make all` | The same as running `make`. |
 | `make messages=yes` | Enable verbosity for the build. Useful to provide when asking for assistance. |
-| `make update-theos` | Update Theos to the latest commit. See [Installation](/docs/Installation.html) for more info. |
-| `make troubleshoot` | Present quick links to troubleshooting info, and upload the `make` output to GitHub Gist for sharing. See [Help](/docs/Installation.html) for more info. |
+| `make update-theos` | Update Theos to the latest commit. See [Installation](/docs/Installation.html#updating) for more info. |
+| `make troubleshoot` | Present quick links to troubleshooting info, and upload the `make` output to GitHub Gist for sharing. See [Help](/docs/Help.html) for more info. |
 | `make clean-packages` | Remove all packages from `$THEOS_PACKAGE_DIR`. |
 | `make show` | Open the directory where packages are placed in your system's file manager. |

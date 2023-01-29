@@ -16,7 +16,7 @@ NIC 2.0 - New Instance Creator
 ------------------------------
   [1.] iphone/activator_event
   [2.] iphone/activator_listener
-  [3.] iphone/application_modern
+  [3.] iphone/application
   [4.] iphone/application_swift
   [5.] iphone/control_center_module-11up
   [6.] iphone/cydget
@@ -64,7 +64,7 @@ The following command line arguments are supported. Note that providing argument
 ## Included templates
 * **activator_event**: an [event](http://iphonedev.wiki/index.php/Libactivator#Sending_Events_.28via_LAEvent.29) for Activator.
 * **activator_listener**: a [listener](http://iphonedev.wiki/index.php/Libactivator#Observing_Events_.28via_LAListener.29) for Activator.
-* **application_modern**: a standard iOS app (for unsandboxed jailbreak use).
+* **application**: a standard iOS app (for unsandboxed jailbreak use).
 * **application_swift**: a standard, Swift-based iOS app (for unsandboxed jailbreak use).
 * **control_center_module-11up**: a custom control center module for iOS 11+ deployed via [CCSupport](https://github.com/opa334/CCSupport/wiki).
 * **cydget**: a [Cydget](https://cydia.saurik.com/info/cydget/) lock screen plugin.
