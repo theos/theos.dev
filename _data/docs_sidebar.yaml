@@ -15,14 +15,22 @@
 
 - title: Usage
   list:
+    - title: Configuration
+      link: /docs/Configuration.html
     - title: Commands
       link: /docs/Commands.html
+    - title: Packaging
+      link: /docs/Packaging.html
 
 - title: Features
   link: /docs/Features.html
   list:
     - title: NIC
       link: /docs/NIC.html
+    - title: NIC Syntax
+      link: /docs/NIC-Syntax.html
+    - title: dm.pl
+      link: /docs/dm.pl.html
     - title: Swift
       link: /docs/Swift.html
 

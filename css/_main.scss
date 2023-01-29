@@ -151,3 +151,25 @@ article {
 		}
 	}
 }
+
+span.required,
+span.optional {
+	padding: 1px 6px;
+	border-radius: 9999em;
+	border: 1px solid;
+	font-size: 0.875em;
+	color: #000;
+}
+
+span.required {
+	background-color: lighten($red, 40%);
+	border-color: lighten($red, 20%);
+	font-weight: bold;
+}
+
+span.optional {
+	background-color: lighten($yellow, 40%);
+	border-color: lighten($yellow, 20%);
+	font-style: italic;
+	color: #000;
+}
