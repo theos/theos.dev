@@ -30,8 +30,14 @@ These can often be combined to accomplish multiple things in one go. Theos inclu
 
 ### Miscellaneous
 
-`make update-theos` will, predictably enough, update Theos to the latest commit. See [Installation](/docs/Installation.html) for more info. 
+`make all` is the same as running pure `make`.
+
+`make messages=yes` will enable verbosity for the build. Useful to provide when asking for assistance.
+
+`make update-theos` will, predictably enough, update Theos to the latest commit. See [Installation](/docs/Installation.html) for more info.
 
 `make troubleshoot` will present quick links to troubleshooting info, and upload the `make` output to GitHub Gist for sharing. See [Help](/docs/Installation.html) for more info.
+
+`make clean-packages` will remove all packages from $THEOS_PACKAGE_DIR.
 
 `make show` will open the directory packages have been placed in, via your system's file manager.
