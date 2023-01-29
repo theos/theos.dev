@@ -37,7 +37,7 @@ NIC 2.0 - New Instance Creator
 Choose a Template (required): 17
 Project Name (required): Example
 Package Name [com.yourcompany.example]: dev.theos.example
-Authour/Maintainer Name [Craig Federighi]: Craig Federighi <notfederighi@theos.dev>
+Author/Maintainer Name [Craig Federighi]: Craig Federighi <notfederighi@theos.dev>
 [iphone/tweak] MobileSubstrate Bundle filter [com.apple.springboard]:
 [iphone/tweak] List of applications to terminate upon installation (space-separated, '-' for none) [SpringBoard]:
 Instantiating iphone/tweak in example/...
@@ -122,5 +122,3 @@ iphone_tweak.nic.tar
 ```
 
 The predecessor to `.nic.tar` was `.nic`, a plain text file. It was upgraded to the current tar-based format to allow greater fidelity, such as the preservation of file permissions, and inclusion of binary files.
-
-*(To do: The syntax of templates should be discussed here. For the time being, this information is available exclusively in [DHowett’s documentation](http://theos.howett.net/nic/)).*

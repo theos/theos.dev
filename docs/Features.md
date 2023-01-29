@@ -43,7 +43,6 @@ Below is a list of features implemented since the [original Theos](https://githu
 * Supports building for iOS on Windows via Cygwin. (coolstar)
 * Theos symlinks are no longer made within projects. The `$THEOS` environment variable is used instead. (kirb)
 * `instance_USE_SUBSTRATE = 0` can be used to switch tweaks to the internal generator and not link against Substrate. (kirb)
-* Default rules, variables, etc. can be set in `~/.theosrc` (a makefile). (kirb)
 * `make show` opens the operating system’s file manager and highlights the latest package. (kirb)
 * A `THEOS_INSTANCE_NAME` constant is passed to the compiler so the current instance’s name can be used in the code. (kirb)
 * `PREINSTALL_TARGET_PROCESSES` and `INSTALL_TARGET_PROCESSES` can be set to a list of processes to kill before and after installation respectively. (rpetrich)
