@@ -7,7 +7,8 @@ This guide will help you install Theos on your Linux machine, Windows machine vi
 
 | Platform | Minimum OS version | Targets supported
 |----------|--------------------|-------------------|
-| **Linux** <br> **Windows 10** | Linux kernel 3.16 <br> Windows 10 build 14393 | Linux, iOS |
+| **Linux** | Linux kernel 3.16 | Linux, iOS |
+| **Windows 10/11** | Windows 10 build 14393 | Linux, iOS |
 
 Unless otherwise stated, all of the commands shown in the following instructions are meant to be run as a normal user, _not_ root. Similarly, Theos is meant to be run as a normal user, _not_ root.
 
@@ -15,24 +16,24 @@ Unless otherwise stated, all of the commands shown in the following instructions
 
 1. Install the following prerequisites<sup>1</sup> as *root*:
 
-	- Debian-based distros
+	- Debian-based distros (includes Ubuntu, Pop!_OS, etc.)
 
 			apt install bash curl sudo
 
-	- Arch-based distros
+	- Arch-based distros (includes Manjaro, EndeavourOS, etc.)
 
 			pacman -S --needed bash curl sudo
 
-	- Redhat-based distros
+	- Red Hat-based distros (includes Fedora, CentOS, etc.)
 
 			dnf install bash curl sudo
 
-	- SUSE-based distros
+	- SUSE-based distros (includes openSUSE, etc.)
 
 			zypper install bash curl sudo
 
 	<sup>
-	<sup>1</sup> In order to use <i>sudo</i>, your non-root user will have to be added to the sudoers file (/etc/sudoers). For more information, see [here](https://wiki.archlinux.org/title/Sudo#Example_entries).
+	<sup>1</sup> In order to use <i>sudo</i>, your non-root user may need to be added to the sudoers file (/etc/sudoers). See [ArchWiki](https://wiki.archlinux.org/title/Sudo#Example_entries) for more information.
 	</sup>
 
 1. Run the installer:

@@ -15,7 +15,7 @@ All of the commands shown in the following instructions are meant to be run as a
 
 	* [Homebrew](https://brew.sh/)
 		* or [MacPorts](https://www.macports.org/install.php)
-		* or Procursus Strap
+		* or [Procursus](https://docs.procurs.us/Installation/macOS.html)
 	* [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12)<sup>1</sup> is mandatory. The Command Line Tools package isn’t sufficient for Theos to work. Xcode includes toolchains for all Apple platforms.
 
 	<sup>

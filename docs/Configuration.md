@@ -6,7 +6,7 @@ layout: docs
 Theos, and your project(s), can be configured in a few differents ways:
 - Via a shared configuration file
 - At runtime via project Makefiles
-- At runtime by passing variables to `Make`
+- At runtime by passing variables to `make`
 
 ## `.theosrc`
 
@@ -31,76 +31,76 @@ rule-name::
 ```
 
 Such rule names include:
-- before-clean
-- internal-clean
-- after-clean
-- before-all
-- internal-all
-- after-all
-- before-stage
-- internal-stage
-- after-stage
-- before-package
-- internal-package
-- after-package
-- before-$(THEOS_CURRENT_INSTANCE)-all
-- after-$(THEOS_CURRENT_INSTANCE)-all
-- internal-$(_THEOS_CURRENT_TYPE)-all
+- `before-clean`
+- `internal-clean`
+- `after-clean`
+- `before-all`
+- `internal-all`
+- `after-all`
+- `before-stage`
+- `internal-stage`
+- `after-stage`
+- `before-package`
+- `internal-package`
+- `after-package`
+- `before-$(THEOS_CURRENT_INSTANCE)-all`
+- `after-$(THEOS_CURRENT_INSTANCE)-all`
+- `internal-$(_THEOS_CURRENT_TYPE)-all`
 
 ## Utilizing Theos' message commands
 
 Theos utilizes a variety of custom `echo` and `printf` commands which it defines as variables in $THEOS_MAKE_PATH/messages.mk. These can be utilized by users in their own project makefiles if so desired.
 
 Such variables include:
-- $(ECHO_BEGIN)
+- `$(ECHO_BEGIN)`
     - Defines start of command user wants printed after it has run
 
-- $(ECHO_NOTHING)
+- `$(ECHO_NOTHING)`
     - Defines start of command user wants printed after it has run
         - Note that when verbosity is enabled, `set -o pipefail` is run beforehand
 
-- $(ECHO_END)
-    - Defines end of command user wrapped in $(ECHO_BEGIN) or $(ECHO_NOTHNG)
+- `$(ECHO_END)`
+    - Defines end of command user wrapped in `$(ECHO_BEGIN)` or `$(ECHO_NOTHNG)`
 
-- $(STDERR_NULL_REDIRECT)
+- `$(STDERR_NULL_REDIRECT)`
     - Defined as `2> /dev/null`
         - Disabled if verbosity is enabled
 
-- $(STDOUT_NULL_REDIRECT)
+- `$(STDOUT_NULL_REDIRECT)`
     - Defined as `> /dev/null`
         - Disabled if verbosity is enabled
 
-- $(PRINT_FORMAT)
+- `$(PRINT_FORMAT)`
     - Defined as `printf "\e[0;36m==> \e[1;36mNotice:\e[m %s\n"`
 
-- $(PRINT_FORMAT_WARNING)
+- `$(PRINT_FORMAT_WARNING)`
     - Defined as `printf "\e[0;33m==> \e[1;33mWarning:\e[m %s\n"`
 
-- $(PRINT_FORMAT_ERROR)
+- `$(PRINT_FORMAT_ERROR)`
     - Defined as `printf "\e[0;31m==> \e[1;31mError:\e[m %s\n"`
 
-- $(PRINT_FORMAT_RED)
+- `$(PRINT_FORMAT_RED)`
     - A red-colored print statement
         - Disabled if COLOR=0
 
-- $(PRINT_FORMAT_GREEN)
+- `$(PRINT_FORMAT_GREEN)`
     - Disabled if COLOR=0
 
-- $(PRINT_FORMAT_YELLOW)
+- `$(PRINT_FORMAT_YELLOW)`
     - Disabled if COLOR=0
 
-- $(PRINT_FORMAT_BLUE)
+- `$(PRINT_FORMAT_BLUE)`
     - Disabled if COLOR=0
 
-- $(PRINT_FORMAT_MAGENTA)
+- `$(PRINT_FORMAT_MAGENTA)`
     - Disabled if COLOR=0
 
-- $(PRINT_FORMAT_CYAN)
+- `$(PRINT_FORMAT_CYAN)`
     - Disabled if COLOR=0
 
 ## Utilizing GNU Make
 
-Theos relies on `Make` (ideally GNU Make) to function. This means that all standard Make capabilities can be used with Theos as if they were being used in any standard Unix makefile.
+Theos relies on GNU Make to function. This means that all standard Make capabilities can be used with Theos as if they were being used in any standard Unix makefile.
 
 Some of the more relevant capabilities include:
 - Print formatting
@@ -111,29 +111,29 @@ Some of the more relevant capabilities include:
 
 ### Print formatting
 
-The following can be used in your makefile(s) as desired within Theos' makefile rules:
+The following can be used in your Makefile(s) as desired within Theos' makefile rules:
 
-- $(info some text here)
+- `$(info some text here)`
     - Will print `some text here`
 
-- $(warning some text here)
+- `$(warning some text here)`
     - Will print `Makefile:<line#>: some text here`
 
-- $(error some text here)
+- `$(error some text here)`
     - Will print `Makefile:<line#>: *** some text here.  Stop.`
     - Note: will stop the build
 
-- @echo "some text here"
-    - Will print `some text here`
+- `@echo "some text here"`
+    - Will print `some text here` using [`echo(1)`](https://man.cameronkatri.com/echo.1)
 
-- @printf "some text here"
-    - Will print `some text here` without a trailing newline (i.e., "\n")
+- `@printf "some text here"`
+    - Will print `some text here` without a trailing newline (i.e., "\n"). Note that [`printf(1)`](https://man.cameronkatri.com/printf.1) uses a format string. 
 
 ### Running shell commands
 
 If you need to run commands from within a makefile, there are two main ways:
 
-- $(shell command)
+- `$(shell command)`
     - Will return the output of "command" for use
 
 - Typing the command as-is
@@ -141,7 +141,7 @@ If you need to run commands from within a makefile, there are two main ways:
 
 ### File acquisition via wildcards
 
-For your project instance (where XXX = project_name), the XXX_FILES variable is required for non-null project types. If your project has a large number of files and/or a complex directory structure, typing out each file by hand would be arduous. To work around this, makefiles have wildcards. The syntax is as follows:
+For your project instance (where XXX is your project_name), the XXX_FILES variable is required for non-null project types. If your project has a large number of files and/or a complex directory structure, typing out each file by hand would be arduous. To work around this, makefiles have wildcards. The syntax is as follows:
 
 ```Makefile
 $(wildcard pattern-to-match)
@@ -184,13 +184,13 @@ Whether you're declaring variables yourself or modifying predefined ones, condit
 Makefile `if` statements follow the syntax:
 
 ```Makefile
-ifeq($(variable),$(variable-to-check-against))
+ifeq ($(variable), $(variable-to-check-against))
     something=0
-else ifneq($(variable2),$(variable-to-check-against))
+else ifneq ($(variable2), $(variable-to-check-against))
     something=1
-else ifdef($(variable3))
+else ifdef ($(variable3))
     something=2
-else ifndef($(variable4))
+else ifndef ($(variable4))
     something=3
 else
     something=4

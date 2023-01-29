@@ -12,16 +12,16 @@ Theos supports building for many common targets and file formats including:
 - Windows
 
 ### File formats
-- .dylib
-- .a
-- .so
-- .deb
-- .ipa
+- `.dylib`
+- `.a`
+- `.so`
+- `.deb`
+- `.ipa`
 - null packages
-- .pkg
-- .rpm
-- .exe
-- .dll
+- `.pkg`
+- `.rpm`
+- `.exe`
+- `.dll`
 
 The most common configuration is targeting jailbroken iOS via .deb's. As jailbroken iOS is bootstrapped by a Debian-esque platform, .deb's follow many of the standard Debian Linux conventions.
 
@@ -31,65 +31,66 @@ control files are required for Debian packages (.deb's) and are configured for y
 
 The most commonly used fields include:
 
-- Name:
+- `Name:`
     - Name of the package
 
-- Package:
+- `Package:`
     - ID of the package
     - Follows the format `com.name.package`
+    - Choose wisely - don't change this once your package has been released
 
-- Author:
+- `Author:`
     - Name of the package's author
 
-- Maintainer:
+- `Maintainer:`
     - Name of the package's maintainer
 
-- Version:
+- `Version:`
     - The package's version
 
-- Depends:
+- `Depends:`
     - Package ID(s) for the package(s) that your package depends on
     - Comma-separated list
-    - The version of the dependency can be specified by providing it in the format (>> dep-ver), (>= dep-ver), (= dep-ver), (<= dep-ver), or (<< dep-ver)
+    - The version of the dependency can be specified by providing it in the format `(>> dep-ver)`, `(>= dep-ver)`, `(= dep-ver)`, `(<= dep-ver)`, or `(<< dep-ver)`
     - Note that there is a meta-package (i.e., an empty package with just a control file) provided on modern jailbreaks named `firmware` that can be placed in Depends: in order to restrict the iOS versions your package can be installed on
         - Example `Depends: firmware (>= 12.0)`
 
-- Pre-Depends:
+- `Pre-Depends:`
     - This field is like Depends:, but it completes installation of the package(s) named before starting your package's installation
 
-- Recommends:
+- `Recommends:`
     - Package ID(s) for the package(s) that your package can make use of, but that aren't required
     - Comma-separated list
 
-- Provides:
+- `Provides:`
     - Package ID(s) for the package(s) your package is considered a drop-in replacement for
     - Comma-separated list
 
-- Conflicts:
+- `Conflicts:`
     - Package ID(s) for the package(s) your package cannot be installed alongside
     - Comma-separated list
 
-- Architecture:
+- `Architecture:`
     - The target architecture of the installable package
-        - Default is `iphoneos-arm` for rootful iOS or `iphoneos-arm64` for rootless iOS
+        - Use `iphoneos-arm` for rootful iOS or `iphoneos-arm64` for rootless iOS
 
-- Section:
+- `Section:`
     - The section that your package should appear under in a package manager
     - `Tweaks` or `Utilities` are most common
 
-- Description:
+- `Description:`
     - The description for your package
 
-- Icon:
+- `Icon:`
     - The local or remote path to your package's icon (includes the file's extension)
 
-- Depiction:
+- `Depiction:`
     - A link to your package's depiction
 
-- Sileodepiction:
-    - A link to your package's depiction (for [newer package managers](https://developer.getsileo.app/native-depictions))
+- `SileoDepiction:`
+    - A link to your package's [native depiction](https://developer.getsileo.app/native-depictions) as used by package managers such as Sileo
 
-Aside from a few jailbroken iOS-specific fields, the available fields can be found on https://www.debian.org/doc/debian-policy/ch-controlfields.html.
+Aside from a few jailbroken iOS-specific fields, the available fields can be found in [Debian documentation](https://www.debian.org/doc/debian-policy/ch-controlfields.html).
 
 ## Maintainer scripts
 
@@ -97,21 +98,20 @@ As with standard Debian packages, maintainer scripts can be added to your projec
 
 The scripts should be placed in $THEOS_LAYOUT_DIRECTORY and include:
 
-- preinst
+- `preinst`
     - A script to be run *prior* to your package's installation
 
-- postinst
+- `postinst`
     - A script to be run *after* your package's installation
 
-- extrainst_
+- `extrainst_`
     - A script to be run after your package's installation, but only on installation and not on upgrade
-    - Thought up by Jay Freeman (Saurik)
-        - See https://iphonedevwiki.net/index.php/Packaging#extrainst for more info
+    - An iOS-specific extension created by Jay Freeman (saurik) - review [this explanation](https://iphonedevwiki.net/index.php/Packaging#extrainst) to understand if you need to use `extrainst_` rather than `postinst`
 
-- prerm
+- `prerm`
     - A script to be run *prior* to your package's removal
 
-- postrm
+- `postrm`
     - A script to be run *after* to your package's removal
 
 **Note:** please ensure that your script's hashbang is accurate. That is, if you use bashisms, please set the hashbang to either `#!/bin/bash` or `#!/usr/bin/env bash`. This has caused issues in the past when the default shell was changed.
