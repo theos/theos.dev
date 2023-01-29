@@ -35,7 +35,7 @@ NIC 2.0 - New Instance Creator
 Choose a Template (required): 16
 Project Name (required): Example
 Package Name [com.yourcompany.example]: dev.theos.example
-Authour/Maintainer Name [Craig Federighi]: Craig Federighi <notfederighi@theos.dev>
+Author/Maintainer Name [Craig Federighi]: Craig Federighi <notfederighi@theos.dev>
 [iphone/tweak] MobileSubstrate Bundle filter [com.apple.springboard]:
 [iphone/tweak] List of applications to terminate upon installation (space-separated, '-' for none) [SpringBoard]:
 Instantiating iphone/tweak in example/...
