@@ -20,7 +20,7 @@ export THEOS=/usr/local/theos
 If this is undesirable, you can tell NIC to revert to symlinking `theos`:
 
 ```console
-echo 'link_theos = "1"' >> ~/.nicrc
+$ echo 'link_theos = "1"' >> ~/.nicrc
 ```
 
 See [here](/docs/NIC.html#nicrc) for more details on `.nicrc`.

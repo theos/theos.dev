@@ -10,14 +10,14 @@ If your copy of Theos was downloaded with Git, read on. If your copy of Theos wa
 Simply change the remote repo and pull:
 
 ```console
-git remote set-url origin https://github.com/theos/theos.git
-git pull origin master
+$ git remote set-url origin https://github.com/theos/theos.git
+$ git pull origin master
 ```
 
 Then instruct Git to clone the submodules like so:
 
 ```console
-git submodule update --init --recursive
+$ git submodule update --init --recursive
 ```
 
 Changing the Git remote URL isn’t strictly required, as DHowett/theos redirects to theos/theos. However, we recommend it to avoid confusion.
