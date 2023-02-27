@@ -7,8 +7,6 @@ Below is a list of undocumented features implemented since the [original Theos](
 
 *(To do: These features should be properly documented and this file removed.)*
 
-* Each architecture is compiled separately, rather than all being compiled at once. This avoids some issues with the original design of Theos. (rpetrich)
-* Different SDKs can be used for different architectures, making it possible to for instance use Xcode 4.4 for armv6 compilation alongside a newer Xcode for armv7/arm64. (rpetrich)
 * Provides `IS_IPAD` and `IN_SPRINGBOARD` macros in the prefix header. (kirb)
 * Imports Cocoa and AppKit when targeting OS X. (kirb)
 * Adds `simbltweak.mk` to help in the building of SIMBL tweaks for OS X. (kirb)

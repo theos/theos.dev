@@ -56,13 +56,17 @@ The various public (i.e., configurable) variable types are as follows:
   - Flags to pass to linker
   - Space-separated list
 
+- arch_LDFLAGS (str)
+  - Flags to pass to the linker when compiling for a specific architecture
+  - Space-separated list
+
 - XXX_BUNDLE_RESOURCE_DIRS (str)
-  - File path(s) for the current bundle's resource directory (default: Resources)
+  - File paths for the current bundle's resource directory (default: Resources)
     - Adding a `Resources` folder to your project will copy over the containing files to the bundle on the target device during install
   - Space-separated list or any other standard GNU Make convention
 
 - XXX_BUNDLE_RESOURCE_FILES (str)
-  - File path(s) for the current bundle's resource files
+  - File paths for the current bundle's resource files
     - This can be used to copy a directory itself into the bundle, while XXX_BUNDLE_RESOURCE_DIRS copies the directory's *contents* into the bundle
   - Space-separated list or any other standard GNU Make convention
 
@@ -84,7 +88,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Space-separated list
 
 - XXX_EXTRA_FRAMEWORKS (str)
-  - Frameworks in $THEOS/lib/ that you'd like to link against
+  - Frameworks in $THEOS_LIBRARY_PATH that you'd like to link against
   - Space-separated list
 
 - XXX_LIBRARIES (str)
@@ -140,11 +144,18 @@ The various public (i.e., configurable) variable types are as follows:
 - XXX_ARCHS (str)
   - Space-separated list of architectures to build for
 
+- XXX_IPHONE_ARCHS (str)
+  - An alias for XXX_ARCHS
+
 - XXX_ENABLE_BITCODE (bool) **[OSX]**
-  - Toggle Bitcode (default: 0)
+  - Toggle bitcode (default: 0)
 
 - File.extension_CFLAGS (str)
-  - Flag(s) to pass to the compiler when compiling a specific file
+  - Flags to pass to the compiler when compiling a specific file
+  - Space-separated list
+
+- arch_CFLAGS (str)
+  - Flags to pass to the compiler when compiling for a specific architecture
   - Space-separated list
 
 - TWEAK_TARGET_PROCESS (str)
@@ -161,6 +172,9 @@ The various public (i.e., configurable) variable types are as follows:
 
 - ARCHS (str)
   - Space-separated list of architectures to build for
+
+- IPHONE_ARCHS (str)
+  - An alias for ARCHS
 
 - DEBUG (bool)
   - Toggle including debug symbols (default: 1)
@@ -186,6 +200,27 @@ The various public (i.e., configurable) variable types are as follows:
   - Format `platform:compiler:sdk_version:deployment_version`
     - `clang` is the only supported compiler for Darwin targets
 
+- SDKVERSION (num)
+  - Optional
+  - Used to specify the version of the .sdk to use for the current target platform's sysroot
+    - e.g., 'SDKVERSION = 14.0' targeting 'iphone' => THEOS_SDKS_PATH/iPhoneOS14.0.sdk
+  - Can be configured on an architecture-specific basis
+    - e.g., SDKVERSION_arm64, SDKVERSION_arm64e, etc.
+
+- INCLUDE_SDKVERSION (str)
+  - Optional
+  - Used to specify the version of the .sdk to use for the current target platform's isysroot
+    - e.g., 'INCLUDE_SDKVERSION = 14.0' targeting 'iphone' => THEOS_SDKS_PATH/iPhoneOS14.0.sdk
+  - Can be configured on an architecture-specific basis
+    - e.g., INCLUDE_SDKVERSION_arm64, INCLUDE_SDKVERSIONarm64e, etc.
+
+- TARGET_OS_DEPLOYMENT_VERSION (num)
+  - Optional
+  - Used to specify the deployment version for your target platform
+    - e.g., 'TARGET_OS_DEPLOYMENT_VERSION = 14.0' targeting 'iphone' => -target arm64-apple-ios14.0
+  - Can be configured on an architecture-specific basis
+    - e.g., TARGET_OS_DEPLOYMENT_VERSION_arm64, TARGET_OS_DEPLOYMENT_VERSION_arm64e, etc.
+
 - PREFIX (str)
   - Path to your toolchain bin
   - Often used on OSX to switch between xctoolchains
@@ -194,17 +229,17 @@ The various public (i.e., configurable) variable types are as follows:
   - Your package version
 
 - PACKAGE_BUILDNAME (str)
-  - Additional string added to the package name (e.g., debug for DEBUG=1)
+  - Additional string added to the package name (e.g., "debug" for DEBUG=1)
 
 - TARGET_INSTALL_REMOTE (bool)
   - Toggles whether the install target is remote or local
 
 - PREINSTALL_TARGET_PROCESSES (str)
-  - Target process(es) to `killall` *before* package install
+  - Target processes to `killall` *before* package install
   - Space-separated list
 
 - INSTALL_TARGET_PROCESSES (str)
-  - Target process(es) to `killall` *after* package install
+  - Target processes to `killall` *after* package install
   - Space-separated list
 
 - DEBUGFLAG (str)
@@ -214,15 +249,15 @@ The various public (i.e., configurable) variable types are as follows:
   - Debug flag passed to the linker (default: -g)
 
 - DEBUG.CFLAGS (str) ----- **unused ? (or schema related?)**
-  - Debug flag(s) passed to the compiler (default: -DDEBUG -O0)
+  - Debug flags passed to the compiler (default: -DDEBUG -O0)
   - Space-separated list
 
 - DEBUG.SWIFTFLAGS (str) ----- **unused ? (or schema related?)**
-  - Debug flag(s) passed to `swift` (default: -DDEBUG -Onone)
+  - Debug flags passed to `swift` (default: -DDEBUG -Onone)
   - Space-separated list
 
 - DEBUG.LDFLAGS (str) ----- **unused ? (or schema related?)**
-  - Debug flag(s) passed to the linker (default: -O0)
+  - Debug flags passed to the linker (default: -O0)
   - Space-separated list
 
 - OPTFLAG (str)
@@ -249,7 +284,7 @@ The various public (i.e., configurable) variable types are as follows:
     - Building for iOS < 9 (default: -Xlinker -no_data_const)
 
 - NEUTRAL_ARCH (str)
-  - Fallback arch(s) if ARCHS is empty and not set by the platform's respective target makefile
+  - Fallback archs if ARCHS is empty and not set by the platform's respective target makefile
   - Space-separated list
 
 - SYSROOT (str)
@@ -282,7 +317,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Target `dsymutil` binary (default: `dsymutil`/`llvm-dsymutil`)
 
 - TARGET_STRIP_FLAGS (str)
-  - Strip flag(s) to use (default: -x)
+  - Strip flags to use (default: -x)
   - Space-separated list
 
 - TARGET_CC (str)
@@ -316,7 +351,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Target `xcpretty` binary (default: `xcpretty`)
 
 - TARGET_CODESIGN_FLAGS (str)
-  - Target codesign flag(s) (default: --sign 'Apple Development'/-S)
+  - Target codesign flags (default: --sign 'Apple Development'/-S)
   - Space-separated list
 
 - TARGET_EXE_EXT (str)
@@ -329,10 +364,10 @@ The various public (i.e., configurable) variable types are as follows:
   - Target static archive extension (default: .a)
 
 - TARGET_LDFLAGS_DYNAMICLIB (str)
-  - Target linker flag(s) to enable dynamic libraries
+  - Target linker flags to enable dynamic libraries
 
 - TARGET_CFLAGS_DYNAMICLIB (str)
-  - Target compiler flag(s) to enable dynamic libraries
+  - Target compiler flags to enable dynamic libraries
 
 - CROSS_COMPILE (str)
   - Enables cross-compilation for TARGET_CC, TARGET_CXX, TARGET_LD, and TARGET_STRIP on compatbile host/target platform pairs
@@ -366,11 +401,11 @@ The various public (i.e., configurable) variable types are as follows:
   - Default generator passed to logos (default: MobileSubstrate)
 
 - ADDITIONAL_CFLAGS (str)
-  - Additional flag(s) passed to CC for C code
+  - Additional flags passed to CC for C code
   - Space-separated list
 
 - ADDITIONAL_CPPFLAGS (str)
-  - Additional flag(s) passed to CXX for C++ code
+  - Additional flags passed to CXX for C++ code
   - Space-separated list
 
 - USE_DEPS (bool)
@@ -392,8 +427,8 @@ The various public (i.e., configurable) variable types are as follows:
 - TARGET_ARCHS (str) ----- **internal ?**
 - PREPROCESS_ARCH_FLAGS (str)  ----- **internal ?**
 - OBJ_FILES_TO_LINK (str) ----- **internal ?**
-- ALL_*FLAGS * (str) ----- **internal ?**
-- *_FILES (str) ----- **internal ?**
+- `ALL_*FLAGS` (str) ----- **internal ?**
+- `*_FILES` (str) ----- **internal ?**
 
 ## System Variables
 
@@ -474,6 +509,8 @@ The various public (i.e., configurable) variable types are as follows:
 
 - THEOS_PLATFORM_SDK_ROOT (str)
   - SDK path for a specific platform (default: $(shell xcode-select -print-path))
+  - Can be configured on an architecture-specific basis
+    - e.g., THEOS_PLATFORM_SDK_ROOT_arm64, THEOS_PLATFORM_SDK_ROOT_arm64e, etc.
 
 - THEOS_PLATFORM_DEB_COMPRESSION_LEVEL (num)
   - Compression level to use with `dm.pl` (Theos' `dpkg-deb` drop-in)
