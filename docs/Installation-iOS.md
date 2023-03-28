@@ -20,7 +20,7 @@ Unless otherwise stated, all of the commands shown in the following instructions
 
 1. Install the following prerequisites<sup>1</sup> as *root*:
 
-		apt-get install bash curl sudo
+		apt-get install bash curl gzip sudo
 
 	<sup>
 	<sup>1</sup> In order to use <i>sudo</i>, your non-root user may need to be added to the sudoers file (/etc/sudoers). See [ArchWiki](https://wiki.archlinux.org/title/Sudo#Example_entries) for more information.
