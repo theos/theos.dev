@@ -112,7 +112,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Libraries to [weak link](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WeakLinking.html#//apple_ref/doc/uid/20002378-107026) against
   - Space-separated list
 
-- XXX_GENERATOR (str)
+- XXX_LOGOS_DEFAULT_GENERATOR (str)
   - The logos generator you'd like to use (default: MobileSubstrate)
   - See https://theos.dev/docs/logos-syntax
 
@@ -136,10 +136,6 @@ The various public (i.e., configurable) variable types are as follows:
   - Logos files you'd like to compile
   - See https://theos.dev/docs/logos-file-extensions
   - Space-separated list or any other standard GNU Make convention
-
-- XXX_USE_SUBSTRATE (bool)
-  - Toggle using MobileSubstrate as the logos generator (default: 1)
-  - Will link against CydiaSubstrate
 
 - XXX_ARCHS (str)
   - Space-separated list of architectures to build for

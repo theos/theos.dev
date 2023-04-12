@@ -5,7 +5,7 @@ layout: docs
 
 For the best results, Theos recommends that you use the latest version of [GNU Make](https://www.gnu.org/software/make/). Unfortunately, the Xcode toolchain does not include the latest version of Make. In fact, it includes Make 3.81 from 2006!
 
-While the Theos maintainers do their best to support Make 3.81, there are certain limits to what they can do. One of these limits is with parallel building. Parallel building is where a build tool like Make divides its work up in order to take full advantage of all logical cores (threads) of the CPU. This is one way a build can be significantly sped up, especially for larger projects. And, to make full use of this feature, Theos compiles each architecture separately rather than all at once.
+While the Theos maintainers do their best to support Make 3.81, there are certain limits to what they can do. One of these limits is with parallel building. Parallel building is where a build tool like Make divides its work up in order to take full advantage of all logical cores (threads) of the CPU. This is one way a build can be significantly sped up, especially for larger projects. And, to fully utilize this feature, Theos compiles each architecture separately rather than all at once.
 
 You may have been directed here by the following notice output by Theos:
 
