@@ -38,3 +38,14 @@ The resulting output should be:
 - (id)_initWithDownloadMetadata:(id)downloadMetadata type:(id)type { %log; id r = %orig; NSLog(@" = %@", r); return r; }
 %end
 ```
+
+## Usage
+```
+Usage: logify.pl [options] filename ...
+Options:
+  [-i|--include]        Comma-separated list of methods to include
+         -i "launchedTaskWithLaunchPath:arguments:,arguments" (for example)
+  [-e|--exclude]        Comma-separated list of methods to exclude
+         -e "launchedTaskWithLaunchPath:arguments:,arguments" (for example)
+  [-h|--help]           Display this page
+```

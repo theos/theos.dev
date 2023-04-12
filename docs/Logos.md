@@ -8,3 +8,13 @@ Logos is a Perl regex-based preprocessor that simplifies the boilerplate code ne
 Logos aims to provide an interface for [Cydia Substrate](https://cydiasubstrate.com/) by default, but can be configured to directly use the Objective-C runtime.
 
 Logos is a component of the [Theos](https://theos.dev/) development suite.
+
+## Usage
+```
+Usage: logos.pl [options] <filename>
+Options:
+  [-c|--config]         Modify Logos' configuration (MobileSubstrate, default)
+     -c generator=[internal|libhooker|MobileSubstrate]
+     -c warnings=[default|error|none]
+  [-h|--help]           Display this page
+```
