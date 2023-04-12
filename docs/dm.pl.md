@@ -11,7 +11,7 @@ dm.pl is a basic drop-in replacement for `dpkg-deb -b` that allows for the creat
     - `dpkg` switched to xz compression in v1.17.0 and marked lzma as deprecated
 - Is platform independent (i.e., doesn't require `dpkg`)
 
-## Usage
+## Command Line Interface
 
 ```
 Usage:

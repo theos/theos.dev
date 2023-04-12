@@ -9,7 +9,8 @@ Logos aims to provide an interface for [Cydia Substrate](https://cydiasubstrate.
 
 Logos is a component of the [Theos](https://theos.dev/) development suite.
 
-## Usage
+## Command Line Interface
+
 ```
 Usage: logos.pl [options] <filename>
 Options:

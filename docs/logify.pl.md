@@ -39,7 +39,8 @@ The resulting output should be:
 %end
 ```
 
-## Usage
+## Command Line Interface
+
 ```
 Usage: logify.pl [options] filename ...
 Options:
