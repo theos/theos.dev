@@ -13,7 +13,7 @@ Normally, it isn't possible to initialize hooking groups across multiple Logos f
 
 Take a look at the following code. All it does is log a message when the SpringBoard application has finished launching. It is inside of a group called **TweakGroup**, which is initialized in a static function called **InitGroup()**.
 
-```logos
+```objc
 // Group.xm
 #import "Shared.h"
 
@@ -42,7 +42,7 @@ extern "C" void InitGroup();
 
 Finally, *Shared.h* can be imported into the Logos file that contains your constructor. Calling the static function will initialize the group from Group.xm and run its hooks:
 
-```logos
+```objc
 // Tweak.xm
 #import "Shared.h"
 
