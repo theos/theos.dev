@@ -32,11 +32,11 @@ Set a logos configuration flag.
 		<tr>
 			<td rowspan="3">generator</td>
 			<td>MobileSubstrate</td>
-			<td>generate code that uses <a href="https://libhooker.com/docs/" title="MobileSubstrate">MobileSubstrate</a> for hooking.</td>
+			<td>generate code that uses <a href="http://www.cydiasubstrate.com/" title="MobileSubstrate">MobileSubstrate</a> for hooking.</td>
 		</tr>
 		<tr>
 			<td>libhooker</td>
-			<td>generate code that uses <a href="http://www.cydiasubstrate.com/" title="libhooker">libhooker</a> for hooking.</td>
+			<td>generate code that uses <a href="https://libhooker.com/docs/" title="libhooker">libhooker</a> for hooking.</td>
 		</tr>
 		<tr>
 			<td>internal</td>
