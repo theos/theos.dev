@@ -55,8 +55,32 @@ The various public (i.e., configurable) variable types are as follows:
   - Flags to pass to compiler
   - Space-separated list
 
+- XXX_CCFLAGS (str)
+  - Flags to pass to compiler
+  - Space-separated list
+
+- XXX_OBJCFLAGS (str)
+  - Flags to pass to compiler
+  - Space-separated list
+
+- XXX_OBJCCFLAGS (str)
+  - Flags to pass to compiler
+  - Space-separated list
+
+- XXX_SWIFTFLAGS (str)
+  - Flags to pass to compiler
+  - Space-separated list
+
+- XXX_LOGOSFLAGS (str)
+  - Flags to pass to Logos
+  - Space-separated list
+
 - XXX_LDFLAGS (str)
   - Flags to pass to linker
+  - Space-separated list
+
+- XXX_XCODEFLAGS (str)
+  - Flags to pass to Xcode
   - Space-separated list
 
 - XXX_BUNDLE_RESOURCE_DIRS (str)
@@ -392,8 +416,28 @@ The various public (i.e., configurable) variable types are as follows:
   - Additional flags passed to CC for C code
   - Space-separated list
 
-- ADDITIONAL_CPPFLAGS (str)
+- ADDITIONAL_CCFLAGS (str)
   - Additional flags passed to CXX for C++ code
+  - Space-separated list
+
+- ADDITIONAL_OBJCFLAGS (str)
+  - Additional flags passed to CC for ObjC code
+  - Space-separated list
+
+- ADDITIONAL_OBJCCFLAGS (str)
+  - Additional flags passed to CXX for ObjC++ code
+  - Space-separated list
+
+- ADDITIONAL_SWIFTFLAGS (str)
+  - Additional flags passed to `swift` for Swift code
+  - Space-separated list
+
+- ADDITIONAL_LOGOSFLAGS (str)
+  - Additional flags passed to `logos` for Logos code
+  - Space-separated list
+
+- ADDITIONAL_LDFLAGS (str)
+  - Additional flags passed to LD for linking
   - Space-separated list
 
 - ADDITIONAL_XCODEFLAGS (str) **[OSX]**
