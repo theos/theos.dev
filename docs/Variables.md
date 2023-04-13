@@ -41,6 +41,9 @@ The various public (i.e., configurable) variable types are as follows:
 
 *Note: "XXX" = $(THEOS_CURRENT_INSTANCE)*
 
+- project-type_NAME (str)
+  - Your project's name
+
 - XXX_INSTALL_PATH (str)
   - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc)
 
@@ -54,10 +57,6 @@ The various public (i.e., configurable) variable types are as follows:
 
 - XXX_LDFLAGS (str)
   - Flags to pass to linker
-  - Space-separated list
-
-- arch_LDFLAGS (str)
-  - Flags to pass to the linker when compiling for a specific architecture
   - Space-separated list
 
 - XXX_BUNDLE_RESOURCE_DIRS (str)
@@ -98,11 +97,6 @@ The various public (i.e., configurable) variable types are as follows:
 - XXX_LIBRARY_EXTENSION (str)
   - The file extension for your library/tweak
   - "-" for no extension
-
-- XXX_NAME (str)
-  - Your project's name
-
-- XXX_WITH_SUBPROJECTS ----- **internal ?**
 
 - XXX_WEAK_FRAMEWORKS (str)
   - Frameworks to [weak link](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WeakLinking.html#//apple_ref/doc/uid/20002378-107026) against
@@ -146,6 +140,8 @@ The various public (i.e., configurable) variable types are as follows:
 - XXX_ENABLE_BITCODE (bool) **[OSX]**
   - Toggle bitcode (default: 0)
 
+## Local Variables
+
 - File.extension_CFLAGS (str)
   - Flags to pass to the compiler when compiling a specific file
   - Space-separated list
@@ -154,14 +150,9 @@ The various public (i.e., configurable) variable types are as follows:
   - Flags to pass to the compiler when compiling for a specific architecture
   - Space-separated list
 
-- TWEAK_TARGET_PROCESS (str)
-  - Target process to `killall` after your tweak installs
+- arch_LDFLAGS (str)
+  - Flags to pass to the linker when compiling for a specific architecture
   - Space-separated list
-
-- SUBPROJECT_OBJ_FILES (str) ----- **internal ?**
-- SUBPROJECT_LDFLAGS (str) ----- **internal ?**
-
-## Local Variables
 
 - COLOR (bool)
   - Toggles pretty logs (default: 1)
@@ -197,21 +188,18 @@ The various public (i.e., configurable) variable types are as follows:
     - `clang` is the only supported compiler for Darwin targets
 
 - SDKVERSION (num)
-  - Optional
   - Used to specify the version of the .sdk to use for the current target platform's sysroot
     - e.g., 'SDKVERSION = 14.0' targeting 'iphone' => THEOS_SDKS_PATH/iPhoneOS14.0.sdk
   - Can be configured on an architecture-specific basis
     - e.g., SDKVERSION_arm64, SDKVERSION_arm64e, etc.
 
 - INCLUDE_SDKVERSION (str)
-  - Optional
   - Used to specify the version of the .sdk to use for the current target platform's isysroot
     - e.g., 'INCLUDE_SDKVERSION = 14.0' targeting 'iphone' => THEOS_SDKS_PATH/iPhoneOS14.0.sdk
   - Can be configured on an architecture-specific basis
     - e.g., INCLUDE_SDKVERSION_arm64, INCLUDE_SDKVERSIONarm64e, etc.
 
 - TARGET_OS_DEPLOYMENT_VERSION (num)
-  - Optional
   - Used to specify the deployment version for your target platform
     - e.g., 'TARGET_OS_DEPLOYMENT_VERSION = 14.0' targeting 'iphone' => -target arm64-apple-ios14.0
   - Can be configured on an architecture-specific basis
@@ -236,6 +224,11 @@ The various public (i.e., configurable) variable types are as follows:
 
 - INSTALL_TARGET_PROCESSES (str)
   - Target processes to `killall` *after* package install
+  - Space-separated list
+
+- TWEAK_TARGET_PROCESS (str)
+  - Target process to `killall` *after* your tweak installs
+    - Appended to INSTALL_TARGET_PROCESSES
   - Space-separated list
 
 - DEBUGFLAG (str)
@@ -272,6 +265,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Space-separated list
 
 - FAKEROOT (str) ----- **internal ?**
+  - `fakeroot` to be invoked (default: $THEOS_BIN_PATH/fakeroot.sh)
 
 - LEGACYFLAGS (str)
   - Flags passed to compiler and linker if building for legacy platforms
@@ -385,8 +379,6 @@ The various public (i.e., configurable) variable types are as follows:
   - Directory names of subprojects to build alongside the root project
   - Space-separated list
 
-- ALL_XCODEFLAGS (str) ----- **internal ?**
-- ALL_XCODEOPTS (str) ----- **internal ?**
 - EXPANDED_CODE_SIGN_IDENTITY_NAME (str) **[OSX]** ----- **unused ?**
 - EXPANDED_CODE_SIGN_IDENTITY (str) **[OSX]** ----- **unused ?**
 
@@ -404,6 +396,14 @@ The various public (i.e., configurable) variable types are as follows:
   - Additional flags passed to CXX for C++ code
   - Space-separated list
 
+- ADDITIONAL_XCODEFLAGS (str) **[OSX]**
+  - Additional flags passed to `xcodebuild`
+  - Space-separated list
+
+- ADDITIONAL_XCODEOPTS (str) **[OSX]**
+  - Additional options passed to `xcodebuild`
+  - Space-separated list
+
 - USE_DEPS (bool)
   - Toggle dependency tracking (i.e., makedeps) (default: 0)
   - Compiler writes headers to $THEOS_OBJ_DIR/*.Td
@@ -419,11 +419,7 @@ The various public (i.e., configurable) variable types are as follows:
   - File extension for the current project instance's bundle
 
 - SHOULD_STRIP (bool) ----- **internal ?**
-- ARCH_FILES_TO_LINK (str) ----- **internal ?**
 - TARGET_ARCHS (str) ----- **internal ?**
-- PREPROCESS_ARCH_FLAGS (str)  ----- **internal ?**
-- OBJ_FILES_TO_LINK (str) ----- **internal ?**
-- `ALL_*FLAGS` (str) ----- **internal ?**
 - `*_FILES` (str) ----- **internal ?**
 
 ## System Variables
