@@ -7,17 +7,17 @@ By default, the Logos pre-processor will only process one .xm file at build time
 
 To do this, the main file has to be renamed to an .xmi file. Then, other .xm files can be included in it using the `#include` or `#import` directives. The Logos pre-processor will add those files to the main file before processing it.
 
+Note that the .xmi file should be listed in `XXX_FILES` in the makefile while .xm files that are included/imported should not.
+
 ## Groups
 
-Normally, it isn't possible to initialize hooking groups across multiple Logos files, but there is a workaround that can be used to unlock this functionality. This is done by wrapping group initializations inside of static methods that can then be called from other files.
+Normally, it isn't possible to initialize a `%group` across multiple Logos files, but there is a workaround that can be used to unlock this functionality. This is done by wrapping group initializations inside of static methods that can then be called from other files.
 
 Take a look at the following code. All it does is log a message when the SpringBoard application has finished launching. It is inside of a group called **TweakGroup**, which is initialized in a static function called **InitGroup()**.
 
 ```objc
-// Group.xmi
-#import <substrate.h>
+// Group.xm
 #import "Shared.h"
-#import "Tweak.xm"
 
 %group TweakGroup
 %hook SpringBoard
@@ -35,7 +35,7 @@ extern "C" void InitGroup() {
 }
 ```
 
-As you may have noticed, there is an import for *Shared.h* at the top of *Group.xmi*. That is simply a header file that will be imported into our main Logos file so that we may call the function there:
+As you may have noticed, there is an import for *Shared.h* at the top of *Group.xm*. That is simply a header file that will be imported into our main Logos file so that we may call the function there:
 
 ```objc
 // Shared.h
@@ -44,7 +44,7 @@ As you may have noticed, there is an import for *Shared.h* at the top of *Group.
 extern "C" void InitGroup();
 ```
 
-Finally, *Shared.h* can be imported into the Logos file that contains your constructor. Calling the static function will initialize the group from *Group.xmi* and run its hooks:
+Finally, *Shared.h* can be imported into the Logos file that contains your constructor. Calling the static function will initialize the group from *Group.xm* and run its hooks:
 
 ```objc
 // Tweak.xm
