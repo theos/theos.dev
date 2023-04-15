@@ -83,9 +83,23 @@ The various public (i.e., configurable) variable types are as follows:
   - Flags to pass to Xcode
   - Space-separated list
 
+- XXX_BUNDLE_RESOURCES (str)
+  - File paths for the current .bundle's resources
+  - Space-separated list or any other standard GNU Make convention
+
+- XXX_RESOURCE_FILES (str)
+  - Alias for XXX_BUNDLE_RESOURCES
+
 - XXX_BUNDLE_RESOURCE_DIRS (str)
   - File paths for the current bundle's resource directory (default: Resources)
     - Adding a `Resources` folder to your project will copy over the containing files to the bundle on the target device during install
+  - Space-separated list or any other standard GNU Make convention
+
+- XXX_RESOURCE_DIRS (str)
+  - Alias for XXX_BUNDLE_RESOURCE_DIRS
+
+- XXX_PUBLIC_HEADERS (str)
+  - File paths for the current .bundle's public headers
   - Space-separated list or any other standard GNU Make convention
 
 - XXX_BUNDLE_RESOURCE_FILES (str)
@@ -121,6 +135,14 @@ The various public (i.e., configurable) variable types are as follows:
 - XXX_LIBRARY_EXTENSION (str)
   - The file extension for your library/tweak
   - "-" for no extension
+
+- XXX_ARCHIVE_EXTENSION (str)
+  - The file extension for your library
+  - "-" for no extension
+
+- XXX_LINKAGE_TYPE (str)
+  - Type of linking to use (default: $THEOS_LINKAGE_TYPE)
+    - Options are dynamic or static
 
 - XXX_WEAK_FRAMEWORKS (str)
   - Frameworks to [weak link](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WeakLinking.html#//apple_ref/doc/uid/20002378-107026) against
@@ -161,8 +183,36 @@ The various public (i.e., configurable) variable types are as follows:
 - XXX_IPHONE_ARCHS (str)
   - An alias for XXX_ARCHS
 
+- XXX_DYNAMIC_LIBRARY (bool)
+  - Specifies whether or not the current bundle instance is to be built as a .dylib (default: 1)
+
 - XXX_ENABLE_BITCODE (bool) **[OSX]**
   - Toggle bitcode (default: 0)
+
+- XXX_XCODE_WORKSPACE (str) **[OSX]**
+  - Workspace to build xcode project with
+
+- XXX_XCODE_PROJECT (str) **[OSX]**
+  - Project to build with xcode
+
+- XXX_XCODE_SCHEME (str) **[OSX]**
+  - Scheme to build xcode project with
+
+- XXX_APP_EXTENSION_SAFE_API (bool)
+  - Treat bundle as application-extension when compiling (default: false)
+
+- XXX_APP_EXTENSION_SAFE (bool)
+  - Treat bundle as application-extension when linking (default: false)
+
+- XXX_SWIFT_BRIDGING_HEADER (str)
+  - Path to swift bridging header to use (default: XXX-Bridging-Header.h)
+
+- XXX_SWIFT_VERSION (num)
+  - Swift version to use (default: 5)
+
+- XXX_USE_MODULES (bool)
+  - Enable use of modules (default: true)
+    - Will add MODULESFLAGS to preprocessing flags
 
 ## Local Variables
 
@@ -261,15 +311,15 @@ The various public (i.e., configurable) variable types are as follows:
 - SWIFT_DEBUGFLAG (str)
   - Debug flag passed to the linker (default: -g)
 
-- DEBUG.CFLAGS (str) ----- **unused ? (or schema related?)**
+- DEBUG.CFLAGS (str) ----- **unused? or schema related?**
   - Debug flags passed to the compiler (default: -DDEBUG -O0)
   - Space-separated list
 
-- DEBUG.SWIFTFLAGS (str) ----- **unused ? (or schema related?)**
+- DEBUG.SWIFTFLAGS (str) ----- **unused? or schema related?**
   - Debug flags passed to `swift` (default: -DDEBUG -Onone)
   - Space-separated list
 
-- DEBUG.LDFLAGS (str) ----- **unused ? (or schema related?)**
+- DEBUG.LDFLAGS (str) ----- **unused? or schema related?**
   - Debug flags passed to the linker (default: -O0)
   - Space-separated list
 
@@ -281,12 +331,8 @@ The various public (i.e., configurable) variable types are as follows:
 
 - GO_EASY_ON_ME (bool)
   - Toggle quieting all errors (default: 0)
-  - Bad practice and in the process of being deprecated
+  - Bad practice and deprecated for release builds
     - Migrate to Clang directives (e.g., -Wno-<blah> or #pragma clang diagnostic)
-
-- MAKEFLAGS (str)
-  - Flags passed to your Make invocation
-  - Space-separated list
 
 - FAKEROOT (str) ----- **internal ?**
   - `fakeroot` to be invoked (default: $THEOS_BIN_PATH/fakeroot.sh)
@@ -352,6 +398,10 @@ The various public (i.e., configurable) variable types are as follows:
 - TARGET_CODESIGN (str)
   - Target codesign binary (default: `codesign`/`ldid`)
 
+- TARGET_CODESIGN_FLAGS (str)
+  - Target codesign flags (default: --sign 'Apple Development'/-S)
+  - Space-separated list
+
 - TARGET_CODESIGN_ALLOCATE (str)
   - Target `codesign_allocate` binary (default: `codesign_allocate`)
 
@@ -364,10 +414,6 @@ The various public (i.e., configurable) variable types are as follows:
 - TARGET_XCPRETTY (str) **[OSX]**
   - Target `xcpretty` binary (default: `xcpretty`)
 
-- TARGET_CODESIGN_FLAGS (str)
-  - Target codesign flags (default: --sign 'Apple Development'/-S)
-  - Space-separated list
-
 - TARGET_EXE_EXT (str)
   - Target Windows executable extenstion (default: .exe)
 
@@ -378,10 +424,10 @@ The various public (i.e., configurable) variable types are as follows:
   - Target static archive extension (default: .a)
 
 - TARGET_LDFLAGS_DYNAMICLIB (str)
-  - Target linker flags to enable dynamic libraries
+  - Target linker flags for dynamic libraries
 
 - TARGET_CFLAGS_DYNAMICLIB (str)
-  - Target compiler flags to enable dynamic libraries
+  - Target compiler flags for dynamic libraries
 
 - CROSS_COMPILE (str)
   - Enables cross-compilation for TARGET_CC, TARGET_CXX, TARGET_LD, and TARGET_STRIP on compatbile host/target platform pairs
@@ -403,8 +449,8 @@ The various public (i.e., configurable) variable types are as follows:
   - Directory names of subprojects to build alongside the root project
   - Space-separated list
 
-- EXPANDED_CODE_SIGN_IDENTITY_NAME (str) **[OSX]** ----- **unused ?**
-- EXPANDED_CODE_SIGN_IDENTITY (str) **[OSX]** ----- **unused ?**
+- EXPANDED_CODE_SIGN_IDENTITY_NAME (str) **[OSX]** ----- **unused ? or blanking sys var?**
+- EXPANDED_CODE_SIGN_IDENTITY (str) **[OSX]** ----- **unused? or blanking sys var?**
 
 - LOCAL_INSTALL_PATH (str)
   - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc) (default: XXX_INSTALL_PATH)
@@ -462,11 +508,19 @@ The various public (i.e., configurable) variable types are as follows:
 - LOCAL_BUNDLE_EXTENSION (str)
   - File extension for the current project instance's bundle
 
-- SHOULD_STRIP (bool) ----- **internal ?**
-- TARGET_ARCHS (str) ----- **internal ?**
+- `ALL_*FLAGS` (str) ----- **internal ?**
 - `*_FILES` (str) ----- **internal ?**
 
 ## System Variables
+
+- THEOS_PACKAGE_SCHEME (str)
+  - The package scheme to build for (default: blank -- will build for rootful)
+  - Other options include: "rootless"
+
+- THEOS_PACKAGE_INSTALL_PREFIX (str)
+  - File path prefix to add to the install path (i.e., /Library/MobileSubstrate/)
+  - Dependent on THEOS_PACKAGE_SCHEME unless explicitly set (default: blank for rootful and "/var/jb/" for rootless)
+  - Note that this is passed to the compiler and can thus be used in your code
 
 - THEOS_STAGING_DIR (str)
   - File path for directory to house stage bits and pieces (default: .theos/_/)
@@ -567,10 +621,6 @@ The various public (i.e., configurable) variable types are as follows:
 
 - THEOS_IGNORE_PARALLEL_BUILDING_NOTICE (str)
   - Toggles the notice to update Make so parallel builds can be used (default: "")
-
-- THEOS_SHARED_BUNDLE_BINARY_PATH (str) ----- **internal ?**
-- THEOS_SHARED_BUNDLE_RESOURCE_PATH (str) ----- **internal ?**
-- THEOS_SHARED_BUNDLE_HEADERS_PATH (str) ----- **internal ?**
 
 ## System Constants
 
