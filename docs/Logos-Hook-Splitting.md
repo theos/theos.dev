@@ -44,7 +44,7 @@ As you may have noticed, there is an import for *Shared.h* at the top of *Group.
 extern "C" void InitGroup();
 ```
 
-Finally, *Shared.h* can be imported into the Logos file that contains your constructor. Calling the static function will initialize the group from Group.xmi and run its hooks:
+Finally, *Shared.h* can be imported into the Logos file that contains your constructor. Calling the static function will initialize the group from *Group.xmi* and run its hooks:
 
 ```objc
 // Tweak.xm
