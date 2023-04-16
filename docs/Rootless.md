@@ -29,7 +29,7 @@ ifeq ($(THEOS_PACKAGE_SCHEME),rootless)
 XXX_LDFLAGS += -install_name @rpath/<project-name>.framework/<project-name>
 endif
 ```
-- The iOS 14 arm64e ABI mentioned in [arm64e-Deployment.md](arm64e-Deployment.html) is now *required* for the relevant devices
+- The iOS 14 arm64e ABI mentioned in [arm64e-Deployment](arm64e-Deployment.html) is now *required* for the relevant devices
 
 ---
 
@@ -37,7 +37,7 @@ Theos supports building for the rootless scheme in a few ways:
 - Provides rootless-compatible libraries and frameworks in `$THEOS_VENDOR_LIBRARY_PATH/iphone/rootless`
 
 - Provides `rootless.h` -- a header that contains convenient macros to easily convert rootful paths to rootless ones in your code at compile-time, assuming you compile for the rootless scheme (see below)
-    - `#import <rootless.h`
+    - `#import <rootless.h>`
     - Courtesy of [opa334](https://github.com/theos/headers/commit/9f00c9663aff892b512f87666dbfbf8fe4943e84)
 
 - `THEOS_PACKAGE_SCHEME=rootless` -- a variable to enable a handful of internal changes including:
