@@ -17,19 +17,22 @@ With this new target location, *all* projects will have to be recompiled to refe
 
 **Important Notes**:
 - You must run `make clean` when switching between a rootful and rootless build
+
 - If you maintain a library, you'll want to add some variation of the following to your code so that it will have the correct install path:
 ```make
 ifeq ($(THEOS_PACKAGE_SCHEME),rootless)
 XXX_LDFLAGS += -install_name @rpath/<lib-name>.dylib
 endif
 ```
+
 - Likewise, if you maintain a framework, you'll want to add some variation of the following to your code so that it will have the correct install path:
 ```make
 ifeq ($(THEOS_PACKAGE_SCHEME),rootless)
 XXX_LDFLAGS += -install_name @rpath/<project-name>.framework/<project-name>
 endif
 ```
-- The iOS 14 arm64e ABI mentioned in [arm64e-Deployment](arm64e-Deployment.html) is now *required* for the relevant devices
+
+- The iOS 14 arm64e ABI mentioned in [arm64e Deployment](arm64e-Deployment.html) is now *required* for the relevant devices
 
 ---
 
@@ -47,5 +50,8 @@ Theos supports building for the rootless scheme in a few ways:
     - Setting the package architecture to `iphoneos-arm64` if your control file specifies `iphoneos-arm`
 
 Additional notes:
+- You do *not* need to create separate package identifiers for rootful/rootless versions of the same package
+    - Package managers will present only the compatible version to users
+
 - This new rootless scheme only supports iOS 15+, which itself only supports newer devices
     - This means that you do not need to compile for legacy architectures (e.g., `armv7(s)` or older) if you were previously and can bump your deployment target to 15.0 when building for rootless
