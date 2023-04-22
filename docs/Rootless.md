@@ -61,7 +61,7 @@ Theos supports building for the rootless scheme in a few ways:
 
 Additional notes:
 - You do *not* need to create separate package identifiers for rootful/rootless versions of the same package
-    - Package managers will present only the compatible version to users
+    - Newer versions of rootless-compatbile package managers (e.g., Sileo and Zebra) will present only the compatible version to users
 
 - This new rootless scheme only supports iOS 15+, which itself only supports newer devices
     - This means that you do not need to compile for legacy architectures (e.g., `armv7(s)` or older) if you were previously and can bump your deployment target to 15.0 when building for rootless
