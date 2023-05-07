@@ -117,7 +117,7 @@ Building for jailbroken iOS also requires configuring for process injection via 
 
 This filter is implemented as a property list that is installed alongside the .dylib(s) in the .deb. The property list is created for you when initializing a project via the NIC.
 
-The filter can be for bundles, classes, and/or executables and is declared in the form of an xml array. Your tweak will only be loaded if the filter items specified are matched.
+The filter can be for bundles, classes, and/or executables and is declared in the form of an xml/plist dictionary of arrays. Your tweak will only be loaded if the filter items specified are matched.
 
 The format of said filter plist is as follows:
 
