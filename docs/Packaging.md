@@ -126,6 +126,7 @@ The filter can be for bundles, classes, and/or executables and is declared in th
 
 The format of said filter plist is as follows:
 
+XML:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -150,4 +151,23 @@ The format of said filter plist is as follows:
 </plist>
 ```
 
-For more information, see https://iphonedev.wiki/index.php/Cydia_Substrate#Filters
+*or*
+
+JSON:
+```json
+{
+	Filter = {
+		Bundles = (
+			"some.bundle.id"
+		);
+        Executables = (
+			"executable-name"
+		);
+        Classes = (
+			"class-name"
+		);
+	};
+}
+```
+
+For more information, see the [iPhoneDevWiki](https://iphonedev.wiki/index.php/Cydia_Substrate#Filters)

@@ -43,6 +43,9 @@ Such rule names include:
 - `before-package`
 - `internal-package`
 - `after-package`
+- `before-$(THEOS_CURRENT_INSTANCE)-stage`
+- `after-$(THEOS_CURRENT_INSTANCE)-stage`
+- `internal-$(_THEOS_CURRENT_TYPE)-stage`
 - `before-$(THEOS_CURRENT_INSTANCE)-all`
 - `after-$(THEOS_CURRENT_INSTANCE)-all`
 - `internal-$(_THEOS_CURRENT_TYPE)-all`
@@ -127,7 +130,7 @@ The following can be used in your Makefile(s) as desired within Theos' makefile 
     - Will print `some text here` using [`echo(1)`](https://man.cameronkatri.com/echo.1)
 
 - `@printf "some text here"`
-    - Will print `some text here` without a trailing newline (i.e., "\n"). Note that [`printf(1)`](https://man.cameronkatri.com/printf.1) uses a format string. 
+    - Will print `some text here` without a trailing newline (i.e., "\n"). Note that [`printf(1)`](https://man.cameronkatri.com/printf.1) uses a format string.
 
 ### Running shell commands
 
