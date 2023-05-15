@@ -48,6 +48,8 @@
       link: /docs/Logos-Hook-Splitting.html
     - title: Orion
       link: https://orion.theos.dev/
+    - title: Rootless
+      link: /docs/Rootless.html
 
 - title: Technical
   list:
