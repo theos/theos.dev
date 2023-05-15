@@ -149,7 +149,7 @@ XML:
 *or*
 
 Text (i.e., NeXTSTEP format):
-```xml
+```
 {
 	Filter = {
 		Bundles = (
