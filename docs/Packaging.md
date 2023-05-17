@@ -91,7 +91,7 @@ Aside from a few jailbroken iOS-specific fields, the available fields can be fou
 
 As with standard Debian packages, maintainer scripts can be added to your project to be run at various points throughout its (un)install cycle.
 
-The scripts should be placed in $THEOS_LAYOUT_DIRECTORY and include:
+The scripts should be placed in $THEOS_LAYOUT_DIR and include:
 
 - `preinst`
 	- A script to be run *prior* to your package's installation
