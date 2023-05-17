@@ -384,7 +384,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Target CC binary (default: `clang`/`gcc`)
 
 - TARGET_CXX (str)
-  - Target CXX binary (default: `clang`/`gcc`)
+  - Target CXX binary (default: `clang++`/`g++`)
 
 - TARGET_LD (str)
   - Target LD binary (default: TARGET_CXX)
@@ -415,7 +415,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Target `xcpretty` binary (default: `xcpretty`)
 
 - TARGET_EXE_EXT (str)
-  - Target Windows executable extenstion (default: .exe)
+  - Target executable extenstion
 
 - TARGET_LIB_EXT (str)
   - Target dynamic/shared library extension
