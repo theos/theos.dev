@@ -43,6 +43,7 @@ include:
   - .well-known
 
 exclude:
+  - vendor
   - CNAME
   - Gemfile
   - Gemfile.lock

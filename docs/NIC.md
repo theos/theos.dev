@@ -16,7 +16,7 @@ NIC 2.0 - New Instance Creator
 ------------------------------
   [1.] iphone/activator_event
   [2.] iphone/activator_listener
-  [3.] iphone/application_modern
+  [3.] iphone/application
   [4.] iphone/application_swift
   [5.] iphone/control_center_module-11up
   [6.] iphone/cydget
@@ -25,14 +25,16 @@ NIC 2.0 - New Instance Creator
   [9.] iphone/library
   [10.] iphone/notification_center_widget
   [11.] iphone/notification_center_widget-7up
-  [12.] iphone/preference_bundle_modern
-  [13.] iphone/theme
-  [14.] iphone/tool
-  [15.] iphone/tool_swift
-  [16.] iphone/tweak
-  [17.] iphone/tweak_with_simple_preferences
-  [18.] iphone/xpc_service
-Choose a Template (required): 16
+  [12.] iphone/preference_bundle
+  [13.] iphone/preference_bundle_swift
+  [14.] iphone/theme
+  [15.] iphone/tool
+  [16.] iphone/tool_swift
+  [17.] iphone/tweak
+  [18.] iphone/tweak_with_simple_preferences
+  [19.] iphone/xpc_service
+  [20.] iphone/xpc_service_modern
+Choose a Template (required): 17
 Project Name (required): Example
 Package Name [com.yourcompany.example]: dev.theos.example
 Author/Maintainer Name [Craig Federighi]: Craig Federighi <notfederighi@theos.dev>
@@ -44,7 +46,7 @@ Done.
 ~$ cd example
 
 ~/example$ ls
-Example.plist  Makefile  Tweak.xm  control
+Example.plist  Makefile  Tweak.x  control
 ```
 
 Where there is a default value displayed in `[square brackets]`, you can simply press return without entering a value and the default will be used. It is highly recommended that the author value is formatted like `Your Name <yourself@example.com>`, as this will make it possible for users to easily contact you about bugs and other questions.
@@ -62,7 +64,7 @@ The following command line arguments are supported. Note that providing argument
 ## Included templates
 * **activator_event**: an [event](http://iphonedev.wiki/index.php/Libactivator#Sending_Events_.28via_LAEvent.29) for Activator.
 * **activator_listener**: a [listener](http://iphonedev.wiki/index.php/Libactivator#Observing_Events_.28via_LAListener.29) for Activator.
-* **application_modern**: a standard iOS app (for unsandboxed jailbreak use).
+* **application**: a standard iOS app (for unsandboxed jailbreak use).
 * **application_swift**: a standard, Swift-based iOS app (for unsandboxed jailbreak use).
 * **control_center_module-11up**: a custom control center module for iOS 11+ deployed via [CCSupport](https://github.com/opa334/CCSupport/wiki).
 * **cydget**: a [Cydget](https://cydia.saurik.com/info/cydget/) lock screen plugin.
@@ -71,13 +73,15 @@ The following command line arguments are supported. Note that providing argument
 * **library**: a linkable library (e.g. /usr/lib/libblah.dylib).
 * **notification_center_widget**: an iOS 5 – 6 Notification Center Today widget.
 * **notification_center_widget-7up**: an iOS 7 – 9 Notification Center Today widget.
-* **preference_bundle_modern**: a [PreferenceLoader](http://iphonedev.wiki/index.php/PreferenceLoader) preference bundle subproject.
+* **preference_bundle**: a [PreferenceLoader](http://iphonedev.wiki/index.php/PreferenceLoader) preference bundle subproject.
+* **preference_bundle_swift**: a Swift-based [PreferenceLoader](http://iphonedev.wiki/index.php/PreferenceLoader) preference bundle subproject.
 * **theme**: a means of easily packaging your theme into a .deb using Theos' packaging functionality.
 * **tool**: a command line tool (e.g. /usr/bin/blah).
 * **tool_swift**: a Swift-based command line tool (e.g. /usr/bin/blah).
 * **tweak**: a Cydia Substrate-based tweak.
 * **tweak_with_simple_preferences**: a Cydia Substrate-based tweak with a basic preference bundle.
 * **xpc_service**: a C-based [XPC](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html) service.
+* **xpc_service_modern**: an Objective-C-based [XPC](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html) service.
 
 This is just the list of templates Theos comes with. Far more is possible with Theos than you can find in the list above, and these templates serve only as starting points to develop a working product without having to deal with various bits of boilerplate.
 

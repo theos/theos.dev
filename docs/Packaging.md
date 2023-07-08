@@ -3,7 +3,7 @@ title: Packaging
 layout: docs
 ---
 
-Theos supports building for many common targets and file formats including:
+Theos supports building for many common targets and packaging formats including:
 
 ### Platforms
 - iOS
@@ -11,17 +11,12 @@ Theos supports building for many common targets and file formats including:
 - Linux
 - Windows
 
-### File formats
-- `.dylib`
-- `.a`
-- `.so`
+### Formats
 - `.deb`
 - `.ipa`
-- null packages
 - `.pkg`
 - `.rpm`
-- `.exe`
-- `.dll`
+- null (packaging w/o compiling anything)
 
 The most common configuration is targeting jailbroken iOS via .deb's. As jailbroken iOS is bootstrapped by a Debian-esque platform, .deb's follow many of the standard Debian Linux conventions.
 
@@ -96,7 +91,7 @@ Aside from a few jailbroken iOS-specific fields, the available fields can be fou
 
 As with standard Debian packages, maintainer scripts can be added to your project to be run at various points throughout its (un)install cycle.
 
-The scripts should be placed in $THEOS_LAYOUT_DIRECTORY and include:
+The scripts should be placed in $THEOS_LAYOUT_DIR and include:
 
 - `preinst`
     - A script to be run *prior* to your package's installation
@@ -122,10 +117,11 @@ Building for jailbroken iOS also requires configuring for process injection via 
 
 This filter is implemented as a property list that is installed alongside the .dylib(s) in the .deb. The property list is created for you when initializing a project via the NIC.
 
-The filter can be for bundles, classes, and/or executables and is declared in the form of an xml array. Your tweak will only be loaded if the filter items specified are matched.
+The filter can be for bundles, classes, and/or executables and is declared in the form of an xml/plist dictionary of arrays. Your tweak will only be loaded if the filter items specified are matched.
 
 The format of said filter plist is as follows:
 
+XML:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -150,4 +146,23 @@ The format of said filter plist is as follows:
 </plist>
 ```
 
-For more information, see https://iphonedev.wiki/index.php/Cydia_Substrate#Filters
+*or*
+
+Text (i.e., NeXTSTEP format):
+```
+{
+    Filter = {
+        Bundles = (
+            "some.bundle.id"
+        );
+        Executables = (
+            "executable-name"
+        );
+        Classes = (
+            "class-name"
+        );
+    };
+}
+```
+
+For more information, see the [iPhoneDevWiki](https://iphonedev.wiki/index.php/Cydia_Substrate#Filters)
