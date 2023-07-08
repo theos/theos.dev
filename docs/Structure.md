@@ -16,7 +16,7 @@ Information regarding the various parts of Theos' internal structure:
   * **platform/**: Makefiles included depending on the current operating system platform. These set up the Theos environment appropriately for the platform.
   * **targets/**: Makefiles included depending on the current operating system platform and the target platform. These set up the Theos environment appropriately to build for a platform.
 * **mod/**: Provided for you to place modules in. Theos will automatically include various files from here.
-* **sdks/**: Provided for you to place [SDKs](https://github.com/theos/sdks/) in.
+* **sdks/**: Provided for you to place SDKs in.
 * **templates/**: Provided for you to place your own [NIC](/docs/NIC.html) templates in.
 * **toolchain/**: Provided for you to place toolchains in, as directed at [Installation](/docs/Installation.html).
 * **vendor/**: Submodule components included with Theos.
