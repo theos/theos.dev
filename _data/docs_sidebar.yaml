@@ -44,8 +44,12 @@
       link: /docs/logify.pl.html
     - title: File Extensions
       link: /docs/Logos-File-Extensions.html
+    - title: Hook Splitting
+      link: /docs/Logos-Hook-Splitting.html
     - title: Orion
       link: https://orion.theos.dev/
+    - title: Rootless
+      link: /docs/Rootless.html
 
 - title: Technical
   list:

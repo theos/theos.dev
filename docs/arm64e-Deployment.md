@@ -12,9 +12,9 @@ For more information on pointer authentication, refer to the [official documenta
 ## Building for iOS 12.0–13.7
 You may have been directed here by the following warning output by Theos:
 
-> **Warning:** Building for iOS 7.0, but the current toolchain can’t produce arm64e binaries for iOS earlier than 14.0. More information: https://github.com/theos/theos/wiki/arm64e-Deployment
+> **Warning:** Building for iOS 7.0, but the current toolchain can’t produce arm64e binaries for iOS earlier than 14.0. More information: https://theos.dev/docs/arm64e-deployment
 
-With iOS 14.0 and Xcode 12.0 (or clang 1200 and newer for toolchains on other platforms), the ABI (application binary interface) of arm64e changed. Binaries built with this version of the compiler will *not* be compatible with the arm64e implementation on iOS 12.0–13.7.
+With iOS 14.0 and Xcode 12.0 (or clang 12.0.0 and newer for toolchains on other platforms), the ABI (application binary interface) of arm64e changed. Binaries built with this version of the compiler will *not* be compatible with the arm64e implementation on iOS 12.0–13.7.
 
 There are two ways to overcome this:
 
@@ -25,6 +25,7 @@ There are two ways to overcome this:
   ```
 
   This `TARGET` variable indicates to build for iOS using the latest SDK version you have installed, deploying the binary for iOS 14.0 and newer.
+
 * **Install Xcode 11.7:** If you still plan to support versions of iOS earlier than 14.0, you will need to downgrade to Xcode 11.7.
 
   You can download Xcode 11.7 directly from Apple at the following link: [**Xcode_11.7.xip**](https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_11.7/Xcode_11.7.xip). You will need to authenticate with your Apple ID to download.
@@ -39,7 +40,7 @@ There are two ways to overcome this:
   # If you need to use the latest Xcode toolchain from the command line,
   # use --reset:
   sudo xcode-select --reset
-  
+
   # Alternatively, you can temporarily change your command line tools version
   # for just this terminal session:
   export DEVELOPER_DIR=/Applications/Xcode-11.7.app/Contents/Developer
