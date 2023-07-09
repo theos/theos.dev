@@ -47,6 +47,11 @@ The various public (i.e., configurable) variable types are as follows:
 - XXX_INSTALL_PATH (str)
   - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc)
 
+- XXX_INSTALL (bool)
+  - Skip installing an instance to $THEOS_STAGING_DIR (default: 1)
+    - Useful if generating temporary content used later in compilation or as part of the staged result
+  - Applies to tools, tweaks, xcodeprojs, bundles, and libraries
+
 - XXX_FILES (str)
   - Files to compile
   - Space-separated list or any other standard GNU Make convention
