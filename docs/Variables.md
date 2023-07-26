@@ -334,6 +334,9 @@ The various public (i.e., configurable) variable types are as follows:
 - SWIFT_OPTFLAG (str)
   - Optimization level passed to `swift` (default: -O -whole-module-optimization)
 
+- KEEP_LOGOS_INTERMEDIATES (bool)
+  - Toggle keeping Logos-processed files in $(THEOS_OBJ_DIR) (default: 0)
+
 - GO_EASY_ON_ME (bool)
   - Toggle quieting all errors (default: 0)
   - Bad practice and deprecated for release builds
