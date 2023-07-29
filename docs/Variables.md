@@ -76,6 +76,10 @@ The various public (i.e., configurable) variable types are as follows:
   - Flags to pass to compiler
   - Space-separated list
 
+- XXX_ORIONFLAGS (str)
+  - Flags to pass to Orion
+  - Space-separated list
+
 - XXX_LOGOSFLAGS (str)
   - Flags to pass to Logos
   - Space-separated list
@@ -160,6 +164,14 @@ The various public (i.e., configurable) variable types are as follows:
 - XXX_LOGOS_DEFAULT_GENERATOR (str)
   - The logos generator you'd like to use (default: MobileSubstrate)
   - See https://theos.dev/docs/logos-syntax
+
+- XXX_ORION_DEFAULT_BACKEND (str)
+  - The Orion backend you'd like to use (default: Substrate)
+  - See https://orion.theos.dev/Enums/Backends.html
+
+- XXX_SWIFT_FILES (str)
+  - Swift files you'd like to compile
+  - Space-separated list or any other standard GNU Make convention
 
 - XXX_OBJCC_FILES (str)
   - Objective-C++ files you'd like to compile
@@ -378,8 +390,11 @@ The various public (i.e., configurable) variable types are as follows:
 - SWIFTBINPATH (str)
   - Parent directory for `swift` binary (default: $THEOS/toolchain/swift/bin/)
 
-- TARGET_SWIFT (str)
-  - Target `swift` binary (default: SWIFTBINPATH/`swift`)
+- TARGET_SWIFT_SUPPORT_BIN (str)
+  - Target swift-support binary (default: $THEOS_VENDOR_SWIFT_SUPPORT_PATH/.theos_build/release)
+
+- TARGET_SWIFTC (str)
+  - Target `swiftc` binary (default: `swiftc`)
 
 - TARGET_DSYMUTIL (str)
   - Target `dsymutil` binary (default: `dsymutil`/`llvm-dsymutil`)
@@ -415,6 +430,9 @@ The various public (i.e., configurable) variable types are as follows:
 
 - TARGET_LIBTOOL (str)
   - Target `libtool` binary (default: `libtool`)
+
+- TARGET_ORION_BIN (str)
+  - Target Orion binary (default: `$THEOS_VENDOR_ORION_PATH/.theos_build/release`)
 
 - TARGET_XCODEBUILD (str) **[OSX]**
   - Target `xcodebuild` binary (default: `xcodebuild`)
@@ -464,7 +482,12 @@ The various public (i.e., configurable) variable types are as follows:
   - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc) (default: XXX_INSTALL_PATH)
 
 - LOGOS_DEFAULT_GENERATOR (str)
-  - Default generator passed to logos (default: MobileSubstrate)
+  - The logos generator you'd like to use (default: MobileSubstrate)
+  - See https://theos.dev/docs/logos-syntax
+
+- ORION_DEFAULT_BACKEND (str)
+  - The Orion backend you'd like to use (default: Substrate)
+  - See https://orion.theos.dev/Enums/Backends.html
 
 - ADDITIONAL_CFLAGS (str)
   - Additional flags passed to CC for C code
@@ -491,7 +514,11 @@ The various public (i.e., configurable) variable types are as follows:
   - Space-separated list
 
 - ADDITIONAL_LDFLAGS (str)
-  - Additional flags passed to LD for linking
+  - Additional flags passed to linker for linking
+  - Space-separated list
+
+- ADDITIONAL_ORIONFLAGS (str)
+  - Additional flags passed during an Orion build
   - Space-separated list
 
 - ADDITIONAL_XCODEFLAGS (str) **[OSX]**
@@ -630,6 +657,23 @@ The various public (i.e., configurable) variable types are as follows:
 - THEOS_IGNORE_PARALLEL_BUILDING_NOTICE (str)
   - Toggles the notice to update Make so parallel builds can be used (default: "")
 
+- THEOS_IS_TROUBLESHOOTING (bool)
+  - Equivalent to passing `troubleshoot` to your make invocation (default: 0)
+
+- THEOS_BUILD_ORION (bool)
+  - Toggles building Orion submodule (default: 1)
+
+- THEOS_GEN_COMPILE_COMMANDS (bool)
+  - Toggles running gen-commands.pl to generate compile commands for a given arch
+  - The "magic" behind `make commands` (default: 1)
+
+- THEOS_NO_SWIFT_CACHE (bool)
+  - Toggles ignoring the Swift cache (default: 0)
+
+- THEOS_INCLUDE_PROJECT_DIR (bool)
+  - Toggles passing THEOS_PROJECT_DIR as a Swift include directory (default: 1)
+    - (i.e., -iquote)
+
 ## System Constants
 
 - THEOS (str)
@@ -663,6 +707,12 @@ The various public (i.e., configurable) variable types are as follows:
 
 - THEOS_MODULE_PATH (str)
   - Location for users to place modules in (default: $THEOS/mod/)
+
+- THEOS_VENDOR_ORION_PATH (str)
+  - Location for Theos's Orion submodule (default: $(THEOS)/vendor/orion)
+
+- THEOS_VENDOR_SWIFT_SUPPORT_PATH (str)
+  - Location for Theos's supporting Swift tools (default: $(THEOS)/vendor/swift-support)
 
 - THEOS_SDKS_PATH (str)
   - Location for SDKs provided by Theos (default: $THEOS/sdks/)
