@@ -31,9 +31,10 @@ NIC 2.0 - New Instance Creator
   [15.] iphone/tool
   [16.] iphone/tool_swift
   [17.] iphone/tweak
-  [18.] iphone/tweak_with_simple_preferences
-  [19.] iphone/xpc_service
-  [20.] iphone/xpc_service_modern
+  [18.] iphone/tweak_swift
+  [19.] iphone/tweak_with_simple_preferences
+  [20.] iphone/xpc_service
+  [21.] iphone/xpc_service_modern
 Choose a Template (required): 17
 Project Name (required): Example
 Package Name [com.yourcompany.example]: dev.theos.example
@@ -78,7 +79,8 @@ The following command line arguments are supported. Note that providing argument
 * **theme**: a means of easily packaging your theme into a .deb using Theos' packaging functionality.
 * **tool**: a command line tool (e.g. /usr/bin/blah).
 * **tool_swift**: a Swift-based command line tool (e.g. /usr/bin/blah).
-* **tweak**: a Cydia Substrate-based tweak.
+* **tweak**: a Cydia Substrate-based Objective-C tweak.
+* **tweak_swift**: an Orion-based Swift tweak.
 * **tweak_with_simple_preferences**: a Cydia Substrate-based tweak with a basic preference bundle.
 * **xpc_service**: a C-based [XPC](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html) service.
 * **xpc_service_modern**: an Objective-C-based [XPC](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html) service.
