@@ -228,7 +228,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Swift version to use (default: 5)
 
 - XXX_USE_MODULES (bool)
-  - Enable use of modules (default: true)
+  - Enable use of modules (default: 1)
     - Will add MODULESFLAGS to preprocessing flags
 
 ## Local Variables
@@ -323,31 +323,31 @@ The various public (i.e., configurable) variable types are as follows:
   - Space-separated list
 
 - DEBUGFLAG (str)
-  - Debug flag passed to the linker (default: -ggdb)
+  - Debug flag passed to the linker (default: `-ggdb`)
 
 - SWIFT_DEBUGFLAG (str)
-  - Debug flag passed to the linker (default: -g)
+  - Debug flag passed to the linker (default: `-g`)
 
 - DEBUG.CFLAGS (str) ----- **unused? or schema related?**
-  - Debug flags passed to the compiler (default: -DDEBUG -O0)
+  - Debug flags passed to the compiler (default: `-DDEBUG -O0`)
   - Space-separated list
 
 - DEBUG.SWIFTFLAGS (str) ----- **unused? or schema related?**
-  - Debug flags passed to `swift` (default: -DDEBUG -Onone)
+  - Debug flags passed to `swift` (default: `-DDEBUG -Onone`)
   - Space-separated list
 
 - DEBUG.LDFLAGS (str) ----- **unused? or schema related?**
-  - Debug flags passed to the linker (default: -O0)
+  - Debug flags passed to the linker (default: `-O0`)
   - Space-separated list
 
 - OPTFLAG (str)
-  - Optimization level passed to compiler/linker (default: -Os)
+  - Optimization level passed to compiler/linker (default: `-Os`)
 
 - SWIFT_OPTFLAG (str)
-  - Optimization level passed to `swift` (default: -O -whole-module-optimization)
+  - Optimization level passed to `swift` (default: `-O -whole-module-optimization`)
 
 - KEEP_LOGOS_INTERMEDIATES (bool)
-  - Toggle keeping Logos-processed files in $(THEOS_OBJ_DIR) (default: 0)
+  - Toggle keeping Logos-processed files in $THEOS_OBJ_DIR (default: 0)
 
 - GO_EASY_ON_ME (bool)
   - Toggle quieting all errors (default: 0)
@@ -360,8 +360,8 @@ The various public (i.e., configurable) variable types are as follows:
 - LEGACYFLAGS (str)
   - Flags passed to compiler and linker if building for legacy platforms
   - Space-separated list
-    - Building for armv6, armv7, and/or armv7s (default: -Xlinker -segalign -Xlinker 4000)
-    - Building for iOS < 9 (default: -Xlinker -no_data_const)
+    - Building for armv6, armv7, and/or armv7s (default: `-Xlinker -segalign -Xlinker 4000`)
+    - Building for iOS < 9 (default: `-Xlinker -no_data_const`)
 
 - NEUTRAL_ARCH (str)
   - Fallback archs if ARCHS is empty and not set by the platform's respective target makefile
@@ -400,7 +400,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Target `dsymutil` binary (default: `dsymutil`/`llvm-dsymutil`)
 
 - TARGET_STRIP_FLAGS (str)
-  - Strip flags to use (default: -x)
+  - Strip flags to use (default: `-x`)
   - Space-separated list
 
 - TARGET_CC (str)
@@ -422,7 +422,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Target codesign binary (default: `codesign`/`ldid`)
 
 - TARGET_CODESIGN_FLAGS (str)
-  - Target codesign flags (default: --sign 'Apple Development'/-S)
+  - Target codesign flags (default: `--sign 'Apple Development'`/`-S`)
   - Space-separated list
 
 - TARGET_CODESIGN_ALLOCATE (str)
@@ -622,7 +622,7 @@ The various public (i.e., configurable) variable types are as follows:
     - This will adjust what variables are enabled/disabled in Theos' internal configuration
 
 - THEOS_PLATFORM_NAME (str)
-  - Lowercase name of the current host platform (default: $(shell uname)
+  - Lowercase name of the current host platform (default: `$(shell uname)`)
 
 - THEOS_RSYNC_EXCLUDES (str)
   - Files/file extensions to exclude in the `rsync` copy commands used throughout the project (default: _MTN .git .svn .DS_Store ._*)
@@ -633,7 +633,7 @@ The various public (i.e., configurable) variable types are as follows:
     - Alternative is static
 
 - THEOS_PLATFORM_SDK_ROOT (str)
-  - SDK path for a specific platform (default: $(shell xcode-select -print-path))
+  - SDK path for a specific platform (default: `$(shell xcode-select -print-path)`)
   - Can be configured on an architecture-specific basis
     - e.g., THEOS_PLATFORM_SDK_ROOT_arm64, THEOS_PLATFORM_SDK_ROOT_arm64e, etc.
 
@@ -655,7 +655,7 @@ The various public (i.e., configurable) variable types are as follows:
     - Requires `Make` >= 4.0
 
 - THEOS_IGNORE_PARALLEL_BUILDING_NOTICE (str)
-  - Toggles the notice to update Make so parallel builds can be used (default: "")
+  - Toggles the notice to update Make so parallel builds can be used (default: blank)
 
 - THEOS_IS_TROUBLESHOOTING (bool)
   - Equivalent to passing `troubleshoot` to your make invocation (default: 0)
@@ -709,10 +709,10 @@ The various public (i.e., configurable) variable types are as follows:
   - Location for users to place modules in (default: $THEOS/mod/)
 
 - THEOS_VENDOR_ORION_PATH (str)
-  - Location for Theos's Orion submodule (default: $(THEOS)/vendor/orion)
+  - Location for Theos's Orion submodule (default: $THEOS/vendor/orion)
 
 - THEOS_VENDOR_SWIFT_SUPPORT_PATH (str)
-  - Location for Theos's supporting Swift tools (default: $(THEOS)/vendor/swift-support)
+  - Location for Theos's supporting Swift tools (default: $THEOS/vendor/swift-support)
 
 - THEOS_SDKS_PATH (str)
   - Location for SDKs provided by Theos (default: $THEOS/sdks/)
@@ -722,7 +722,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Location for Makefiles that make up Theos (default: $THEOS/makefiles/)
 
 - THEOS_PROJECT_DIR (str)
-  - Location of the current project (default: $(shell pwd))
+  - Location of the current project (default: `$(shell pwd)`)
 
 - THEOS_CURRENT_INSTANCE (str)
   - The name of the current project instance
