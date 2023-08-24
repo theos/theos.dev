@@ -52,10 +52,6 @@ The various public (i.e., configurable) variable types are as follows:
     - Useful if generating temporary content used later in compilation or as part of the staged result
   - Applies to tools, tweaks, xcodeprojs, bundles, and libraries
 
-- XXX_FILES (str)
-  - Files to compile
-  - Space-separated list or any other standard GNU Make convention
-
 - XXX_CFLAGS (str)
   - Flags to pass to compiler
   - Space-separated list
@@ -93,7 +89,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Space-separated list
 
 - XXX_BUNDLE_RESOURCES (str)
-  - File paths for the current .bundle's resources
+  - File paths for the current bundle's resources
   - Space-separated list or any other standard GNU Make convention
 
 - XXX_RESOURCE_FILES (str)
@@ -108,7 +104,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Alias for XXX_BUNDLE_RESOURCE_DIRS
 
 - XXX_PUBLIC_HEADERS (str)
-  - File paths for the current .bundle's public headers
+  - File paths for the current bundle's public headers
   - Space-separated list or any other standard GNU Make convention
 
 - XXX_BUNDLE_RESOURCE_FILES (str)
@@ -168,6 +164,10 @@ The various public (i.e., configurable) variable types are as follows:
 - XXX_ORION_DEFAULT_BACKEND (str)
   - The Orion backend you'd like to use (default: `Substrate`)
   - See https://orion.theos.dev/Enums/Backends.html
+
+- XXX_FILES (str)
+  - Files to compile
+  - Space-separated list or any other standard GNU Make convention
 
 - XXX_SWIFT_FILES (str)
   - Swift files you'd like to compile
@@ -456,7 +456,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Target compiler flags for dynamic libraries
 
 - CROSS_COMPILE (str)
-  - Enables cross-compilation for TARGET_CC, TARGET_CXX, TARGET_LD, and TARGET_STRIP on compatbile host/target platform pairs
+  - Enables cross-compilation for TARGET_CC, TARGET_CXX, TARGET_LD, and TARGET_STRIP on compatible host/target platform pairs
   - Is the triple prefix for the target platform (will be prepended to the aforementioned binaries)
 
 - SDKBINPATH (str)
