@@ -35,13 +35,7 @@ endif
 - The iOS 14 arm64e ABI mentioned in [arm64e Deployment](arm64e-Deployment.html) is now *required* for the relevant devices
     - Currently, it's only possible to build for the new ABI on macOS
         - If you want to maintain support for earlier versions, you can grab the toolchain from an earlier Xcode release as specified in [arm64e Deployment](arm64e-Deployment.html) and switch between it and the newer toolchain as desired by setting the `PREFIX` variable to the older toolchain's bin (i.e., `<xcode-ver>.xctoolchain/usr/bin/`) in your project's makefile
-    - That being said, developers on other platforms can circumvent this in two ways:
-        - By switching the arm64e slice's header post-build but pre-package
-            - This can be done manually or by using a tool such as [abi.py by dlevi309](https://gist.github.com/dlevi309/0274792c28ebe65995fb9a851efd6335) in a `before-package::` rule in your project's makefile
-                - As stated in the tool above, the last 4 bytes of the 12 byte header would be:
-                    - iOS 13: 00000002
-                    - iOS 14: 80000002
-            - The various architecture slices are available within `$THEOS_OBJ_DIR/{arch}/*.dylib`
+    - That being said, developers on other platforms can circumvent this *if necessary*:
         - By adding `oldabi` as a dependency to their package (preferably only as a last resort)
 
 ---
