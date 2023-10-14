@@ -59,6 +59,7 @@ Additional notes:
     - The behavior of other package managers varies and may or may not supply the correct package to users
 
 - All non-DEBIAN items (e.g., maintainer scripts) are placed in `/var/jb`
+    - Ensure your tweak preferences are placed in `/var/jb/var/mobile/Library/Preferences` rather than the old location of `/var/mobile/Library/Preferences`, as the latter could lead to jailbreak detection in non-jailbroken state
 
 - This new rootless scheme only supports iOS 15+, which itself only supports newer devices
     - This means that you do not need to compile for legacy architectures (e.g., `armv7(s)` or older) if you were previously and can bump your deployment target to 15.0 when building for rootless
