@@ -58,5 +58,7 @@ Additional notes:
     - Newer versions of rootless-compatible package managers (e.g., Sileo and Zebra) will present only the compatible version to users
     - The behavior of other package managers varies and may or may not supply the correct package to users
 
+- All non-DEBIAN items (e.g., maintainer scripts) are placed in `/var/jb`
+
 - This new rootless scheme only supports iOS 15+, which itself only supports newer devices
     - This means that you do not need to compile for legacy architectures (e.g., `armv7(s)` or older) if you were previously and can bump your deployment target to 15.0 when building for rootless
