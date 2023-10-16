@@ -33,5 +33,5 @@ Some third-party toolchains have issues with [Modules](https://clang.llvm.org/do
 **Example**:  
 ```
 TWEAK_NAME = Test
-Test_USE_MODULES = no
+Test_USE_MODULES = 0
 ```
