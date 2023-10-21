@@ -328,15 +328,15 @@ The various public (i.e., configurable) variable types are as follows:
 - SWIFT_DEBUGFLAG (str)
   - Debug flag passed to the linker (default: `-g`)
 
-- DEBUG.CFLAGS (str) ----- **unused? or schema related?**
+- DEBUG.CFLAGS (str)
   - Debug flags passed to the compiler (default: `-DDEBUG -O0`)
   - Space-separated list
 
-- DEBUG.SWIFTFLAGS (str) ----- **unused? or schema related?**
+- DEBUG.SWIFTFLAGS (str)
   - Debug flags passed to `swift` (default: `-DDEBUG -Onone`)
   - Space-separated list
 
-- DEBUG.LDFLAGS (str) ----- **unused? or schema related?**
+- DEBUG.LDFLAGS (str)
   - Debug flags passed to the linker (default: `-O0`)
   - Space-separated list
 
@@ -353,9 +353,6 @@ The various public (i.e., configurable) variable types are as follows:
   - Toggle quieting all errors (default: `0`)
   - Bad practice and deprecated for release builds
     - Migrate to Clang directives (e.g., -Wno-<blah> or #pragma clang diagnostic)
-
-- FAKEROOT (str) ----- **internal ?**
-  - `fakeroot` to be invoked (default: `$THEOS_BIN_PATH/fakeroot.sh`)
 
 - LEGACYFLAGS (str)
   - Flags passed to compiler and linker if building for legacy platforms
@@ -475,9 +472,6 @@ The various public (i.e., configurable) variable types are as follows:
   - Directory names of subprojects to build alongside the root project
   - Space-separated list
 
-- EXPANDED_CODE_SIGN_IDENTITY_NAME (str) **[OSX]** ----- **unused ? or blanking sys var?**
-- EXPANDED_CODE_SIGN_IDENTITY (str) **[OSX]** ----- **unused? or blanking sys var?**
-
 - LOCAL_INSTALL_PATH (str)
   - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc) (default: `XXX_INSTALL_PATH`)
 
@@ -542,9 +536,6 @@ The various public (i.e., configurable) variable types are as follows:
 
 - LOCAL_BUNDLE_EXTENSION (str)
   - File extension for the current project instance's bundle
-
-- `ALL_*FLAGS` (str) ----- **internal ?**
-- `*_FILES` (str) ----- **internal ?**
 
 ## System Variables
 
@@ -614,8 +605,6 @@ The various public (i.e., configurable) variable types are as follows:
 
 - THEOS_TARGET_NAME (str)
   - Lowercase name of the target platform
-
-- THEOS_SUBPROJECT_PRODUCT (str) ----- **internal ?**
 
 - THEOS_SCHEMA (str)
   - Schema to build for "Release," "Debug," or "" (default: `Debug`)
