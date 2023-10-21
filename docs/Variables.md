@@ -173,6 +173,10 @@ The various public (i.e., configurable) variable types are as follows:
   - Swift files you'd like to compile
   - Space-separated list or any other standard GNU Make convention
 
+- XXX_XSWIFT_FILES (str)
+  - Orion-based Swift files you'd like to compile
+  - Space-separated list or any other standard GNU Make convention
+
 - XXX_OBJCC_FILES (str)
   - Objective-C++ files you'd like to compile
   - Space-separated list or any other standard GNU Make convention
@@ -531,6 +535,11 @@ The various public (i.e., configurable) variable types are as follows:
   - Flags passed for makedeps
   - Space-separated list
 
+- MODULES (str)
+  - Theos modules to enable
+  - Space-separated list
+    - Must be present in $THEOS_MODULE_PATH
+
 - LOCAL_BUNDLE_NAME (str)
   - Name for the current project instance's bundle
 
@@ -544,7 +553,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Other options include: "rootless"
 
 - THEOS_PACKAGE_INSTALL_PREFIX (str)
-  - File path prefix to add to the install path (i.e., /Library/MobileSubstrate/)
+  - File path prefix to add to the install path (i.e., `/var/mobile/thing.txt` -> `$(THEOS_PACKAGE_INSTALL_PREFIX)/var/mobile/thing.txt`)
   - Dependent on THEOS_PACKAGE_SCHEME unless explicitly set (default: `blank for rootful and "/var/jb/" for rootless`)
   - Note that this is passed to the compiler and can thus be used in your code
 
