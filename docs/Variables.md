@@ -48,7 +48,7 @@ The various public (i.e., configurable) variable types are as follows:
   - File path where you'd like to install the final product (e.g., app, tool, library, framework, etc)
 
 - XXX_INSTALL (bool)
-  - Skip installing an instance to $THEOS_STAGING_DIR (default: `1`)
+  - Skip installing an instance to $(THEOS_STAGING_DIR) (default: `1`)
     - Useful if generating temporary content used later in compilation or as part of the staged result
   - Applies to tools, tweaks, xcodeprojs, bundles, and libraries
 
@@ -130,7 +130,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Space-separated list
 
 - XXX_EXTRA_FRAMEWORKS (str)
-  - Frameworks in $THEOS_LIBRARY_PATH that you'd like to link against
+  - Frameworks in $(THEOS_LIBRARY_PATH) that you'd like to link against
   - Space-separated list
 
 - XXX_LIBRARIES (str)
@@ -146,7 +146,7 @@ The various public (i.e., configurable) variable types are as follows:
   - "-" for no extension
 
 - XXX_LINKAGE_TYPE (str)
-  - Type of linking to use (default: `$THEOS_LINKAGE_TYPE`)
+  - Type of linking to use (default: `$(THEOS_LINKAGE_TYPE)`)
     - Options are dynamic or static
 
 - XXX_WEAK_FRAMEWORKS (str)
@@ -351,7 +351,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Optimization level passed to `swift` (default: `-O -whole-module-optimization`)
 
 - KEEP_LOGOS_INTERMEDIATES (bool)
-  - Toggle keeping Logos-processed files in $THEOS_OBJ_DIR (default: `0`)
+  - Toggle keeping Logos-processed files in $(THEOS_OBJ_DIR) (default: `0`)
 
 - GO_EASY_ON_ME (bool)
   - Toggle quieting all errors (default: `0`)
@@ -392,7 +392,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Parent directory for `swift` binary (default: `$THEOS/toolchain/swift/bin/`)
 
 - TARGET_SWIFT_SUPPORT_BIN (str)
-  - Target swift-support binary (default: `$THEOS_VENDOR_SWIFT_SUPPORT_PATH/.theos_build/release`)
+  - Target swift-support binary (default: `$(THEOS_VENDOR_SWIFT_SUPPORT_PATH)/.theos_build/release`)
 
 - TARGET_SWIFTC (str)
   - Target `swiftc` binary (default: `swiftc`)
@@ -433,7 +433,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Target `libtool` binary (default: `libtool`)
 
 - TARGET_ORION_BIN (str)
-  - Target Orion binary (default: `$THEOS_VENDOR_ORION_PATH/.theos_build/release`)
+  - Target Orion binary (default: `$(THEOS_VENDOR_ORION_PATH)/.theos_build/release`)
 
 - TARGET_XCODEBUILD (str) **[OSX]**
   - Target `xcodebuild` binary (default: `xcodebuild`)
@@ -529,7 +529,7 @@ The various public (i.e., configurable) variable types are as follows:
 
 - USE_DEPS (bool)
   - Toggle dependency tracking (i.e., makedeps) (default: `0`)
-  - Compiler writes headers to $THEOS_OBJ_DIR/*.Td
+  - Compiler writes headers to $(THEOS_OBJ_DIR)/*.Td
 
 - MDFLAGS (str)
   - Flags passed for makedeps
@@ -538,7 +538,7 @@ The various public (i.e., configurable) variable types are as follows:
 - MODULES (str)
   - Theos modules to enable
   - Space-separated list
-    - Must be present in $THEOS_MODULE_PATH
+    - Must be present in $(THEOS_MODULE_PATH)
 
 - LOCAL_BUNDLE_NAME (str)
   - Name for the current project instance's bundle
@@ -564,9 +564,9 @@ The various public (i.e., configurable) variable types are as follows:
   - Name for the staging directory (default: `_`)
 
 - THEOS_LAYOUT_DIR (str)
-  - File path for directory to house items to move onto the target's filesystem during install (default: `$THEOS_PROJECT_DIR/layout/`)
+  - File path for directory to house items to move onto the target's filesystem during install (default: `$(THEOS_PROJECT_DIR)/layout/`)
   - The containing directory structure is used as an install guide
-    - Exception to this is $THEOS_LAYOUT_DIR/DEBIAN/ which is used to install Debian packaging related files
+    - Exception to this is $(THEOS_LAYOUT_DIR)/DEBIAN/ which is used to install Debian packaging related files
       - Such files include a [control](https://www.debian.org/doc/debian-policy/ch-controlfields.html) file, which will get added to the `status` file (i.e., /var/lib/dpkg/status) on-device, and [maintainer scripts](https://wiki.debian.org/MaintainerScripts), which, after being run, will be placed in /var/lib/dpkg/info/.
 
 - THEOS_LAYOUT_DIR_NAME (str)
@@ -579,10 +579,10 @@ The various public (i.e., configurable) variable types are as follows:
   - File path for directory to house object files (default: `.theos/obj/`)
 
 - THEOS_OBJ_DIR_NAME (str)
-  - Name for the object directory (default: `obj/$THEOS_CURRENT_ARCH`)
+  - Name for the object directory (default: `obj/$(THEOS_CURRENT_ARCH)`)
 
 - THEOS_PACKAGE_DIR (str)
-  - File path for directory to house built packages (default: `$THEOS_BUILD_DIR/packages/`)
+  - File path for directory to house built packages (default: `$(THEOS_BUILD_DIR)/packages/`)
 
 - THEOS_PACKAGE_DIR_NAME (str)
   - Name for the packages directory (default: `packages`)
@@ -686,7 +686,7 @@ The various public (i.e., configurable) variable types are as follows:
   - Location for the user to provide libraries for use with Theos (default: `$THEOS/lib/`)
 
 - THEOS_TARGET_LIBRARY_PATH (str)
-  - Location for the user to provide libraries and frameworks for use with a specific target and Theos (default: `$THEOS_LIBRARY_PATH/$THEOS_TARGET_NAME/`)
+  - Location for the user to provide libraries and frameworks for use with a specific target and Theos (default: `$(THEOS_LIBRARY_PATH)/$(THEOS_TARGET_NAME)/`)
 
 - THEOS_VENDOR_LIBRARY_PATH (str)
   - Location for the libraries and frameworks provided by Theos (default: `$THEOS/vendor/lib/`)
@@ -695,13 +695,13 @@ The various public (i.e., configurable) variable types are as follows:
   - Location for headers provided by Theos (default: `$THEOS/include/`)
 
 - THEOS_TARGET_INCLUDE_PATH (str)
-  - Location for the user to provide headers for use with a specific target and Theos (default: `$THEOS_INCLUDE_PATH/$THEOS_TARGET_NAME/`)
+  - Location for the user to provide headers for use with a specific target and Theos (default: `$(THEOS_INCLUDE_PATH)/$(THEOS_TARGET_NAME)/`)
 
 - THEOS_VENDOR_INCLUDE_PATH (str)
   - Location for the headers provided by Theos (default: `$THEOS/vendor/include/`)
 
 - THEOS_FALLBACK_INCLUDE_PATH (str)
-  - Location that can be used to provide drop-in replacements for missing SDK headers (default: `$THEOS_INCLUDE_PATH/_fallback/`)
+  - Location that can be used to provide drop-in replacements for missing SDK headers (default: `$(THEOS_INCLUDE_PATH)/_fallback/`)
 
 - THEOS_MODULE_PATH (str)
   - Location for users to place modules in (default: `$THEOS/mod/`)
