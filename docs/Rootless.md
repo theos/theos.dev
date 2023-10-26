@@ -7,7 +7,7 @@ layout: docs
 
 Practically all jailbreaks prior to iOS 15 have been 'rootful' as they work on and install files to the (root) system directories (e.g., `/usr`, `/Library`, `/Applications`, etc). Moving forward with iOS 15 and beyond, most if not all jailbreaks will have to be 'rootless' as Apple now prevents writing to the system directories with a protection called [Signed System Volume (SSV)](https://support.apple.com/guide/security/signed-system-volume-security-secd698747c9/web). There are workarounds for this, namely bindFS, but these are less than ideal.
 
-Note that 'rootless' does not imply lack of `root` user permissions, contrary to what its name might suggest at a first glance.
+Note that 'rootless' does not imply lack of `root` user permissions, contrary to what its name might suggest.
 
 To work around SSV, the [Procursus Team](https://github.com/procursusteam/) has thought up a rootless scheme that is now the de facto rootless standard. The changes namely involve working in and installing tweaks/addons to `/var/jb` and using the `iphoneos-arm64` package architecture. To learn more about the specifics of this implementation, see [The Apple Wiki](https://theapplewiki.com/wiki/Rootless).
 
@@ -35,23 +35,23 @@ endif
 ```
 
 - The iOS 14 arm64e ABI mentioned in [arm64e Deployment](arm64e-Deployment.html) is now *required* for the relevant devices
-    - Currently, it's only possible to build for the new ABI on macOS (as only the Xcode tools can build for it)
+    - Currently, it's only possible to build for the new ABI on macOS as the necessary `ld64` changes have not been made open source
         - Unfortunately, new toolchain does not support building for the old ABI. If you want to maintain support for earlier versions, you can grab the toolchain from an earlier Xcode release as specified in [arm64e Deployment](arm64e-Deployment.html) and switch between it and the newer toolchain as desired by setting the `PREFIX` variable to the older toolchain's bin (i.e., `<xcode-ver>.xctoolchain/usr/bin/`) in your project's makefile
     - That being said, developers on other platforms can circumvent this *if necessary*:
-        - By [using GitHub Actions to compile your tweaks](https://github.com/p0358/SilentScreenshots/blob/master/.github/workflows/build.yml) and upload them as downloadable artifacts (free for both public and private repos)
+        - By [using GitHub Actions](https://github.com/p0358/SilentScreenshots/blob/master/.github/workflows/build.yml) to compile their tweaks (free for both public and private repos)
         - By using a macOS virtual machine
             - On Linux you can use [OSX-KVM](https://github.com/kholia/OSX-KVM) script set
             - Without working App Store, download full Xcode xip archive and extract it, afterwards move `Xcode.app` to `Applications` folder (you can do this graphically through Finder)
-            - If you want to cut on resources used by the VM:
+            - If you want to reduce resources used by the VM:
                 - [Enable SSH access in System Preferences](https://osxdaily.com/2022/07/08/turn-on-ssh-mac/)
-                - Disable the WindowServer daemon with `sudo launchctl disable system/com.apple.WindowServer` and reboot to drop the idle CPU usage and RAM down to ~900 MB (this disables the entire graphical interface of macOS)
-                - Reboot and use Theos over SSH
+                - Disable the WindowServer daemon with `sudo launchctl disable system/com.apple.WindowServer` and reboot. This will disable macOS's graphical user interface, reducing the idle CPU and RAM usage to ~900 MB
+                - Reboot and SSH in to the VM to use Theos
         - By using [allemande](https://github.com/p0358/allemande) (static binary converter to old ABI)
-            - This is currently the best solution if you cannot use the Xcode toolchain from macOS
-            - It does not work with tweaks including Swift code (including the Cephei 2.0 library)
-        - By adding `oldabi` as a dependency to their package (preferably only as a last resort or for testing, as this forces download of a system-wide tool that converts the libraries on-the-fly and may cause stability issues for users)
-            - If releasing packages without `oldabi` dependency, make sure to uninstall `oldabi` from your device during testing, to avoid accidentally releasing a tweak that silently relies on it without your knowledge!
-    - All of this applies only to arm64e binaries (all system binaries), does not apply to App Store apps (as they only use arm64 architecture currently). You can continue compiling tweaks for regular apps with any toolchain.
+            - This is currently the best solution if you cannot macOS and Xcode 
+            - It does not work with tweaks containing Swift code (including the Cephei v2.0 library)
+        - By adding `oldabi` as a dependency to their package (preferably only for testing or as a last resort as it applies system-wide and may cause stability issues for users)
+            - If you intend to release packages without the `oldabi` dependency, make sure to uninstall `oldabi` from your device during testing to avoid accidentally releasing a tweak that silently relies on it without your knowledge!
+    - **Please note**: this only applies to arm64e binaries (i.e., system binaries and libraries). It does not apply to App Store/jailbreak apps or regular CLI binaries as arm64e is disallowed due to its unstable ABI. That is, you can continue compiling tweaks for non-system apps with any toolchain and do not need to target arm64e for your apps or CLI binaries.
 
 ---
 
@@ -71,7 +71,7 @@ Theos supports building for the rootless scheme in a few ways:
 Additional notes:
 - You do *not* need to create separate package identifiers for rootful/rootless versions of the same package
     - Newer versions of rootless-compatible package managers (e.g., Sileo and Zebra) will present only the compatible version to users
-    - Cydia will display duplicated packages, but both lead to the rootful version
+    - Cydia will display duplicate packages, but both point to the rootful version
     - The behavior of other package managers varies and may or may not supply the correct package to users
 
 - All non-DEBIAN items (e.g., maintainer scripts) are placed in `/var/jb`
@@ -82,7 +82,7 @@ Additional notes:
 
 ---
 
-If needed, you can conditionally check for currently used package scheme in the Makefile, in order to differentiate the build settings used:
+If desired, you can conditionally check for the package scheme in your project's Makefile to selectively apply rootless build settings:
 ```make
 ifeq ($(THEOS_PACKAGE_SCHEME),rootless)
 	ARCHS = arm64 arm64e

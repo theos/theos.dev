@@ -47,7 +47,7 @@ There are two ways to overcome this:
 
   # Or you can change the command line tools version for just the particular
   # Theos build command invokation:
-  DEVELOPER_DIR=/Applications/Xcode-11.7.app/Contents/Developer make package FINALPACKAGE=1
+  DEVELOPER_DIR=/Applications/Xcode-11.7.app/Contents/Developer make package
   ```
 
   You can also use the Xcode GUI to change your command line tools version, via Xcode &rarr; Preferences &rarr; Locations &rarr; Command Line Tools.
