@@ -45,9 +45,9 @@ endif
             - If you want to reduce resources used by the VM:
                 - [Enable SSH access in System Preferences](https://osxdaily.com/2022/07/08/turn-on-ssh-mac/)
                 - Disable the WindowServer daemon with `sudo launchctl disable system/com.apple.WindowServer` and reboot. This will disable macOS's graphical user interface, reducing the idle CPU and RAM usage to ~900 MB
-                - Reboot and SSH in to the VM to use Theos
+                - Reboot and SSH into the VM to use Theos
         - By using [allemande](https://github.com/p0358/allemande) (static binary converter to old ABI)
-            - This is currently the best solution if you cannot macOS and Xcode 
+            - This is currently the best solution if you cannot use macOS and Xcode 
             - It does not work with tweaks containing Swift code (including the Cephei v2.0 library)
         - By adding `oldabi` as a dependency to their package (preferably only for testing or as a last resort as it applies system-wide and may cause stability issues for users)
             - If you intend to release packages without the `oldabi` dependency, make sure to uninstall `oldabi` from your device during testing to avoid accidentally releasing a tweak that silently relies on it without your knowledge!
