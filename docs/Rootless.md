@@ -40,7 +40,8 @@ endif
     - That being said, developers on other platforms can circumvent this *if necessary*:
         - By [using GitHub Actions](https://github.com/p0358/SilentScreenshots/blob/master/.github/workflows/build.yml) to compile their tweaks (free for both public and private repos)
         - By using a macOS virtual machine
-            - On Linux you can use [OSX-KVM](https://github.com/kholia/OSX-KVM) script set
+            - On Linux you can use scripts built around the KVM subsystem to get it downloaded and ran
+            - On Windows you can use projects that modify VMware configuration to get it running (requires disabling Hyper-V subsystem)
             - Without working App Store, download full Xcode xip archive and extract it, afterwards move `Xcode.app` to `Applications` folder (you can do this graphically through Finder)
             - If you want to reduce resources used by the VM:
                 - [Enable SSH access in System Preferences](https://osxdaily.com/2022/07/08/turn-on-ssh-mac/)
