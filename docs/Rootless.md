@@ -72,6 +72,7 @@ Additional notes:
 - You do *not* need to create separate package identifiers for rootful/rootless versions of the same package
     - Newer versions of rootless-compatible package managers (e.g., Sileo and Zebra) will present only the compatible version to users
     - Cydia will display duplicate packages, but both point to the rootful version
+        - Users can mitigate this with [cyarchfix](https://www.ios-repo-updates.com/repository/poomsmart/package/com.ps.cyarchfix/) tweak by [PoomSmart](https://github.com/PoomSmart/cyarchfix)
     - The behavior of other package managers varies and may or may not supply the correct package to users
 
 - All non-DEBIAN items (e.g., maintainer scripts) are placed in `/var/jb`
