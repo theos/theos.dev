@@ -55,6 +55,8 @@
   list:
     - title: Structure
       link: /docs/Structure.html
+    - title: Variables
+      link: /docs/Variables.html
 
 - title: Help
   link: /docs/Help.html

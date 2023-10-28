@@ -103,7 +103,7 @@ FILE *fopen(const char *path, const char *mode);
 	}
 	return %orig;
 }
-%ctor() {
+%ctor {
 	%init(MGGetBoolAnswer = MSFindSymbol(NULL, "_MGGetBoolAnswer"));
 }
 ```
@@ -221,7 +221,7 @@ Example:
 ```objc
 %new
 - (void)handleTapGesture:(UITapGestureRecognizer *)gestureRecognizer {
-	NSLog(@"Recieved tap: %@", gestureRecognizer);
+	NSLog(@"Received tap: %@", gestureRecognizer);
 }
 ```
 

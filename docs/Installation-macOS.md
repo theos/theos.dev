@@ -25,3 +25,13 @@ All of the commands shown in the following instructions are meant to be run as a
 1. Run the installer:
 
 		bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+
+# Troubleshooting
+## Third-party Toolchains
+Some third-party toolchains have issues with [Modules](https://clang.llvm.org/docs/Modules.html) on macOS. In such cases, you can either try a different third-party toolchain (e.g., a newer or older version) or disable Modules for your project with `XXX_USE_MODULES = 0`.
+
+**Example**:  
+```
+TWEAK_NAME = Test
+Test_USE_MODULES = 0
+```
