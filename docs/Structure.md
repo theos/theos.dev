@@ -7,6 +7,7 @@ Information regarding the various parts of Theos' internal structure:
 
 * **bin/**: Contains various scripts used both internally by Theos and externally by the user.
 * **include/**: Provided for you to place your own headers in.
+  * **_fallback/**: Allowed to provide drop-in replacements for missing SDK headers.
 * **lib/**: Provided for you to place your own libraries and frameworks in.
 * **makefiles/**: The makefiles that comprise the majority of Theos itself.
   * **install/**: Rules for installing packages on different platforms. These execute commands upon install and uninstall of the package.
