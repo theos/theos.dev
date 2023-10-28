@@ -37,7 +37,7 @@ Changes made since [legacy Theos](https://github.com/theos/theos/tree/legacy) ma
 * **Setting `$THEOS_DEVICE_PORT` is no longer required.** If you use an [SSH host alias](http://mattryall.net/blog/2008/06/ssh-favourite-hosts), the port you specify in the SSH config file will be used. If the port isn’t set here or the hostname isn’t an alias, port 22 will be used.
 * **The GCC compiler is no longer supported for Darwin targets.** GCC was removed in Xcode 4.2 and use of it was discouraged for some time before that. On iOS, the very old `iphone-gcc` package has been superseded with a modern LLVM/Clang toolchain. If you use code that Clang does not like, you must port it to Clang or stick to legacy Theos.
 * **The [modules](http://clang.llvm.org/docs/Modules.html#introduction) feature of Clang is enabled** if you use the iOS 8.3 SDK or newer. This solves [some limitations](https://clang.llvm.org/docs/Modules.html#problems-with-the-current-model) of the dependency system compilers have traditionally used and improves performance (modules are cached in an optimised file format). That being said, there are [some limitations](https://clang.llvm.org/docs/Modules.html#problems-modules-do-not-solve) that you may encounter.
-* **Makedeps is disabled by default.** As error output from Makedeps can be confusing, and the majority of projects do not use this feature, it has been changed to be off by default. To enable it, set `USE_MAKEDEPS = 1`.
+* **Makedeps is disabled by default.** As error output from Makedeps can be confusing, and the majority of projects do not use this feature, it has been changed to be off by default. To enable it, set `USE_DEPS = 1`.
 
 If you come across something that should be listed here, edit the page and add it!
 
