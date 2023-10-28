@@ -35,7 +35,7 @@ endif
 ```
 
 - The iOS 14 arm64e ABI mentioned in [arm64e Deployment](arm64e-Deployment.html) is now *required* for the relevant devices
-    - Currently, it's only possible to build for the new ABI on macOS as the necessary `ld64` changes have not been made open source
+    - Currently, it's only possible to build for the new ABI on macOS as the necessary `ld64` changes, included in Xcode, have not been made open source
         - Unfortunately, new toolchain does not support building for the old ABI. If you want to maintain support for earlier versions, you can grab the toolchain from an earlier Xcode release as specified in [arm64e Deployment](arm64e-Deployment.html) and switch between it and the newer toolchain as desired by setting the `PREFIX` variable to the older toolchain's bin (i.e., `<xcode-ver>.xctoolchain/usr/bin/`) in your project's makefile
     - That being said, developers on other platforms can circumvent this *if necessary*:
         - By [using GitHub Actions](https://github.com/p0358/SilentScreenshots/blob/master/.github/workflows/build.yml) to compile their tweaks (free for both public and private repos)
@@ -45,7 +45,8 @@ endif
             - Without working App Store, download full Xcode xip archive and extract it, afterwards move `Xcode.app` to `Applications` folder (you can do this graphically through Finder)
             - If you want to reduce resources used by the VM:
                 - [Enable SSH access in System Preferences](https://osxdaily.com/2022/07/08/turn-on-ssh-mac/)
-                - Disable the WindowServer daemon with `sudo launchctl disable system/com.apple.WindowServer` and reboot. This will disable macOS's graphical user interface, reducing the idle CPU and RAM usage to ~900 MB
+                - Disable the WindowServer daemon with `sudo launchctl disable system/com.apple.WindowServer` and reboot.
+                    - This will disable macOS's graphical user interface, reducing the idle CPU and RAM usage to ~900 MB
                 - Reboot and SSH into the VM to use Theos
         - By using [allemande](https://github.com/p0358/allemande) (static binary converter to old ABI)
             - This is currently the best solution if you cannot use macOS and Xcode 

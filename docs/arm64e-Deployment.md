@@ -46,7 +46,7 @@ There are two ways to overcome this:
   export DEVELOPER_DIR=/Applications/Xcode-11.7.app/Contents/Developer
 
   # Or you can change the command line tools version for just the particular
-  # Theos build command invokation:
+  # Theos build command invocation:
   DEVELOPER_DIR=/Applications/Xcode-11.7.app/Contents/Developer make package
   ```
 
