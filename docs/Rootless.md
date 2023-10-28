@@ -42,8 +42,7 @@ endif
         - By using a macOS virtual machine
             - On Linux you can use scripts built around the KVM subsystem to get it downloaded and ran
             - On Windows you can use projects that modify VMware configuration to get it running (requires disabling Hyper-V subsystem)
-            - Without working App Store, download full Xcode xip archive and extract it, afterwards move `Xcode.app` to `Applications` folder (you can do this graphically through Finder)
-            - If you want to reduce resources used by the VM:
+            - If you want to reduce resources used by the VM (after installing Xcode and Theos):
                 - [Enable SSH access in System Preferences](https://osxdaily.com/2022/07/08/turn-on-ssh-mac/)
                 - Disable the WindowServer daemon with `sudo launchctl disable system/com.apple.WindowServer` and reboot.
                     - This will disable macOS's graphical user interface, reducing the idle CPU and RAM usage to ~900 MB
