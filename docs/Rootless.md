@@ -51,7 +51,7 @@ endif
             - It does not work with tweaks containing Swift code (including the Cephei v2.0 library)
         - By adding `oldabi` as a dependency to their package (preferably only for testing or as a last resort as it applies system-wide and may cause stability issues for users)
             - If you intend to release packages without the `oldabi` dependency, make sure to uninstall `oldabi` from your device during testing to avoid accidentally releasing a tweak that silently relies on it without your knowledge!
-    - **Please note**: this only applies to arm64e binaries (i.e., system binaries and libraries). It does not apply to App Store/jailbreak apps or regular CLI binaries as arm64e is disallowed due to its unstable ABI. That is, you can continue compiling tweaks for non-system apps with any toolchain and do not need to target arm64e for your apps or CLI binaries.
+    - **Please note**: this only applies to arm64e binaries (i.e., system binaries and libraries). It does not apply to App Store apps or regular CLI binaries as arm64e is disallowed due to its unstable ABI. That is, you can continue compiling tweaks for non-system apps with any toolchain and do not need to target arm64e for your apps or CLI binaries.
 
 ---
 
