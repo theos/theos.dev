@@ -36,7 +36,7 @@ endif
 
 - The iOS 14 arm64e ABI mentioned in [arm64e Deployment](arm64e-Deployment.html) is now *required* for the relevant devices
     - Currently, it's only possible to build for the new ABI on macOS as the necessary `ld64` changes, included in Xcode, have not been made open source
-        - Unfortunately, new toolchain does not support building for the old ABI. If you want to maintain support for earlier versions, you can grab the toolchain from an earlier Xcode release as specified in [arm64e Deployment](arm64e-Deployment.html) and switch between it and the newer toolchain as desired by setting the `PREFIX` variable to the older toolchain's bin (i.e., `<xcode-ver>.xctoolchain/usr/bin/`) in your project's makefile
+        - Unfortunately, this newer toolchain does not support building for the old ABI. If you want to maintain support for earlier versions, you can grab the toolchain from an earlier Xcode release as specified in [arm64e Deployment](arm64e-Deployment.html) and switch between it and the newer toolchain as desired by setting the `PREFIX` variable to the older toolchain's bin (i.e., `<xcode-ver>.xctoolchain/usr/bin/`) in your project's makefile
     - That being said, developers on other platforms can circumvent this *if necessary*:
         - By [using GitHub Actions](https://github.com/p0358/SilentScreenshots/blob/master/.github/workflows/build.yml) to compile their tweaks (free for both public and private repos)
         - By using a macOS virtual machine
@@ -49,7 +49,7 @@ endif
         - By using [allemande](https://github.com/p0358/allemande) (static binary converter to old ABI)
             - This is currently the best solution if you cannot use macOS and Xcode 
             - It does not work with tweaks containing Swift code (including the Cephei v2.0 library)
-        - By adding `oldabi` as a dependency to their package (preferably only for testing or as a last resort as it applies system-wide and may cause stability issues for users)
+        - By adding `oldabi` as a dependency to their package (preferably only for testing or as a last resort as it applies system-wide and may cause instability for users)
             - If you intend to release packages without the `oldabi` dependency, make sure to uninstall `oldabi` from your device during testing to avoid accidentally releasing a tweak that silently relies on it without your knowledge!
     - **Please note**: this only applies to arm64e binaries (i.e., system binaries and libraries). It does not apply to App Store apps or regular CLI binaries as arm64e is disallowed due to its unstable ABI. That is, you can continue compiling tweaks for non-system apps with any toolchain and do not need to target arm64e for your apps or CLI binaries.
 
@@ -72,11 +72,11 @@ Additional notes:
 - You do *not* need to create separate package identifiers for rootful/rootless versions of the same package
     - Newer versions of rootless-compatible package managers (e.g., Sileo and Zebra) will present only the compatible version to users
     - Cydia will display duplicate packages, but both point to the rootful version
-        - Users can mitigate this with [cyarchfix](https://www.ios-repo-updates.com/repository/poomsmart/package/com.ps.cyarchfix/) tweak by [PoomSmart](https://github.com/PoomSmart/cyarchfix)
+        - This can be corrected with [cyarchfix](https://github.com/PoomSmart/cyarchfix) by PoomSmart
     - The behavior of other package managers varies and may or may not supply the correct package to users
 
 - All non-DEBIAN items (e.g., maintainer scripts) are placed in `/var/jb`
-    - Ensure your tweak preferences are placed in `/var/jb/var/mobile/Library/Preferences` rather than the old location of `/var/mobile/Library/Preferences`, as the latter could lead to jailbreak detection in non-jailbroken state
+    - Please ensure that any additional resources you provide (e.g., newly created or laid out files and directories) are stored in a prefixed path and not a rootful path, as the latter could lead to jailbreak detection in a non-jailbroken state
 
 - This new rootless scheme only supports iOS 15+, which itself only supports newer devices
     - This means that you do not need to compile for legacy architectures (e.g., `armv7(s)` or older) if you were previously and can bump your deployment target to 15.0 when building for rootless
