@@ -6,7 +6,7 @@ layout: docs
 Theos is capable of compiling [Swift](https://swift.org/) files, and supports using them in conjunction with files written in other languages, such as Objective-C. These capabilities are supported on macOS, iOS, and Linux.
 
 ## Swift Runtime
-In order to run Swift binaries built with Theos, you must have the Swift runtime installed on your iOS device. The runtime is bundled with iOS as of iOS 12.2. If your device is on an older version, however, you'll have to install the runtime. It can be found on BigBoss under the `org.swift.libswift` package (Swift 5+) or the `com.modmyi.libswift4` package (Swift 4). It is recommended that you add libswift as a dependency in your control file with `Depends: firmware (>= 12.2) | ${LIBSWIFT}` if your project targets earlier iOS versions as this will automatically select the correct package based on your Swift version. This is not necessary if your project targets iOS versions >= iOS 12.2.
+In order to run Swift binaries built with Theos, you must have the Swift runtime installed on your iOS device. The runtime is bundled with iOS as of iOS 12.2. If your device is on an older version, however, you'll have to install the runtime. It can be found on BigBoss under the `org.swift.libswift` package (Swift 5+) or the `com.modmyi.libswift4` package (Swift 4). It is recommended that you add libswift as a dependency in your control file with `Depends: firmware (>= 12.2) | ${LIBSWIFT}` if your project targets earlier iOS versions as this will automatically select the correct package based on your Swift version. This is not necessary if your project only targets iOS versions >= iOS 12.2.
 
 ## Interoperability with Objective-C
 
