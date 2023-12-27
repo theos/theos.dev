@@ -42,4 +42,6 @@ Staging is the term given to the two step pre-packaging process comprised of:
 
 This staging occurs within the `THEOS_STAGING_DIR` which has a number of potential configurations all of which reside in ```.theos/_/``` by default. If present, the contents of `THEOS_LAYOUT_DIR` are copied into the staging directory along with any resource bundles that may be associated with your project.
 
+If a `THEOS_PACKAGE_SCHEME` containing a `THEOS_PACKAGE_INSTALL_PREFIX` is provided, Theos will create a second stage with the install prefix in `.theos/_tmp/` in order to separate the project type's package structure from the scheme's packaging prefix. The two will be merged prior to packaging.
+
 To build and complete staging without subsequently packaging, you can run `make stage` within your project.
