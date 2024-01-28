@@ -27,4 +27,5 @@ Information regarding the various parts of Theos' internal structure:
   * **logos/**: The files for [Logos](https://github.com/theos/logos).
   * **nic/**: The files for [NIC](/docs/NIC.html).
   * **templates/**: [Built-in templates](https://github.com/theos/templates) that may be used to scaffold new projects using [NIC](/docs/NIC.html).
-* **Prefix.pch**: The prefix header imported into the compilation process for all C-based languages. Provides macros and imports of frameworks for legacy projects.
+* **Prefix.pch**: The prefix header imported into the compilation process for all C-based languages targeting iOS. Provides convenient [macros](https://github.com/theos/headers/blob/master/theos/IOSMacros.h), backwards compatibility for [nullability](https://github.com/theos/headers/blob/master/theos/BackwardsCompat.h), and imports of [common frameworks](https://github.com/theos/theos/blob/master/Prefix.pch) for legacy projects.
+  * Deprecated and non-functional for macOS and tvOS, iOS when taregting iOS 14+, and Swift.
