@@ -101,7 +101,7 @@ The scripts should be placed in $THEOS_LAYOUT_DIR and include:
 
 - `extrainst_`
     - A script to be run after your package's installation, but only on installation and not on upgrade
-    - An iOS-specific extension created by Jay Freeman (saurik) - review [this explanation](https://iphonedevwiki.net/index.php/Packaging#extrainst) to understand if you need to use `extrainst_` rather than `postinst`
+    - An iOS-specific extension created by Jay Freeman (saurik) - review [this explanation](https://theapplewiki.com/wiki/Dev:Packaging#extrainst) to understand if you need to use `extrainst_` rather than `postinst`
 
 - `prerm`
     - A script to be run *prior* to your package's removal
@@ -165,4 +165,4 @@ Text (i.e., NeXTSTEP format):
 }
 ```
 
-For more information, see the [iPhoneDevWiki](https://iphonedev.wiki/index.php/Cydia_Substrate#Filters)
+For more information, see the [The Apple Wiki](https://theapplewiki.com/wiki/Dev:Cydia_Substrate#Filters)
