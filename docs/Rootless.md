@@ -20,20 +20,6 @@ With this new target location, *all* projects will have to be recompiled to refe
 **Important Notes**:
 - You must run `make clean` when switching between a rootful and rootless build
 
-- If you maintain a library, you'll want to add some variation of the following to your code so that it will have the correct install path:
-```make
-ifeq ($(THEOS_PACKAGE_SCHEME),rootless)
-XXX_LDFLAGS += -install_name @rpath/<lib-name>.dylib
-endif
-```
-
-- Likewise, if you maintain a framework, you'll want to add some variation of the following to your code so that it will have the correct install path:
-```make
-ifeq ($(THEOS_PACKAGE_SCHEME),rootless)
-XXX_LDFLAGS += -install_name @rpath/<project-name>.framework/<project-name>
-endif
-```
-
 - The iOS 14 arm64e ABI mentioned in [arm64e Deployment](arm64e-Deployment.html) is now *required* for the relevant devices
     - Currently, it's only possible to build for the new ABI on macOS as the necessary `ld64` changes, included in Xcode, have not been made open source
         - Unfortunately, this newer toolchain does not support building for the old ABI. If you want to maintain support for earlier versions, you can grab the toolchain from an earlier Xcode release as specified in [arm64e Deployment](arm64e-Deployment.html) and switch between it and the newer toolchain as desired by setting the `PREFIX` variable to the older toolchain's bin (i.e., `<xcode-ver>.xctoolchain/usr/bin/`) in your project's makefile
@@ -64,6 +50,7 @@ Theos supports building for the rootless scheme in a few ways:
 
 - `THEOS_PACKAGE_SCHEME=rootless` -- a variable to enable a handful of internal changes including:
     - Searching for libraries and frameworks when linking in `$THEOS_LIBRARY_PATH/iphone/rootless` and `$THEOS_VENDOR_LIBRARY_PATH/iphone/rootless`
+    - Handling install_name changes to use @rpath for libraries and frameworks
     - Passing the relevant prefixed rpaths to the linker so your project can find the linked rootless libraries and frameworks on-device
     - Sharing the install prefix (`THEOS_PACKAGE_INSTALL_PREFIX=/var/jb`) with the compiler for use in your code
     - Setting the package architecture to `iphoneos-arm64` if your control file specifies `iphoneos-arm`
