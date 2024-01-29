@@ -4,7 +4,7 @@ layout: docs
 ---
 
 ## Places you can ask for help
-* Check [Theos/Troubleshooting](https://iphonedev.wiki/index.php/Theos/Troubleshooting) on iPhone Dev Wiki first – common issues are listed here.
+* Check [Theos/Troubleshooting](https://theapplewiki.com/wiki/Dev:Theos/Troubleshooting) on The Apple Wiki first – common issues are listed here.
 * Join our [Discord](https://theos.dev/discord) and ask your question there.
 * Post a question at [/r/jailbreakdevelopers](https://www.reddit.com/r/jailbreakdevelopers).
 * Post a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/theos) using the “theos” tag.
