@@ -15,6 +15,8 @@
 
 - title: Usage
   list:
+    - title: Concepts
+      link: /docs/Concepts.html
     - title: Configuration
       link: /docs/Configuration.html
     - title: Commands
