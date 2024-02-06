@@ -83,8 +83,8 @@ endif
 
 ### ``rootless.h`` implementation
 - ``ROOT_PATH_NS`` for Obj-C strings.
-- ``ROOT_PATH_C`` for C string literals. 
-- ``ROOT_PATH_C_VAR`` for C string variables, The string returned by this will get freed when your function exits If you want to keep it, use ``strdup``.
+- ``ROOT_PATH`` for C strings.
+- ``ROOT_VAR`` for Obj-C vars.
 
 ``rootless.h`` can be used with Obj-C strings with like so:
 ```
