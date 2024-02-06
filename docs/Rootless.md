@@ -5,7 +5,7 @@ layout: docs
 
 ### Context
 
-Practically all jailbreaks prior to iOS 15 have been 'rootful' as they work on and install files to the (root) system directories (e.g., `/usr`, `/Library`, `/Applications`, etc). Moving forward with iOS 15 and beyond, most if not all jailbreaks will have to be 'rootless' as Apple now prevents writing to the system directories with a protection called [Signed System Volume (SSV)](https://support.apple.com/guide/security/signed-system-volume-security-secd698747c9/web). There are workarounds for this, namely bindFS, but these are less than ideal.
+Practically all jailbreaks prior to iOS 15 have been 'rootful' as they work on and install files to the (root) system directories (e.g., `/usr`, `/Library`, `/Applications`, etc.). Moving forward with iOS 15 and beyond, most if not all jailbreaks will have to be 'rootless' as Apple now prevents writing to the system directories with a protection called [Signed System Volume (SSV)](https://support.apple.com/guide/security/signed-system-volume-security-secd698747c9/web). There are workarounds for this, namely bindFS, but these are less than ideal.
 
 Note that 'rootless' does not imply lack of `root` user permissions, contrary to what its name might suggest.
 
@@ -80,3 +80,16 @@ else
 	TARGET = iphone:clang:latest:7.0
 endif
 ```
+
+### ``rootless.h`` implementation
+- ``ROOT_PATH_NS`` for Obj-C strings.
+- ``ROOT_PATH_C`` for C string literals. 
+- ``ROOT_PATH_C_VAR`` for C string variables, The string returned by this will get freed when your function exits If you want to keep it, use ``strdup``.
+
+``rootless.h`` can be used with Obj-C strings with like so:
+```ObjC
+NSString *dylibPath = ROOT_PATH_NS(@"/Library/MobileSubstrate/DynamicLibraries/libFLEX.dylib");
+```
+``rootless.h`` is included with Theos and it can be imported as shown above.
+
+You can find the code ``rootless.h`` [here](https://gist.github.com/opa334/b14fa4a593bbb79f025cda6113e8b81b) 
