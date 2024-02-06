@@ -87,9 +87,7 @@ endif
 - ``ROOT_PATH_C_VAR`` for C string variables, The string returned by this will get freed when your function exits If you want to keep it, use ``strdup``.
 
 ``rootless.h`` can be used with Obj-C strings with like so:
-```ObjC
+```
 NSString *dylibPath = ROOT_PATH_NS(@"/Library/MobileSubstrate/DynamicLibraries/libFLEX.dylib");
 ```
 ``rootless.h`` is included with Theos and it can be imported as shown above.
-
-You can find the code ``rootless.h`` [here](https://gist.github.com/opa334/b14fa4a593bbb79f025cda6113e8b81b) 
