@@ -47,7 +47,8 @@ Theos supports building for the rootless scheme in a few ways:
 - Provides [`rootless.h`](https://github.com/theos/headers/blob/master/rootless.h) -- a header that contains convenient macros to easily convert rootful paths to rootless ones in your code at compile-time, assuming you compile for the rootless scheme (see below)
     - `#import <rootless.h>`
     - Courtesy of opa334
-    - 
+
+
 ### ``rootless.h`` implementation
 - ``ROOT_PATH_NS`` for Obj-C strings.
 - ``ROOT_PATH`` for C strings.
