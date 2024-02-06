@@ -49,10 +49,10 @@ Theos supports building for the rootless scheme in a few ways:
     - Courtesy of opa334
 
 
-#### ``rootless.h`` implementation
+#### ``rootless.h`` implementation:
 - ``ROOT_PATH_NS`` for Obj-C strings.
 - ``ROOT_PATH`` for C strings.
-- ``ROOT_PATH_NS_VAR`` appends ``/var/jb`` before a path
+- ``ROOT_PATH_NS_VAR`` Dynamically constructs a file path by appending the provided path component to ```/var/jb```[Obj-C]
 
 ``rootless.h`` can be used with Obj-C strings with like so:
 ```
