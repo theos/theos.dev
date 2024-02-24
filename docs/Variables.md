@@ -540,6 +540,9 @@ The various public (i.e., configurable) variable types are as follows:
   - Space-separated list
     - Must be present in $(THEOS_MODULE_PATH)
 
+- SCHEMA (str)
+  - An alias for THEOS_SCHEMA
+
 - LOCAL_BUNDLE_NAME (str)
   - Name for the current project instance's bundle
 
@@ -616,8 +619,10 @@ The various public (i.e., configurable) variable types are as follows:
   - Lowercase name of the target platform
 
 - THEOS_SCHEMA (str)
-  - Schema to build for "Release," "Debug," or "" (default: `Debug`)
-    - This will adjust what variables are enabled/disabled in Theos' internal configuration
+  - Schema ("Schemata") to build for
+    - Space-separated list
+  - Can be custom or one of the provided "Release," "Debug," or "" schema (default: `Debug`)
+    - This will adjust what schema-variables, and associated functionalities, are enabled/disabled in Theos' internal configuration
 
 - THEOS_PLATFORM_NAME (str)
   - Lowercase name of the current host platform (default: `$(shell uname)`)

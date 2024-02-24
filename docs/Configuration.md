@@ -50,6 +50,20 @@ Such rule names include:
 - `after-$(THEOS_CURRENT_INSTANCE)-all`
 - `internal-$(_THEOS_CURRENT_TYPE)-all`
 
+## Schemas ("Schemata")
+
+Schemas are a way to manage a group of specific master variables which can have their effect easily turned on or off. An example is the built-in debug schema, which when enabled adds extra options to `CFLAGS`, `LDFLAGS`, and `SWIFTFLAGS`.
+
+They are enabled via `THEOS_SCHEMA`, with a space-separated list of the schemas you'd like to enable.
+
+The schema is described by specifying what variables have their values affected by its enabling. Doing so can be done by declaring a variable with the format `schema.VARIABLE`, so that enabling schema will do changes to a possible query of variable `VARIABLE` (e.g., `DEBUG.CFLAGS`). `VARIABLE` must be used in Theos for the changes to have an effect. See [common.mk](https://github.com/theos/theos/blob/master/makefiles/common.mk) for schema logic implementation.
+
+Example:
+```
+# Enabling schema1 will add the '-DSCHEMA1ENABLED' additional compiler flags.
+schema1.CFLAGS = -DSCHEMA1ENABLED
+```
+
 ## Utilizing Theos' message commands
 
 Theos utilizes a variety of custom `echo` and `printf` commands which it defines as variables in $THEOS_MAKE_PATH/messages.mk. These can be utilized by users in their own project makefiles if so desired.
