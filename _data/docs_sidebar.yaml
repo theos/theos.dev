@@ -35,6 +35,8 @@
       link: /docs/dm.pl.html
     - title: Swift
       link: /docs/Swift.html
+    - title: Modules
+      link: /docs/Modules.html
 
 - title: Tweak Development
   list:
