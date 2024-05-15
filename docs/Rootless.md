@@ -28,16 +28,16 @@ With this new target location, *all* projects will have to be recompiled to refe
         - By using a macOS virtual machine
             - See KVM on Linux and VMware on Windows
             - If you want to reduce resources used by the VM (after installing Xcode and Theos):
-                - [Enable SSH access in System Preferences](https://osxdaily.com/2022/07/08/turn-on-ssh-mac/)
+                - [Enable SSH access in System Preferences](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac)
                 - Disable the WindowServer daemon with `sudo launchctl disable system/com.apple.WindowServer` and reboot.
                     - This will disable macOS's graphical user interface, reducing the idle CPU and RAM usage to ~900 MB
                 - Reboot and SSH into the VM to use Theos
-        - By using [allemande](https://github.com/p0358/allemande) (static binary converter to old ABI)
-            - This is currently the best solution if you cannot use macOS and Xcode 
+        - By using [allemande](https://github.com/p0358/allemande) (static old ABI converter)
+            - This is currently the best solution if you cannot use macOS and Xcode
             - It does not work with tweaks containing Swift code (including the Cephei v2.0 library)
         - By adding `oldabi` as a dependency to their package (preferably only for testing or as a last resort as it applies system-wide and may cause instability for users)
             - If you intend to release packages without the `oldabi` dependency, make sure to uninstall `oldabi` from your device during testing to avoid accidentally releasing a tweak that silently relies on it without your knowledge!
-    - **Please note**: this only applies to arm64e binaries (i.e., system binaries and libraries). It does not apply to App Store apps or regular CLI binaries as arm64e is disallowed due to its unstable ABI. That is, you can continue compiling tweaks for non-system apps with any toolchain and do not need to target arm64e for your apps or CLI binaries.
+    - **Please note**: this only applies to arm64e binaries (i.e., system binaries and libraries). It does not apply to App Store apps or regular CLI binaries where arm64e is unused due to its unstable ABI. That is, you can continue compiling tweaks for non-system apps with any toolchain and do not need to target arm64e for your apps or CLI binaries.
 
 ---
 
@@ -74,21 +74,19 @@ Additional notes:
         - This can be corrected with [cyarchfix](https://github.com/PoomSmart/cyarchfix) by PoomSmart
     - The behavior of other package managers varies and may or may not supply the correct package to users
 
-- All non-DEBIAN items (e.g., maintainer scripts) are placed in `/var/jb`
+- All files should be placed in `/var/jb`
     - Please ensure that any additional resources you provide (e.g., newly created or laid out files and directories) are stored in a prefixed path and not a rootful path, as the latter could lead to jailbreak detection in a non-jailbroken state
 
 - This new rootless scheme only supports iOS 15+, which itself only supports newer devices
     - This means that you do not need to compile for legacy architectures (e.g., `armv7(s)` or older) if you were previously and can bump your deployment target to 15.0 when building for rootless
 
----
-
-If desired, you can conditionally check for the package scheme in your project's Makefile to selectively apply rootless build settings:
-```make
-ifeq ($(THEOS_PACKAGE_SCHEME),rootless)
-	ARCHS = arm64 arm64e
-	TARGET = iphone:clang:latest:15.0
-else
-	ARCHS = armv7 armv7s arm64 arm64e
-	TARGET = iphone:clang:latest:7.0
-endif
-```
+- If desired, you can conditionally check for the package scheme in your project's Makefile to selectively apply rootless build settings:
+    ```make
+    ifeq ($(THEOS_PACKAGE_SCHEME),rootless)
+        ARCHS = arm64 arm64e
+        TARGET = iphone:clang:latest:15.0
+    else
+        ARCHS = armv7 armv7s arm64 arm64e
+        TARGET = iphone:clang:latest:7.0
+    endif
+    ````
