@@ -15,6 +15,8 @@
 
 - title: Usage
   list:
+    - title: Concepts
+      link: /docs/Concepts.html
     - title: Configuration
       link: /docs/Configuration.html
     - title: Commands
@@ -32,6 +34,8 @@
       link: /docs/dm.pl.html
     - title: Swift
       link: /docs/Swift.html
+    - title: Modules
+      link: /docs/Modules.html
 
 - title: Tweak Development
   list:
@@ -73,10 +77,12 @@
 
 - title: See also
   list:
+    - title: The Apple Wiki
+      link: https://theapplewiki.com/
     - title: iPhone Dev Wiki
       link: https://iphonedev.wiki/
     - title: /r/jailbreakdevelopers
       link: https://www.reddit.com/r/jailbreakdevelopers
-    - title: theos-ref
+    - title: theos-ref (legacy docs)
       link: https://github.com/theiostream/theos-ref
 
