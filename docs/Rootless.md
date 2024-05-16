@@ -17,12 +17,45 @@ With this new target location, *all* projects will have to be recompiled to refe
 
 ---
 
+Theos supports building for the rootless scheme in a few ways:
+- Provides rootless-compatible libraries and frameworks in `$THEOS_VENDOR_LIBRARY_PATH/iphone/rootless`
+    - User-provided rootless libraries/frameworks should be placed in `$THEOS_LIBRARY_PATH/iphone/rootless`
+
+- Provides [`rootless.h`](https://github.com/theos/headers/blob/master/rootless.h) -- a header that contains convenient macros to easily convert rootful paths to rootless ones in your code at compile-time, assuming you compile for the rootless scheme (see [below](#rootlessh-implementation))
+    - Courtesy of opa334
+
+- `THEOS_PACKAGE_SCHEME=rootless` -- a variable to enable a handful of internal changes including:
+    - Searching for libraries and frameworks when linking in `$THEOS_LIBRARY_PATH/iphone/rootless` and `$THEOS_VENDOR_LIBRARY_PATH/iphone/rootless`
+    - Handling install_name changes to use @rpath for libraries and frameworks
+    - Passing the relevant rpaths to the linker so your project can find the linked rootless libraries and frameworks on-device
+        - With rootless v2, this now includes **both** the `/var/jb/` rpaths as well as the `@loader_path/.jbroot/` rpaths in order to provide support for jailbreaks with relocated jbroots
+    - Sharing the install prefix (`THEOS_PACKAGE_INSTALL_PREFIX=/var/jb`) with the compiler for use in your code
+    - Setting the package architecture to `iphoneos-arm64`
+
+#### `rootless.h` implementation:
+
+- Utilizes [libroot](https://github.com/opa334/libroot/) in order to obtain correct prefix on all jailbreak platforms
+    - The libroot static archive will thus be linked unconditionally, though it will have no effect if its functions are unused
+
+- Provides two variations:
+    - `ROOT_PATH_NS` for Obj-C strings
+    - `ROOT_PATH` for C strings
+
+    and can be used with Obj-C strings like so:
+    ```objc
+    #import <rootless.h>
+    NSString *dylibPath = ROOT_PATH_NS(@"/Library/MobileSubstrate/DynamicLibraries/libFLEX.dylib");
+    ```
+
+---
+
 **Important Notes**:
 - You must run `make clean` when switching between a rootful and rootless build
 
 - The iOS 14 arm64e ABI mentioned in [arm64e Deployment](arm64e-Deployment.html) is now *required* for the relevant devices
     - Currently, it's only possible to build for the new ABI on macOS as the necessary `ld64` changes, included in Xcode, have not been made open source
         - Unfortunately, this newer toolchain does not support building for the old ABI. If you want to maintain support for earlier versions, you can grab the toolchain from an earlier Xcode release as specified in [arm64e Deployment](arm64e-Deployment.html) and switch between it and the newer toolchain as desired by setting the `PREFIX` variable to the older toolchain's bin (i.e., `<xcode-ver>.xctoolchain/usr/bin/`) in your project's makefile
+
     - That being said, developers on other platforms can circumvent this *if necessary*:
         - By [using GitHub Actions](https://github.com/p0358/SilentScreenshots/blob/master/.github/workflows/build.yml) to compile their tweaks (free for both public and private repos)
         - By using a macOS virtual machine
@@ -37,37 +70,12 @@ With this new target location, *all* projects will have to be recompiled to refe
             - It does not work with tweaks containing Swift code (including the Cephei v2.0 library)
         - By adding `oldabi` as a dependency to their package (preferably only for testing or as a last resort as it applies system-wide and may cause instability for users)
             - If you intend to release packages without the `oldabi` dependency, make sure to uninstall `oldabi` from your device during testing to avoid accidentally releasing a tweak that silently relies on it without your knowledge!
+
     - **Please note**: this only applies to arm64e binaries (i.e., system binaries and libraries). It does not apply to App Store apps or regular CLI binaries where arm64e is unused due to its unstable ABI. That is, you can continue compiling tweaks for non-system apps with any toolchain and do not need to target arm64e for your apps or CLI binaries.
 
 ---
 
-Theos supports building for the rootless scheme in a few ways:
-- Provides rootless-compatible libraries and frameworks in `$THEOS_VENDOR_LIBRARY_PATH/iphone/rootless`
-
-- Provides [`rootless.h`](https://github.com/theos/headers/blob/master/rootless.h) -- a header that contains convenient macros to easily convert rootful paths to rootless ones in your code at compile-time, assuming you compile for the rootless scheme (see below)
-    - `#import <rootless.h>`
-    - Courtesy of opa334
-
-
-#### `rootless.h` implementation:
-
-- `ROOT_PATH_NS` for Obj-C strings.
-- `ROOT_PATH` for C strings.
-
-`rootless.h` can be used with Obj-C strings like so:
-
-```objc
-NSString *dylibPath = ROOT_PATH_NS(@"/Library/MobileSubstrate/DynamicLibraries/libFLEX.dylib");
-```
-
-- `THEOS_PACKAGE_SCHEME=rootless` -- a variable to enable a handful of internal changes including:
-    - Searching for libraries and frameworks when linking in `$THEOS_LIBRARY_PATH/iphone/rootless` and `$THEOS_VENDOR_LIBRARY_PATH/iphone/rootless`
-    - Handling install_name changes to use @rpath for libraries and frameworks
-    - Passing the relevant prefixed rpaths to the linker so your project can find the linked rootless libraries and frameworks on-device
-    - Sharing the install prefix (`THEOS_PACKAGE_INSTALL_PREFIX=/var/jb`) with the compiler for use in your code
-    - Setting the package architecture to `iphoneos-arm64` if your control file specifies `iphoneos-arm`
-
-Additional notes:
+**Additional notes:**
 - You do *not* need to create separate package identifiers for rootful/rootless versions of the same package
     - Newer versions of rootless-compatible package managers (e.g., Sileo and Zebra) will present only the compatible version to users
     - Cydia will display duplicate packages, but both point to the rootful version

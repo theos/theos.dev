@@ -554,6 +554,8 @@ The various public (i.e., configurable) variable types are as follows:
 - THEOS_PACKAGE_SCHEME (str)
   - The package scheme to build for (default: `blank -- will build for rootful`)
   - Other options include: "rootless"
+  - Will auto-import the respective scheme's module
+    - User-added modules should be placed in `$(THEOS_MODULE_PATH)`
 
 - THEOS_PACKAGE_INSTALL_PREFIX (str)
   - File path prefix to add to the install path (i.e., `/var/mobile/thing.txt` -> `$(THEOS_PACKAGE_INSTALL_PREFIX)/var/mobile/thing.txt`)
