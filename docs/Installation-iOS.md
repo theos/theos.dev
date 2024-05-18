@@ -16,11 +16,12 @@ Unless otherwise stated, all of the commands shown in the following instructions
 	* iOS 12.0 or later:
 		* [Procursus](https://apt.procurs.us/) or [Bingner/Elucubratus](https://apt.bingner.com/) (this depends on the jailbreak you are using)
 	* Prior to iOS 12.0:
-		* [Coolstar's repo](https://coolstar.org/publicrepo/), [Sam Bingner's repo](https://repo.bingner.com/), and [BigBoss](http://apt.thebigboss.org/repofiles/cydia/)
+		* [Sam Bingner's repo](https://repo.bingner.com/) and [BigBoss](http://apt.thebigboss.org/repofiles/cydia/)
+		* Also check to ensure the non-(lib) (i.e., commandline tool) of APT is installed (e.g., APT 0.7 Strict on iOS 8)
 
 1. Install the following prerequisites<sup>1</sup> as *root*:
 
-		apt-get install bash curl sudo
+		apt-get install bash curl sudo coreutils xz-utils
 
 	<sup>
 	<sup>1</sup> In order to use <i>sudo</i>, your non-root user may need to be added to the sudoers file (/etc/sudoers). See [ArchWiki](https://wiki.archlinux.org/title/Sudo#Example_entries) for more information.
