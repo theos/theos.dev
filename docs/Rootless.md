@@ -50,6 +50,7 @@ Theos supports building for the rootless scheme in a few ways:
 
 
 #### `rootless.h` implementation:
+
 - `ROOT_PATH_NS` for Obj-C strings.
 - `ROOT_PATH` for C strings.
 
