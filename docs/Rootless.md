@@ -54,7 +54,7 @@ Theos supports building for the rootless scheme in a few ways:
 - `ROOT_PATH_NS` for Obj-C strings.
 - `ROOT_PATH` for C strings.
 
-`rootless.h` can be used with Obj-C strings with like so:
+`rootless.h` can be used with Obj-C strings like so:
 
 ```objc
 NSString *dylibPath = ROOT_PATH_NS(@"/Library/MobileSubstrate/DynamicLibraries/libFLEX.dylib");
