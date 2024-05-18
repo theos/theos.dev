@@ -49,16 +49,15 @@ Theos supports building for the rootless scheme in a few ways:
     - Courtesy of opa334
 
 
-#### ``rootless.h`` implementation:
+#### `rootless.h` implementation:
 - `ROOT_PATH_NS` for Obj-C strings.
-- ``lROOT_PATH` for C strings.
-- `ROOT_PATH_NS_VAR` Dynamically constructs a file path by appending the provided path component to ```/var/jb```[Obj-C]
+- `ROOT_PATH` for C strings.
 
 `rootless.h` can be used with Obj-C strings with like so:
-```
+
+```objc
 NSString *dylibPath = ROOT_PATH_NS(@"/Library/MobileSubstrate/DynamicLibraries/libFLEX.dylib");
 ```
-`rootless.h` is included with Theos and it can be imported as shown above.
 
 - `THEOS_PACKAGE_SCHEME=rootless` -- a variable to enable a handful of internal changes including:
     - Searching for libraries and frameworks when linking in `$THEOS_LIBRARY_PATH/iphone/rootless` and `$THEOS_VENDOR_LIBRARY_PATH/iphone/rootless`
