@@ -22,7 +22,7 @@ Theos supports building for the rootless scheme in a few ways:
 
 - `THEOS_PACKAGE_SCHEME=rootless` -- a variable to enable a handful of internal changes including:
     - Searching for libraries and frameworks when linking in `$THEOS_LIBRARY_PATH/iphone/rootless` and `$THEOS_VENDOR_LIBRARY_PATH/iphone/rootless`
-    - Handling install_name changes to use @rpath for libraries and frameworks
+    - Handling install_name changes to use `@rpath` for libraries and frameworks
     - Passing the relevant rpaths to the linker so your project can find the linked rootless libraries and frameworks on-device
         - With rootless v2, this now includes **both** the `/var/jb/` rpaths as well as the `@loader_path/.jbroot/` rpaths in order to provide support for jailbreaks with relocated jbroots
     - Sharing the install prefix (`THEOS_PACKAGE_INSTALL_PREFIX=/var/jb`) with the compiler for use in your code
@@ -31,7 +31,7 @@ Theos supports building for the rootless scheme in a few ways:
 #### `rootless.h`:
 
 - Utilizes [libroot](https://github.com/opa334/libroot/) in order to obtain correct prefix on all jailbreak platforms
-    - The libroot static archive will thus be linked unconditionally, though it will have no effect if its functions are unused
+    - The libroot static archive is thus linked unconditionally, though it will have no effect if its functions are unused
 
 - Provides two variations:
     - `ROOT_PATH_NS` for Obj-C strings
@@ -53,14 +53,9 @@ Theos supports building for the rootless scheme in a few ways:
         - Unfortunately, this newer toolchain does not support building for the old ABI. If you want to maintain support for earlier versions, you can grab the toolchain from an earlier Xcode release as specified in [arm64e Deployment](arm64e-Deployment.html) and switch between it and the newer toolchain as desired by setting the `PREFIX` variable to the older toolchain's bin (i.e., `<xcode-ver>.xctoolchain/usr/bin/`) in your project's makefile
 
     - That being said, developers on other platforms can circumvent this *if necessary*:
-        - By [using GitHub Actions](https://github.com/p0358/SilentScreenshots/blob/master/.github/workflows/build.yml) to compile their tweaks (free for both public and private repos)
+        - By [using GitHub Actions](https://github.com/p0358/SilentScreenshots/blob/master/.github/workflows/build.yml) to compile your tweaks
         - By using a macOS virtual machine
             - See KVM on Linux and VMware on Windows
-            - If you want to reduce resources used by the VM (after installing Xcode and Theos):
-                - [Enable SSH access in System Preferences](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac)
-                - Disable the WindowServer daemon with `sudo launchctl disable system/com.apple.WindowServer` and reboot.
-                    - This will disable macOS's graphical user interface, reducing the idle CPU and RAM usage to ~900 MB
-                - Reboot and SSH into the VM to use Theos
         - By using [allemande](https://github.com/p0358/allemande) (static old ABI converter)
             - This is currently the best solution if you cannot use macOS and Xcode
             - It does not work with tweaks containing Swift code (including the Cephei v2.0 library)
