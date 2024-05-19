@@ -15,7 +15,7 @@ Theos supports building for the rootless scheme in a few ways:
 - Provides rootless-compatible libraries and frameworks in `$THEOS_VENDOR_LIBRARY_PATH/iphone/rootless`
     - User-provided rootless libraries/frameworks should be placed in `$THEOS_LIBRARY_PATH/iphone/rootless`
 
-- Provides [`rootless.h`](https://github.com/theos/headers/blob/master/rootless.h) -- a header that contains convenient macros to easily convert rootful paths to rootless ones in your code at compile-time, assuming you compile for the rootless scheme (see [below](#rootlessh-implementation))
+- Provides [`rootless.h`](https://github.com/theos/headers/blob/master/rootless.h) -- a header that contains convenient macros to easily convert rootful paths to rootless ones in your code at compile-time, assuming you compile for the rootless scheme (see [below](#rootlessh))
     - Courtesy of opa334
 
 - `THEOS_PACKAGE_SCHEME=rootless` -- a variable to enable a handful of internal changes including:
@@ -26,7 +26,7 @@ Theos supports building for the rootless scheme in a few ways:
     - Sharing the install prefix (`THEOS_PACKAGE_INSTALL_PREFIX=/var/jb`) with the compiler for use in your code
     - Setting the package architecture to `iphoneos-arm64`
 
-#### `rootless.h` implementation:
+#### `rootless.h`:
 
 - Utilizes [libroot](https://github.com/opa334/libroot/) in order to obtain correct prefix on all jailbreak platforms
     - The libroot static archive will thus be linked unconditionally, though it will have no effect if its functions are unused
