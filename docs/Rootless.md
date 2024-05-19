@@ -5,7 +5,9 @@ layout: docs
 
 ### Context
 
-Rootless introduces a new target location, `/var/jb/`. *All* projects will have to be recompiled to reference resources from and install to `/var/jb`. This involves changing the internal structure of .deb's to include this new path and specifying library and framework install paths using `@rpath` instead of absolute paths. Theos will handle both of these changes for you. For more information on what `@rpath` is and how it works, see Mike Ash's [informative blog post](http://www.mikeash.com/pyblog/friday-qa-2009-11-06-linking-and-install-names.html).  To learn more about the specifics of the rootless implementation, see [The Apple Wiki](https://theapplewiki.com/wiki/Rootless).
+Rootless introduces a new target location, `/var/jb/`. *All* projects will have to be recompiled to reference resources from and install to `/var/jb`. This involves changing the internal structure of .deb's to include this new path and specifying library and framework install paths using `@rpath` instead of absolute paths. Theos will handle both of these changes for you.
+- For more information on what `@rpath` is and how it works, see Mike Ash's [informative blog post](http://www.mikeash.com/pyblog/friday-qa-2009-11-06-linking-and-install-names.html).
+- To learn more about the specifics of the rootless implementation, see [The Apple Wiki](https://theapplewiki.com/wiki/Rootless).
 
 ### Implementation
 
