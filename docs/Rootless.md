@@ -25,7 +25,8 @@ Theos supports building for the rootless scheme in a few ways:
     - Handling install_name changes to use `@rpath` for libraries and frameworks
     - Passing the relevant rpaths to the linker so your project can find the linked rootless libraries and frameworks on-device
         - With rootless v2, this now includes **both** the `/var/jb/` rpaths as well as the `@loader_path/.jbroot/` rpaths in order to provide support for jailbreaks with relocated jbroots
-    - Sharing the install prefix (`THEOS_PACKAGE_INSTALL_PREFIX=/var/jb`) with the compiler for use in your code
+    - Packaging the project and additional `$(THEOS_LAYOUT_DIR)` items with the appropriate install prefix (`THEOS_PACKAGE_INSTALL_PREFIX=/var/jb`)
+    - Sharing the install prefix with the compiler for use in your code
     - Setting the package architecture to `iphoneos-arm64`
 
 #### `rootless.h`:
