@@ -18,24 +18,25 @@ NIC 2.0 - New Instance Creator
   [2.] iphone/activator_listener
   [3.] iphone/application
   [4.] iphone/application_swift
-  [5.] iphone/control_center_module-11up
-  [6.] iphone/cydget
-  [7.] iphone/flipswitch_switch
-  [8.] iphone/framework
-  [9.] iphone/library
-  [10.] iphone/notification_center_widget
-  [11.] iphone/notification_center_widget-7up
-  [12.] iphone/preference_bundle
-  [13.] iphone/preference_bundle_swift
-  [14.] iphone/theme
-  [15.] iphone/tool
-  [16.] iphone/tool_swift
-  [17.] iphone/tweak
-  [18.] iphone/tweak_swift
-  [19.] iphone/tweak_with_simple_preferences
-  [20.] iphone/xpc_service
-  [21.] iphone/xpc_service_modern
-Choose a Template (required): 17
+  [5.] iphone/application_swiftui
+  [6.] iphone/control_center_module-11up
+  [7.] iphone/cydget
+  [8.] iphone/flipswitch_switch
+  [9.] iphone/framework
+  [10.] iphone/library
+  [11.] iphone/notification_center_widget
+  [12.] iphone/notification_center_widget-7up
+  [13.] iphone/preference_bundle
+  [14.] iphone/preference_bundle_swift
+  [15.] iphone/theme
+  [16.] iphone/tool
+  [17.] iphone/tool_swift
+  [18.] iphone/tweak
+  [19.] iphone/tweak_swift
+  [20.] iphone/tweak_with_simple_preferences
+  [21.] iphone/xpc_service
+  [22.] iphone/xpc_service_modern
+Choose a Template (required): 18
 Project Name (required): Example
 Package Name [com.yourcompany.example]: dev.theos.example
 Author/Maintainer Name [Craig Federighi]: Craig Federighi <notfederighi@theos.dev>
@@ -67,6 +68,7 @@ The following command line arguments are supported. Note that providing argument
 * **activator_listener**: a [listener](http://iphonedev.wiki/index.php/Libactivator#Observing_Events_.28via_LAListener.29) for Activator.
 * **application**: a standard iOS app (for unsandboxed jailbreak use).
 * **application_swift**: a standard, Swift-based iOS app (for unsandboxed jailbreak use).
+* **application_swiftui**: a standard, SwiftUI-based iOS app (for unsandboxed jailbreak use).
 * **control_center_module-11up**: a custom control center module for iOS 11+ deployed via [CCSupport](https://github.com/opa334/CCSupport/wiki).
 * **cydget**: a [Cydget](https://cydia.saurik.com/info/cydget/) lock screen plugin.
 * **flipswitch_switch**: a switch for [Flipswitch](https://github.com/A3Tweaks/Flipswitch).
