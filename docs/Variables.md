@@ -226,7 +226,8 @@ The various public (i.e., configurable) variable types are as follows:
   - Treat bundle as application-extension when linking (default: `false`)
 
 - XXX_SWIFT_BRIDGING_HEADER (str)
-  - Path to swift bridging header to use (default: `XXX-Bridging-Header.h`)
+  - Path to [Objective-C bridging header](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift) to be imported into all Swift files during compilation (default: `XXX-Bridging-Header.h`)
+  - For more information, see [Objective-C to Swift Interoperability](#objective-c-to-swift)
 
 - XXX_SWIFT_VERSION (num)
   - Swift version to use (default: `5`)
@@ -247,6 +248,10 @@ The various public (i.e., configurable) variable types are as follows:
 
 - arch_LDFLAGS (str)
   - Flags to pass to the linker when compiling for a specific architecture
+  - Space-separated list
+
+- File.extension_SWIFTFLAGS (str)
+  - Flags to pass to the Swift compiler when compiling a specific file
   - Space-separated list
 
 - COLOR (bool)
