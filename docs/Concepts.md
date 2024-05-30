@@ -9,7 +9,7 @@ layout: docs
 
 #### Logos
 
-[Logos](https://github.com/theos/logos) is a preprocessor written by the Theos team to simplify C-based hooking. This "hooking" is technically swizziling, which is the process of replacing a method/function's implementation at runtime. Logos translates simple statements such as `%hook` into the equivalent [MobileSubstate](http://www.cydiasubstrate.com/api/c/MSHookMessageEx/), [libhooker](https://libhooker.com/docs/), or [internal](https://developer.apple.com/documentation/objectivec/objective-c_runtime?language=objc) (i.e., ObjC Runtime) hooking API. Logos syntax is converted to these APIs during the preprocessing of your [Logos files](Logos-File-Extensions).
+[Logos](https://github.com/theos/logos) is a preprocessor written by the Theos team to simplify C-based hooking. This "hooking" is technically swizziling, which is the process of replacing a method/function's implementation at runtime. Logos translates simple statements such as `%hook` into the equivalent [MobileSubstrate](http://www.cydiasubstrate.com/api/c/MSHookMessageEx/), [libhooker](https://libhooker.com/docs/), or [internal](https://developer.apple.com/documentation/objectivec/objective-c_runtime?language=objc) (i.e., ObjC Runtime) hooking API. Logos syntax is converted to these APIs during the preprocessing of your [Logos files](Logos-File-Extensions).
 
 #### Instance
 
