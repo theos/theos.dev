@@ -26,17 +26,19 @@ NIC 2.0 - New Instance Creator
   [10.] iphone/library
   [11.] iphone/notification_center_widget
   [12.] iphone/notification_center_widget-7up
-  [13.] iphone/preference_bundle
-  [14.] iphone/preference_bundle_swift
-  [15.] iphone/theme
-  [16.] iphone/tool
-  [17.] iphone/tool_swift
-  [18.] iphone/tweak
-  [19.] iphone/tweak_swift
-  [20.] iphone/tweak_with_simple_preferences
-  [21.] iphone/xpc_service
-  [22.] iphone/xpc_service_modern
-Choose a Template (required): 18
+  [13.] iphone/null
+  [14.] iphone/preference_bundle
+  [15.] iphone/preference_bundle_swift
+  [16.] iphone/safari_extension
+  [17.] iphone/theme
+  [18.] iphone/tool
+  [19.] iphone/tool_swift
+  [20.] iphone/tweak
+  [21.] iphone/tweak_swift
+  [22.] iphone/tweak_with_simple_preferences
+  [23.] iphone/xpc_service
+  [24.] iphone/xpc_service_modern
+Choose a Template (required): 20
 Project Name (required): Example
 Package Name [com.yourcompany.example]: dev.theos.example
 Author/Maintainer Name [Craig Federighi]: Craig Federighi <notfederighi@theos.dev>
@@ -76,6 +78,7 @@ The following command line arguments are supported. Note that providing argument
 * **library**: a linkable library (e.g. /usr/lib/libblah.dylib).
 * **notification_center_widget**: an iOS 5 – 6 Notification Center Today widget.
 * **notification_center_widget-7up**: an iOS 7 – 9 Notification Center Today widget.
+* **null**: a blank project with no code. Facilitates creation of a custom stage for non-code-based packages.
 * **preference_bundle**: a [PreferenceLoader](http://iphonedev.wiki/index.php/PreferenceLoader) preference bundle subproject.
 * **preference_bundle_swift**: a Swift-based [PreferenceLoader](http://iphonedev.wiki/index.php/PreferenceLoader) preference bundle subproject.
 * **theme**: a means of easily packaging your theme into a .deb using Theos' packaging functionality.
