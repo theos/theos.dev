@@ -16,9 +16,5 @@ In order to use Swift classes in Objective-C, you must import the [auto-generate
 ### Objective-C to Swift
 Create a file named `<instance>-Bridging-Header.h` in your project directory and import any Objective-C headers into it which you wish to expose to Swift. This header file is automatically imported into any Swift files you create.
 
-## Variables
-* `<instance>_SWIFTFLAGS` or `<file>_SWIFTFLAGS` *string*. Default: empty. Custom flags to pass to the Swift compiler for all files or a specific file (respectively).
-* `<instance>_SWIFT_BRIDGING_HEADER` *filename*. Default: `<instance>-Bridging-Header.h`. The path to the [Objective-C bridging header](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift) to be imported into all Swift files during compilation. For more information, see [Objective-C to Swift Interoperability](#objective-c-to-swift).
-
 ## Tweaks
 You can write tweaks in Swift using [Orion](https://orion.theos.dev). Do note that there is no solution for hooking Swift code at the moment.
