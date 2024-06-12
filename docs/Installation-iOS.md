@@ -17,7 +17,7 @@ Unless otherwise stated, all of the commands shown in the following instructions
 		* [Procursus](https://apt.procurs.us/) or [Bingner/Elucubratus](https://apt.bingner.com/) (this depends on the jailbreak you are using)
 	* Prior to iOS 12.0:
 		* [Sam Bingner's repo](https://repo.bingner.com/) and [BigBoss](http://apt.thebigboss.org/repofiles/cydia/)
-		* Also check to ensure the non-(lib) (i.e., commandline tool) of APT is installed (e.g., APT 0.7 Strict on iOS 8)
+		* Also check to ensure `apt` (i.e., the command-line tool of APT) is installed 
 
 1. Install the following prerequisites<sup>1</sup> as *root*:
 
