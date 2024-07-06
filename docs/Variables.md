@@ -226,7 +226,8 @@ The various public (i.e., configurable) variable types are as follows:
   - Treat bundle as application-extension when linking (default: `false`)
 
 - XXX_SWIFT_BRIDGING_HEADER (str)
-  - Path to swift bridging header to use (default: `XXX-Bridging-Header.h`)
+  - Path to [Objective-C bridging header](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift) to be imported into all Swift files during compilation (default: `XXX-Bridging-Header.h`)
+  - For more information, see [Objective-C to Swift Interoperability](#objective-c-to-swift)
 
 - XXX_SWIFT_VERSION (num)
   - Swift version to use (default: `5`)
@@ -247,6 +248,10 @@ The various public (i.e., configurable) variable types are as follows:
 
 - arch_LDFLAGS (str)
   - Flags to pass to the linker when compiling for a specific architecture
+  - Space-separated list
+
+- File.extension_SWIFTFLAGS (str)
+  - Flags to pass to the Swift compiler when compiling a specific file
   - Space-separated list
 
 - COLOR (bool)
@@ -540,6 +545,9 @@ The various public (i.e., configurable) variable types are as follows:
   - Space-separated list
     - Must be present in $(THEOS_MODULE_PATH)
 
+- SCHEMA (str)
+  - An alias for THEOS_SCHEMA
+
 - LOCAL_BUNDLE_NAME (str)
   - Name for the current project instance's bundle
 
@@ -551,6 +559,8 @@ The various public (i.e., configurable) variable types are as follows:
 - THEOS_PACKAGE_SCHEME (str)
   - The package scheme to build for (default: `blank -- will build for rootful`)
   - Other options include: "rootless"
+  - Will auto-import the respective scheme's module
+    - User-added modules should be placed in `$(THEOS_MODULE_PATH)`
 
 - THEOS_PACKAGE_INSTALL_PREFIX (str)
   - File path prefix to add to the install path (i.e., `/var/mobile/thing.txt` -> `$(THEOS_PACKAGE_INSTALL_PREFIX)/var/mobile/thing.txt`)
@@ -616,8 +626,10 @@ The various public (i.e., configurable) variable types are as follows:
   - Lowercase name of the target platform
 
 - THEOS_SCHEMA (str)
-  - Schema to build for "Release," "Debug," or "" (default: `Debug`)
-    - This will adjust what variables are enabled/disabled in Theos' internal configuration
+  - Schema ("Schemata") to build for
+    - Space-separated list
+  - Can be custom or one of the provided "Release," "Debug," or "" schema (default: `Debug`)
+    - This will adjust what schema-variables, and associated functionalities, are enabled/disabled in Theos' internal configuration
 
 - THEOS_PLATFORM_NAME (str)
   - Lowercase name of the current host platform (default: `$(shell uname)`)

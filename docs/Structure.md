@@ -25,6 +25,7 @@ Information regarding the various parts of Theos' internal structure:
   * **include/**: [Built-in headers](https://github.com/theos/headers) that may or may not be useful for most projects.
   * **lib/**: [Built-in library](https://github.com/theos/lib) definitions that may or may not be useful for most projects.
   * **logos/**: The files for [Logos](https://github.com/theos/logos).
+  * **mod/**: Provided modules that are enabled selectively for enhanced functionality.
   * **nic/**: The files for [NIC](/docs/NIC.html).
   * **templates/**: [Built-in templates](https://github.com/theos/templates) that may be used to scaffold new projects using [NIC](/docs/NIC.html).
 * **Prefix.pch**: The prefix header imported into the compilation process for all C-based languages. Provides macros and imports of frameworks for legacy projects.
