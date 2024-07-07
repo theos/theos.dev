@@ -78,8 +78,6 @@
   list:
     - title: The Apple Wiki
       link: https://theapplewiki.com/
-    - title: iPhone Dev Wiki
-      link: https://iphonedev.wiki/
     - title: /r/jailbreakdevelopers
       link: https://www.reddit.com/r/jailbreakdevelopers
     - title: theos-ref (legacy docs)
