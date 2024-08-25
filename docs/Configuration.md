@@ -173,7 +173,7 @@ Assuming you have a complex directory structure and don't feel like messing with
 
 An example usage of this would be
 ```make
-XXX_FILES = $(shell find -type f -name "*.m")
+XXX_FILES = $(shell find . -type f -name "*.m")
 ```
 
 ### Setting variables to varying degrees of project depth
