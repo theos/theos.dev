@@ -1,13 +1,10 @@
 .home {
 	header {
 		background-color: $purple;
-
-		h1 {
-			font-size: 3.5rem;
-		}
+		flex-grow: 1;
 
 		.header-prompt {
-			margin: 0 0 1.75em 0;
+			margin: 0 0 1.75em;
 			font-size: 2em;
 			font-weight: 200;
 
@@ -28,20 +25,31 @@
 			}
 		}
 
-		.header-tagline {
-			margin-bottom: #{$spacer * 0.5};
+		.header-content {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
 		}
+
+		h1 {
+			font-size: 3.5rem;
+			margin: 0;
+		}
+
+		.btn {
+			font-size: 1.25rem;
+			margin-top: #{$spacer * 0.8}
+		}
+	}
+
+	body {
+		min-height: -webkit-fill-available;
 	}
 
 	body,
 	footer {
 		background-color: $indigo;
-	}
-
-	.footer-sub-links {
-		.btn {
-			font-size: 1.25em;
-		}
 	}
 }
 
