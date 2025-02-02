@@ -14,31 +14,23 @@ Most commonly, NIC is used interactively like so:
 ~$ $THEOS/bin/nic.pl
 NIC 2.0 - New Instance Creator
 ------------------------------
-  [1.] iphone/activator_event
-  [2.] iphone/activator_listener
-  [3.] iphone/application
-  [4.] iphone/application_swift
-  [5.] iphone/application_swiftui
-  [6.] iphone/control_center_module-11up
-  [7.] iphone/cydget
-  [8.] iphone/flipswitch_switch
-  [9.] iphone/framework
-  [10.] iphone/library
-  [11.] iphone/notification_center_widget
-  [12.] iphone/notification_center_widget-7up
-  [13.] iphone/null
-  [14.] iphone/preference_bundle
-  [15.] iphone/preference_bundle_swift
-  [16.] iphone/safari_extension
-  [17.] iphone/theme
-  [18.] iphone/tool
-  [19.] iphone/tool_swift
-  [20.] iphone/tweak
-  [21.] iphone/tweak_swift
-  [22.] iphone/tweak_with_simple_preferences
-  [23.] iphone/xpc_service
-  [24.] iphone/xpc_service_modern
-Choose a Template (required): 20
+  [1.] iphone/application_modern
+  [2.] iphone/application_swift_modern
+  [3.] iphone/application_swiftui
+  [4.] iphone/control_center_module-11up
+  [5.] iphone/framework
+  [6.] iphone/library
+  [7.] iphone/null
+  [8.] iphone/preference_bundle
+  [9.] iphone/preference_bundle_swift
+  [10.] iphone/theme
+  [11.] iphone/tool
+  [12.] iphone/tool_swift
+  [13.] iphone/tweak
+  [14.] iphone/tweak_swift
+  [15.] iphone/tweak_with_simple_preferences
+  [16.] iphone/xpc_service_modern
+Choose a Template (required): 13
 Project Name (required): Example
 Package Name [com.yourcompany.example]: dev.theos.example
 Author/Maintainer Name [Craig Federighi]: Craig Federighi <notfederighi@theos.dev>
@@ -66,18 +58,12 @@ The following command line arguments are supported. Note that providing argument
 * **`-u` `--user`** *string*. The author value to use.
 
 ## Included templates
-* **activator_event**: an [event](https://theapplewiki.com/wiki/Dev:Libactivator#Sending_Events_.28via_LAEvent.29) for Activator.
-* **activator_listener**: a [listener](https://theapplewiki.com/wiki/Dev:Libactivator#Observing_Events_.28via_LAListener.29) for Activator.
-* **application**: a standard iOS app (for unsandboxed jailbreak use).
-* **application_swift**: a standard, Swift-based iOS app (for unsandboxed jailbreak use).
+* **application_modern**: a standard iOS app (for unsandboxed jailbreak use).
+* **application_swift_modern**: a standard, Swift-based iOS app (for unsandboxed jailbreak use).
 * **application_swiftui**: a standard, SwiftUI-based iOS app (for unsandboxed jailbreak use).
 * **control_center_module-11up**: a custom control center module for iOS 11+ deployed via [CCSupport](https://github.com/opa334/CCSupport/wiki).
-* **cydget**: a [Cydget](https://cydia.saurik.com/info/cydget/) lock screen plugin.
-* **flipswitch_switch**: a switch for [Flipswitch](https://github.com/A3Tweaks/Flipswitch).
 * **framework**: a framework to be used by other developers.
 * **library**: a linkable library (e.g. /usr/lib/libblah.dylib).
-* **notification_center_widget**: an iOS 5 – 6 Notification Center Today widget.
-* **notification_center_widget-7up**: an iOS 7 – 9 Notification Center Today widget.
 * **null**: a blank project with no code. Facilitates creation of a custom stage for non-code-based packages.
 * **preference_bundle**: a [PreferenceLoader](https://theapplewiki.com/wiki/Dev:PreferenceLoader) preference bundle subproject.
 * **preference_bundle_swift**: a Swift-based [PreferenceLoader](https://theapplewiki.com/wiki/Dev:PreferenceLoader) preference bundle subproject.
@@ -87,10 +73,29 @@ The following command line arguments are supported. Note that providing argument
 * **tweak**: a Cydia Substrate-based Objective-C tweak.
 * **tweak_swift**: an Orion-based Swift tweak.
 * **tweak_with_simple_preferences**: a Cydia Substrate-based tweak with a basic preference bundle.
-* **xpc_service**: a C-based [XPC](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html) service.
 * **xpc_service_modern**: an Objective-C-based [XPC](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html) service.
 
 This is just the list of templates Theos comes with. Far more is possible with Theos than you can find in the list above, and these templates serve only as starting points to develop a working product without having to deal with various bits of boilerplate.
+
+## Legacy templates
+Theos additionally provides templates for projects which target legacy operating systems and configurations.
+These templates are not installed by default. You can install these legacy templates as a module using the following command:
+
+```bash
+git clone 'https://github.com/theos/templates-legacy.git' "${THEOS}/mod/templates-legacy"
+```
+
+The templates included in this legacy templates module:
+
+* **activator_event**: an [event](https://theapplewiki.com/wiki/Dev:Libactivator#Sending_Events_.28via_LAEvent.29) for Activator.
+* **activator_listener**: a [listener](https://theapplewiki.com/wiki/Dev:Libactivator#Observing_Events_.28via_LAListener.29) for Activator.
+* **application**: a standard iOS app (for unsandboxed jailbreak use).
+* **application_swift**: a standard, Swift-based iOS app (for unsandboxed jailbreak use).
+* **cydget**: a [Cydget](https://cydia.saurik.com/info/cydget/) lock screen plugin.
+* **flipswitch_switch**: a switch for [Flipswitch](https://github.com/A3Tweaks/Flipswitch).
+* **notification_center_widget**: an iOS 5 – 6 Notification Center Today widget.
+* **notification_center_widget-7up**: an iOS 7 – 9 Notification Center Today widget.
+* **xpc_service**: a C-based [XPC](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html) service.
 
 ## .nicrc
 NIC reads configuration data from `~/.nicrc`. This file uses a simple key-value format, `key = "value"`. Values must be enclosed in quotes, even if it is a number.
