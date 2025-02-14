@@ -7,6 +7,6 @@
     "@types/node": "^15.12.4"
   },
   "dependencies": {
-    "@octokit/core": "^3.5.1"
+    "@octokit/core": "^6.1.4"
   }
 }
