@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 3.9.0"
 
 # Needed for macOS ARM
-gem "nokogiri", "~> 1.15.6"
+gem "nokogiri", "~> 1.18.8"
 
 # Needed to unbreak jekyll-assets
 gem "sprockets", "~> 3.7"
