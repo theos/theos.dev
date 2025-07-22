@@ -8,11 +8,14 @@ Theos, and your project(s), can be configured in a few differents ways:
 - At runtime via project Makefiles
 - At runtime by passing variables to `make`
 
-## `.theosrc`
+## Config File
 
-Variables that are specific to your own setup (e.g., Xcode/an SDK, device IP, etc) should not be placed in your project makefile as it may hinder others from building your project. Instead, these variables should be placed in `.theosrc`, a makefile that is read and executed during an early stage of Theos’ `common.mk`.
+Variables that are specific to your own setup (e.g., Xcode/an SDK, device IP, etc) should not be placed in your project makefile as it may hinder others from building your project. Instead, these variables should be placed in a user created makefile that is read and executed during an early stage of Theos’ `common.mk`.
 
-`.theosrc` must be created by the user at `$HOME/.theosrc` or `~/.theosrc`.
+The first matching file is `-include`d:
+1. `$(XDG_CONFIG_HOME)/theos/rc.mk`
+2. `$(HOME)/.config/theos/rc.mk`
+3. `$(HOME)/.theosrc`
 
 ## Utilizing Theos' makefile rules
 
