@@ -97,8 +97,13 @@ The templates included in this legacy templates module:
 * **notification_center_widget-7up**: an iOS 7 – 9 Notification Center Today widget.
 * **xpc_service**: a C-based [XPC](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html) service.
 
-## .nicrc
-NIC reads configuration data from `~/.nicrc`. This file uses a simple key-value format, `key = "value"`. Values must be enclosed in quotes, even if it is a number.
+## nicrc
+NIC configuration data can be stored in a config file to pre-fill values for templates. A simple key-value format is used: `key = "value"`. Values must be enclosed in quotes, even if they are numbers.
+
+The first matching file is sourced:
+1. `$(XDG_CONFIG_HOME)/theos/nicrc`
+2. `$(HOME)/.config/theos/nicrc`
+3. `$(HOME)/.nicrc`
 
 ### Instance Metadata
 * **`package_prefix`** *string*. The prefix to use by default for reverse DNS package identifiers. The default is `com.yourcompany`. For example, setting `package_prefix = "ws.hbang"` and creating a new project called "Example Instance" will make the default package identifier `ws.hbang.exampleinstance`.
