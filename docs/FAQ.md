@@ -20,10 +20,10 @@ export THEOS=/usr/local/theos
 If this is undesirable, you can tell NIC to revert to symlinking `theos`:
 
 ```console
-$ echo 'link_theos = "1"' >> ~/.nicrc
+$ echo 'link_theos = "1"' >> ~/.config/theos/nicrc
 ```
 
-See [here](/docs/NIC.html#nicrc) for more details on `.nicrc`.
+See [here](/docs/NIC.html#nicrc) for more details on `nicrc`.
 
 ## How do I use Swift in my projects?
 This information has moved to the [Swift](/docs/Swift.html) page.
