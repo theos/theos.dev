@@ -38,5 +38,5 @@ These instructions assume you use Homebrew and have installed Theos as outlined 
 If you’d rather not perform these steps, you can permanently ignore this notice by using the following:
 
 ```bash
-echo 'THEOS_IGNORE_PARALLEL_BUILDING_NOTICE = yes' >> ~/.theosrc
+echo 'THEOS_IGNORE_PARALLEL_BUILDING_NOTICE = yes' >> ~/.config/theos/rc.mk
 ```

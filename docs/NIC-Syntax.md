@@ -41,7 +41,7 @@ Each NIC template <span class="required">requires</span> a control file. The con
 - <span class="optional">optional</span>
 - Prompts the user for additional information, which will be stored in *variable*.
 - Optionally supports the inclusion of a default value, which the user can accept by entering nothing.
-- The user is given a chance to override the prompt variable with their <code class="highlighter-rouge">~/.nicrc</code>.
+- The user is given a chance to override the prompt variable with their <code class="highlighter-rouge">nicrc</code>.
 
 <code class="highlighter-rouge"><strong>constrain</strong> "<span class="required">path</span>" to <span class="required">constraint</span></code>
 
@@ -62,7 +62,7 @@ Each NIC template <span class="required">requires</span> a control file. The con
 - The NIC templates that ship with Theos use the `package` constraint to avoid creating unnecessary `control` files.
 
 `link_theos`
-- Used in some templates to include an optional link to theos. Set/overridden by `link_theos` in the user's `~/.nicrc`.
+- Used in some templates to include an optional link to theos. Set/overridden by `link_theos` in the user's `nicrc`.
 - The NIC templates that ship with Theos use this constraint to avoid creating unnecessary `theos/` symlinks.
 
 ### Example <code class="highlighter-rouge">NIC/control</code>
@@ -130,7 +130,7 @@ The `NIC` object represents the current template.
     - Prompt the user for additional information, attaching the user's response to the provided NIC variable.
     - The default value is optional.
     - If *$variable* is not specified, `NIC->prompt(...)` will return the user's response, and will not store it in the template.
-    - The key difference between `prompt(...)` and `NIC->prompt(...)` is that the user is given a chance to override the prompt variable with their `~/.nicrc`.
+    - The key difference between `prompt(...)` and `NIC->prompt(...)` is that the user is given a chance to override the prompt variable with their `nicrc`.
 
 - <code class="highlighter-rouge">NIC->setConstraint(<span class="required">$constraint</span>)</code>
 
