@@ -96,7 +96,6 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-seo-tag
   jekyll-sitemap
-  kramdown-parser-gfm
 
 RUBY VERSION
    ruby 3.2.0p0
