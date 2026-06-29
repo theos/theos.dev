@@ -348,6 +348,16 @@ If not specified, the sigil defaults to `-`, evaluating to Class.
    ...
 })
 ```
+```objc
+%orig(args, …, ^(id blockArg1) {
+   ...
+})
+```
+```objc
+%orig(^(blockArgs, …) {
+   ...
+})
+```
 
 Call the original hooked function or method.
 Doesn't work in a [%new](#new)'d method.
