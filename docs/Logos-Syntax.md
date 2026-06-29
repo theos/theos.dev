@@ -343,6 +343,11 @@ If not specified, the sigil defaults to `-`, evaluating to Class.
 ```objc
 %orig(args, …)
 ```
+```objc
+%orig(^{
+   ...
+})
+```
 
 Call the original hooked function or method.
 Doesn't work in a [%new](#new)'d method.
