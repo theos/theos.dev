@@ -76,6 +76,13 @@ Example:
 	/* body */
 }
 ```
+```objc
+%hookf(return type, functionName,
+       arguments list,
+       ...) {
+	/* body */
+}
+```
 
 Generate a function hook for the function named `functionName`.
 Set `functionName` in `%init` to an expression if the symbol should be dynamically looked up.
