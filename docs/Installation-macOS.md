@@ -13,13 +13,16 @@ All of the commands shown in the following instructions are meant to be run as a
 
 1. Install the following prerequisites:
 
-	* [Homebrew](https://brew.sh/)
+	* [Homebrew](https://brew.sh/)<sup>1</sup>
 		* or [MacPorts](https://www.macports.org/install.php)
 		* or [Procursus](https://docs.procurs.us/Installation/macOS.html)
-	* [Xcode](https://developer.apple.com/download/applications/)<sup>1</sup> is mandatory. The Command Line Tools package isn’t sufficient for Theos to work. Xcode includes toolchains for all Apple platforms.
+	* [Xcode](https://developer.apple.com/download/applications/)<sup>2</sup> is mandatory. The Command Line Tools package isn’t sufficient for Theos to work. Xcode includes toolchains for all Apple platforms.
 
 	<sup>
-	<sup>1</sup> Xcode 5.0 or newer. Xcode 4.4 supported, but only when building for ARMv6 (1st/2nd generation iPhone/iPod touch).
+	<sup>1</sup> The package manager to install will depend on the versions they each support and/or your preference.
+	</sup>
+	<sup>
+	<sup>2</sup> Xcode 5.0 or newer. Xcode 4.4 supported, but only when building for ARMv6 (1st/2nd generation iPhone/iPod touch).
 	</sup>
 
 1. Run the installer:
@@ -30,7 +33,7 @@ All of the commands shown in the following instructions are meant to be run as a
 ## Third-party Toolchains
 Some third-party toolchains have issues with [Modules](https://clang.llvm.org/docs/Modules.html) on macOS. In such cases, you can either try a different third-party toolchain (e.g., a newer or older version) or disable Modules for your project with `XXX_USE_MODULES = 0`.
 
-**Example**:  
+**Example**:
 ```
 TWEAK_NAME = Test
 Test_USE_MODULES = 0
