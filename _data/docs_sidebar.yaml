@@ -55,6 +55,9 @@
     - title: Rootless
       link: /docs/Rootless.html
 
+- title: Uninstallation
+  link: /docs/Uninstallation.html
+
 - title: Technical
   list:
     - title: Structure
