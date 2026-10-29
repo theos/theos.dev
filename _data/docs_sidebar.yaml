@@ -25,7 +25,6 @@
       link: /docs/Packaging.html
 
 - title: Features
-  link: /docs/Features.html
   list:
     - title: NIC
       link: /docs/NIC.html
@@ -54,6 +53,8 @@
       link: https://orion.theos.dev/
     - title: Rootless
       link: /docs/Rootless.html
+    - title: SIMBL
+      link: /docs/SIMBL.html
 
 - title: Technical
   list:
